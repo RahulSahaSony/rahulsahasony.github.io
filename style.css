@@ -1,0 +1,13 @@
+body { font-family: 'Spectral', serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+header { background: #1e1e1e; color: white; padding: 2rem; text-align: center; }
+header h1 { margin: 0; font-size: 2.4rem; }
+header h2 { font-weight: 400; font-size: 1.1rem; margin: 0.5rem 0; }
+nav { background: #444; padding: 0.6rem; text-align: center; }
+nav a { color: white; margin: 0 1rem; text-decoration: none; font-family: 'Poppins', sans-serif; }
+nav a:hover { text-decoration: underline; }
+main { padding: 2rem; max-width: 900px; margin: auto; }
+h2 { color: #222; font-family: 'Poppins', sans-serif; border-bottom: 2px solid #ddd; padding-bottom: 0.3rem; }
+.card { background: #f9f9f9; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+footer { background: #1e1e1e; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+a { color: #0066cc; }
+a:hover { text-decoration: underline; }
