@@ -85,3 +85,24 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+.card {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+}
+
+.download-btn {
+  background: #d63384;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.download-btn:hover {
+  background: #b81d6d;
+}
