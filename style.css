@@ -106,3 +106,23 @@ footer {
 .download-btn:hover {
   background: #b81d6d;
 }
+
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+
+  position: fixed;      
+  top: 0;              
+  left: 0;
+  right: 0;
+  z-index: 1000;       
+}
+
+
+body {
+  padding-top: 60px; /* 👈 adjust based on navbar height */
+}
+
