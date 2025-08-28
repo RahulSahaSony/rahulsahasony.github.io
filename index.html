@@ -3,42 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rahul Saha | MSBA @ GWU</title>
+  <title>Rahul Saha | Academic Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Rahul Saha</h1>
-    <h2>MS in Business Analytics @ GWU | Aspiring PhD Researcher</h2>
-    <p>
-      <a href="mailto:rahul.saha@gwu.edu">Email</a> • 
-      <a href="https://linkedin.com/in/rahulsahasony">LinkedIn</a> • 
-      <a href="https://github.com/rahulsahasony">GitHub</a>
-    </p>
-  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="experience.html">Experience</a>
-    <a href="volunteering.html">Volunteering</a>
-    <a href="cv.html">CV</a>
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="active">about</a>
+    <a href="#">blog</a>
+    <a href="#">publications</a>
+    <a href="projects.html">projects</a>
+    <a href="#">repositories</a>
+    <a href="cv.html">cv</a>
+    <a href="#">teaching</a>
+    <a href="#">people</a>
+    <a href="#">submenus</a>
   </nav>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I am a Master's student in Business Analytics at The George Washington University. 
-      My background combines data analytics, optimization, and programmatic advertising. 
-      I am passionate about <b>interpretable machine learning</b>, <b>decision sciences</b>, and <b>AI for social good</b>. 
+  <!-- Main Layout -->
+  <div class="container">
+
+    <!-- Left Column -->
+    <div class="content">
+      <h1><span class="you">Rahul</span> Saha</h1>
+      <p><a href="#">MSBA @ GWU</a>. Falls Church, VA. <a href="mailto:rahul.saha@gwu.edu">rahul.saha@gwu.edu</a>.</p>
+
+      <p>Welcome to my academic portfolio. I specialize in data analytics, optimization, and responsible AI.</p>
+
+      <p>Connect with me on 
+        <a href="https://linkedin.com/in/rahulsahasony">LinkedIn</a>, 
+        <a href="https://github.com/rahulsahasony">GitHub</a>.
       </p>
-    </section>
-  </main>
+
+      <h2>news</h2>
+      <p><b>Mar 26, 2025</b> — Accepted as volunteer for <i>World Bank–IMF Spring Meetings</i>.</p>
+      <p><b>Jan 2025</b> — Volunteered at the <i>60th Presidential Inauguration</i>.</p>
+
+      <h2>latest posts</h2>
+      <p><b>Dec 2024</b> — Mental Health Sentiment Analysis project completed (BERT + CNN-LSTM, 92% accuracy).</p>
+      <p><b>Oct 2024</b> — IPO Risk Simulation with Monte Carlo presented in class.</p>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar">
+      <img src="assets/prof_pic.jpg" alt="Rahul Saha" class="profile-pic">
+      <p>📍 Falls Church, VA<br>
+         ✉️ rahul.saha@gwu.edu</p>
+    </aside>
+  </div>
 
   <footer>
     <p>© 2025 Rahul Saha | Academic Portfolio</p>
   </footer>
+
 </body>
 </html>
