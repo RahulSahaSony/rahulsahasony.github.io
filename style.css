@@ -23,7 +23,7 @@ body {
 
 .navbar a.active,
 .navbar a:hover {
-  color: #d63384; /* pink highlight like your screenshot */
+  color: #d63384;
 }
 
 .container {
@@ -102,9 +102,14 @@ footer {
   border-top: 1px solid #eee;
   text-align: center;
   padding: 15px;
-  margin-top: 40px;
   font-size: 0.9rem;
   color: #666;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 .card {
   background: #f9f9f9;
@@ -144,34 +149,19 @@ footer {
 
 
 body {
-  padding-top: 60px; /* 👈 adjust based on navbar height */
+  padding-top: 60px; 
 }
 
-/* Sticky Footer */
-footer {
-  background: #fafafa;
-  border-top: 1px solid #eee;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-  color: #666;
-
-  position: fixed;   /* 👈 locks footer */
-  bottom: 0;         /* 👈 sticks to bottom */
-  left: 0;
-  width: 100%;       /* 👈 spans full width */
-  z-index: 999;
-}
 
 /* Responsive Footer */
 @media (max-width: 600px) {
   footer {
-    font-size: 0.8rem;      /* shrink text a bit */
-    padding: 10px;          /* tighter spacing */
+    font-size: 0.8rem;
+    padding: 10px; 
   }
 
   footer p {
-    margin: 5px 0;          /* stack items with spacing */
+    margin: 5px 0;  
   }
 }
 
