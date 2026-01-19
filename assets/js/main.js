@@ -4,17 +4,18 @@ const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
-const currentYear = document.getElementById('current-year');
+const currentYearElements = document.querySelectorAll('#current-year');
 const filterChips = document.querySelectorAll('.filter-chip');
 const projectCards = document.querySelectorAll('.project-card');
-const resumeLink = document.getElementById('resume-link');
-const resumeDownload = document.getElementById('resume-download');
+const resumeLinks = document.querySelectorAll('.resume-link');
 const contactForm = document.getElementById('contact-form');
 
 // Set current year
-if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-}
+currentYearElements.forEach(element => {
+    if (element) {
+        element.textContent = new Date().getFullYear();
+    }
+});
 
 // Mobile Navigation Toggle
 if (navToggle) {
@@ -30,7 +31,9 @@ if (navToggle) {
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
     });
 });
 
@@ -41,9 +44,9 @@ function initTheme() {
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         document.body.classList.add('dark-mode');
-        themeIcon.textContent = '☀️';
+        if (themeIcon) themeIcon.textContent = '☀️';
     } else {
-        themeIcon.textContent = '🌙';
+        if (themeIcon) themeIcon.textContent = '🌙';
     }
 }
 
@@ -66,10 +69,12 @@ initTheme();
 
 // Header scroll effect
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-        header.style.boxShadow = 'none';
+    if (header) {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.boxShadow = 'none';
+        }
     }
 });
 
@@ -115,20 +120,16 @@ if (filterChips.length > 0 && projectCards.length > 0) {
     });
 }
 
-// Resume link
-if (resumeLink) {
-    resumeLink.addEventListener('click', (e) => {
+// Resume links
+resumeLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        window.open('assets/resume.pdf', '_blank');
+        // Create a temporary alert for now since resume.pdf doesn't exist
+        alert('Resume will be available soon. Please contact me directly for a copy.');
+        // When you add the resume, uncomment the line below:
+        // window.open('../assets/resume.pdf', '_blank');
     });
-}
-
-if (resumeDownload) {
-    resumeDownload.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.open('assets/resume.pdf', '_blank');
-    });
-}
+});
 
 // Contact form
 if (contactForm) {
@@ -187,3 +188,13 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Fix for mobile viewport height
+function fixViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+window.addEventListener('resize', fixViewportHeight);
+window.addEventListener('orientationchange', fixViewportHeight);
+fixViewportHeight();
