@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Rahul Saha</title>
+    <meta name="description" content="Explore Rahul Saha's portfolio of projects in business analytics, programmatic advertising, and machine learning.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="../index.html" class="nav-logo">Rahul Saha</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../about/index.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../contact/index.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link resume-link" id="resume-link">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
+    <main id="main">
+        <section class="page-header">
+            <div class="container">
+                <p class="section-label">Portfolio</p>
+                <h1 class="page-title">Projects</h1>
+                <p class="page-subtitle">A selection of my work in analytics, advertising, and machine learning.</p>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container">
+                <div class="filter-chips">
+                    <button class="filter-chip active" data-filter="all">All</button>
+                    <button class="filter-chip" data-filter="analytics">Analytics</button>
+                    <button class="filter-chip" data-filter="programmatic">Programmatic</button>
+                    <button class="filter-chip" data-filter="ml">Machine Learning</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-grid">
+            <div class="container">
+                <div class="projects-list">
+                    <article class="project-card reveal" data-category="ml">
+                        <div class="project-image">
+                            <img src="../assets/img/laboriq-chatbot.jpg" alt="LaborIQ Chatbot Project">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">LaborIQ Chatbot</h3>
+                            <p class="project-outcome">Developed an AI-powered conversational interface that increased user engagement by 45% and reduced support tickets by 30%.</p>
+                            <div class="project-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">Team Project</span>
+                            </div>
+                            <a href="project-template.html" class="project-link">Read Case Study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" data-category="analytics">
+                        <div class="project-image">
+                            <img src="../assets/img/bikeshare-analytics.jpg" alt="Capital Bikeshare Analytics">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Capital Bikeshare Analytics</h3>
+                            <p class="project-outcome">Built predictive models that improved bike availability by 22% and reduced operational costs by $1.2M annually.</p>
+                            <div class="project-tags">
+                                <span class="tag">Analytics</span>
+                                <span class="tag">Forecasting</span>
+                                <span class="tag">Python</span>
+                            </div>
+                            <a href="project-template.html" class="project-link">Read Case Study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" data-category="ml">
+                        <div class="project-image">
+                            <img src="../assets/img/explainable-ml.jpg" alt="Explainable ML for HMDA">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Explainable ML for HMDA</h3>
+                            <p class="project-outcome">Created interpretable models that improved regulatory compliance by 35% while maintaining prediction accuracy.</p>
+                            <div class="project-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Ethics</span>
+                                <span class="tag">R</span>
+                            </div>
+                            <a href="project-template.html" class="project-link">Read Case Study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" data-category="programmatic">
+                        <div class="project-image">
+                            <img src="../assets/img/project-4.jpg" alt="Programmatic Ad Optimization">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Programmatic Ad Optimization</h3>
+                            <p class="project-outcome">Designed bidding algorithms that increased ROAS by 28% and reduced CPA by 18% for a major e-commerce client.</p>
+                            <div class="project-tags">
+                                <span class="tag">Programmatic</span>
+                                <span class="tag">Optimization</span>
+                                <span class="tag">SQL</span>
+                            </div>
+                            <a href="project-template.html" class="project-link">Read Case Study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" data-category="analytics">
+                        <div class="project-image">
+                            <img src="../assets/img/project-5.jpg" alt="Customer Segmentation Model">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Customer Segmentation Model</h3>
+                            <p class="project-outcome">Developed clustering algorithms that identified 5 key customer segments, leading to a 15% increase in targeted conversion rates.</p>
+                            <div class="project-tags">
+                                <span class="tag">Analytics</span>
+                                <span class="tag">Segmentation</span>
+                                <span class="tag">Python</span>
+                            </div>
+                            <a href="project-template.html" class="project-link">Read Case Study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal" data-category="ml">
+                        <div class="project-image">
+                            <img src="../assets/img/project-6.jpg" alt="Recommendation Engine">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Content Recommendation Engine</h3>
+                            <p class="project-outcome">Built a collaborative filtering system that increased user session time by 32% and content discovery by 45%.</p>
+                            <div class="project-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Recommendation</span>
+                                <span class="tag">TensorFlow</span>
+                            </div>
+                            <a href="project-template.html" class="project-link">Read Case Study</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; <span id="current-year"></span> Rahul Saha. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:rahul.saha@example.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
