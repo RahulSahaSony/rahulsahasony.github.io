@@ -1,54 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Rahul Saha</title>
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Rahul Saha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 </head>
 <body>
+    <header>
+        <nav class="container">
+            <div class="nav-logo">
+                <a href="index.html">Rahul Saha</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </nav>
+    </header>
 
-  <!-- Top Navigation -->
-  <nav class="navbar">
-    <a href="index.html">about</a>
-    <a href="#">blog</a>
-    <a href="#">publications</a>
-    <a href="projects.html" class="active">projects</a>
-    <a href="#">repositories</a>
-    <a href="cv.html">cv</a>
-    <a href="#">teaching</a>
-    <a href="#">people</a>
-    <a href="#">submenus</a>
-  </nav>
+    <main class="container">
+        <section class="projects-header">
+            <h1>Projects</h1>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="analytics">Analytics</button>
+                <button class="filter-btn" data-filter="visualization">Visualization</button>
+                <button class="filter-btn" data-filter="optimization">Optimization</button>
+            </div>
+        </section>
 
-  <!-- Layout -->
-  <div class="container">
+        <section class="projects-list">
+            <div class="project-item" data-tags="ml analytics">
+                <h3>LaborIQ: An Intelligent Career Assistant for Data Science Job Seekers</h3>
+                <p class="project-date">Sep 2025 - Dec 2025</p>
+                <p>Built a dual-model architecture combining a SQL-based market-insights engine and a RAG-based LLM pipeline to deliver verified salary benchmarks, skill gaps, and career insights. Designed and implemented an ETL pipeline to ingest, clean, and standardize multi-source labor-market datasets.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">LLM</span>
+                    <span class="tag">RAG</span>
+                    <span class="tag">ETL</span>
+                </div>
+            </div>
 
-    <!-- Left Column (Main Content) -->
-    <div class="content">
-      <h1>Selected Projects</h1>
-      <p>Here are some of my academic and applied analytics projects.</p>
+            <div class="project-item" data-tags="ml policy">
+                <h3>AI Beyond Defense: Tackling Concentration Risk</h3>
+                <p class="project-date">Jun 2025 - Jun 2025</p>
+                <p>Built a multimodal AI tool (SupplyGuard) using OpenAI's APIs to help U.S. policymakers identify and mitigate non-military national security threats, such as concentration risk and misinformation. Integrated text and image reasoning with policy-focused outputs.</p>
+                <div class="tags">
+                    <span class="tag">OpenAI API</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">Policy Analysis</span>
+                    <span class="tag">Multimodal AI</span>
+                </div>
+            </div>
 
-      <div class="card">
-        <h3>NBA Player Performance Analysis</h3>
-        <p>SQL + dashboards analyzing 400k+ shot records to guide recruitment.</p>
-      </div>
+            <div class="project-item" data-tags="analytics forecasting">
+                <h3>Forecasting Monthly Ridership for Capital Bikeshare</h3>
+                <p class="project-date">Mar 2025 - May 2025</p>
+                <p>Conducted time series forecasting on Capital Bikeshare's monthly ridership data to support demand planning and resource optimization. Evaluated and compared multiple forecasting models: deterministic models, exponential smoothing, and stochastic models.</p>
+                <div class="tags">
+                    <span class="tag">Time Series</span>
+                    <span class="tag">R</span>
+                    <span class="tag">ARIMA</span>
+                    <span class="tag">Forecasting</span>
+                </div>
+            </div>
 
-      <div class="card">
-        <h3>IPO Risk Simulation</h3>
-        <p>Monte Carlo simulations assessing IPO risk, cost, and timeline optimization.</p>
-      </div>
+            <div class="project-item" data-tags="ml fairness">
+                <h3>Explainable ML for High-Priced Mortgage Prediction</h3>
+                <p class="project-date">Apr 2025 - May 2025</p>
+                <p>Built explainable models (EBM, GLM) to predict high-priced mortgage loans while reducing demographic bias using HMDA data (180K+ records). Final model achieved AUC of 0.83 and improved fairness across race and gender.</p>
+                <div class="tags">
+                    <span class="tag">Explainable ML</span>
+                    <span class="tag">EBM</span>
+                    <span class="tag">Fairness</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
 
-      <div class="card">
-        <h3>Mental Health Sentiment Analysis</h3>
-        <p>BERT + CNN-LSTM models achieving 92% accuracy, addressing fairness and bias issues.</p>
-      </div>
-    </div>
+            <div class="project-item" data-tags="analytics visualization">
+                <h3>Dimensional Modeling and Analysis of the NBA Shots Dataset</h3>
+                <p class="project-date">Nov 2024 - Dec 2024</p>
+                <p>Simulated the analytics department of the Golden State Warriors to identify player performance trends and improvement areas. Collected, merged, and cleaned over 435,000 rows of shot-level data from two NBA seasons.</p>
+                <div class="tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Sports Analytics</span>
+                </div>
+            </div>
 
-  <footer>
-    <p>© 2025 Rahul Saha</p>
-  </footer>
+            <div class="project-item" data-tags="optimization">
+                <h3>Decision Modeling for Recreational Land Investment Strategy</h3>
+                <p class="project-date">Oct 2024 - Dec 2024</p>
+                <p>Modeled an investment decision for a $10M recreational property using decision trees and sensitivity analysis. Conducted Monte Carlo simulations to recommend a $400K budget and optimal IPO date, improving decision confidence by 15%.</p>
+                <div class="tags">
+                    <span class="tag">Decision Trees</span>
+                    <span class="tag">Monte Carlo</span>
+                    <span class="tag">Risk Analysis</span>
+                    <span class="tag">@Risk</span>
+                </div>
+            </div>
 
+            <div class="project-item" data-tags="ml nlp">
+                <h3>Harnessing Sentiment Analysis for Mental Health Support</h3>
+                <p class="project-date">Sep 2024 - Dec 2024</p>
+                <p>Explored the use of AI-powered sentiment analysis to detect early signs of anxiety, depression, and PTSD. Built and evaluated models including BERT (92% accuracy), LSTM (89%), and hybrid CNN-LSTM for sentiment classification.</p>
+                <div class="tags">
+                    <span class="tag">BERT</span>
+                    <span class="tag">LSTM</span>
+                    <span class="tag">Sentiment Analysis</span>
+                    <span class="tag">NLP</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rahul Saha. Built with HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/projects.js"></script>
 </body>
 </html>
