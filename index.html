@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Saha - Business Analytics & Data Science</title>
-    <meta name="description" content="Rahul Saha's portfolio showcasing work in business analytics, programmatic advertising, and machine learning.">
+    <title>Rahul Saha - Data Analytics Professional</title>
+    <meta name="description" content="Business Analytics & Data Science professional specializing in programmatic advertising and machine learning solutions.">
+    <meta property="og:title" content="Rahul Saha - Data Analytics Professional">
+    <meta property="og:description" content="Business Analytics & Data Science professional specializing in programmatic advertising and machine learning solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rahulsahasony.github.io/">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
 </head>
 <body>
@@ -17,24 +21,19 @@
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav-container">
-                <a href="./index.html" class="nav-logo">Rahul Saha</a>
+                <a href="./" class="nav-logo">RS</a>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="./projects/" class="nav-link">Projects</a>
+                        <a href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./about/" class="nav-link">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./contact/" class="nav-link">Contact</a>
+                        <a href="#projects" class="nav-link">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link resume-link" id="resume-link">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                            <span class="theme-icon">🌙</span>
-                        </button>
+                        <a href="#contact" class="nav-link">Contact</a>
                     </li>
                 </ul>
                 <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -47,108 +46,220 @@
     </header>
 
     <main id="main">
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="container">
-                <p class="section-label">Hello, I'm</p>
-                <h1 class="hero-title">Rahul Saha</h1>
-                <p class="hero-subtitle">Business Analytics & Data Science professional specializing in programmatic advertising and machine learning solutions.</p>
-                <div class="hero-cta">
-                    <a href="./projects/" class="btn btn-primary">View My Work</a>
-                    <a href="./about/" class="btn btn-secondary">About Me</a>
+                <div class="hero-content">
+                    <p class="greeting">Hello, I'm</p>
+                    <h1 class="hero-title">Rahul Saha</h1>
+                    <h2 class="hero-subtitle">Business Analytics & Data Science</h2>
+                    <p class="hero-description">Specializing in programmatic advertising and machine learning solutions that drive business growth.</p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature-card reveal">
-                        <div class="feature-icon">📊</div>
-                        <h3 class="feature-title">Business Analytics</h3>
-                        <p class="feature-description">Transforming complex data into actionable insights that drive business decisions and growth.</p>
-                    </div>
-                    <div class="feature-card reveal">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Programmatic Ads</h3>
-                        <p class="feature-description">Designing and optimizing data-driven advertising campaigns with precision targeting.</p>
-                    </div>
-                    <div class="feature-card reveal">
-                        <div class="feature-icon">🤖</div>
-                        <h3 class="feature-title">Machine Learning</h3>
-                        <p class="feature-description">Building predictive models and AI solutions that solve real-world business challenges.</p>
+                <div class="hero-image">
+                    <div class="profile-img">
+                        <div class="img-placeholder"></div>
                     </div>
                 </div>
             </div>
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
         </section>
 
-        <section class="selected-work">
+        <section class="about" id="about">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-label">Selected Work</p>
-                    <h2 class="section-title">Recent Projects</h2>
-                </div>
-                <div class="work-grid">
-                    <article class="work-card reveal">
-                        <div class="work-image">
-                            <div class="image-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">LaborIQ Chatbot</div>
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a data professional with a passion for transforming complex information into actionable insights. With expertise in business analytics, programmatic advertising, and machine learning, I help organizations make data-driven decisions that create tangible value.</p>
+                        <p>My approach combines technical proficiency with business acumen, ensuring that solutions not only work well technically but also address real business challenges. I believe in the power of data to reveal hidden patterns and opportunities that drive growth and innovation.</p>
+                        <p>When I'm not analyzing data, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge through technical writing.</p>
+                    </div>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">Rahul Saha</span>
                         </div>
-                        <div class="work-content">
-                            <h3 class="work-title">LaborIQ Chatbot</h3>
-                            <p class="work-description">AI-powered conversational interface for labor market insights and job recommendations.</p>
-                            <div class="work-tags">
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value">rahul.saha@example.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value">San Francisco, CA</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Availability:</span>
+                            <span class="detail-value">Open to opportunities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills" id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Business Analytics</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Data Analysis</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Business Intelligence</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Statistical Modeling</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Programmatic Advertising</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Campaign Optimization</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Audience Targeting</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">ROI Analysis</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Machine Learning</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Predictive Modeling</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Natural Language Processing</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Deep Learning</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="70"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder gradient-1"></div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">LaborIQ Chatbot</h3>
+                            <p class="project-description">AI-powered conversational interface for labor market insights and job recommendations.</p>
+                            <div class="project-tags">
                                 <span class="tag">Machine Learning</span>
                                 <span class="tag">NLP</span>
                             </div>
-                            <a href="./projects/project-template.html" class="work-link">View Case Study</a>
+                            <a href="./projects/project-template.html" class="project-link">View Details</a>
                         </div>
-                    </article>
-                    <article class="work-card reveal">
-                        <div class="work-image">
-                            <div class="image-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Bikeshare Analytics</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder gradient-2"></div>
                         </div>
-                        <div class="work-content">
-                            <h3 class="work-title">Capital Bikeshare Analytics</h3>
-                            <p class="work-description">Predictive modeling for bike demand optimization and station rebalancing strategies.</p>
-                            <div class="work-tags">
+                        <div class="project-content">
+                            <h3 class="project-title">Capital Bikeshare Analytics</h3>
+                            <p class="project-description">Predictive modeling for bike demand optimization and station rebalancing strategies.</p>
+                            <div class="project-tags">
                                 <span class="tag">Analytics</span>
                                 <span class="tag">Forecasting</span>
                             </div>
-                            <a href="./projects/project-template.html" class="work-link">View Case Study</a>
+                            <a href="./projects/project-template.html" class="project-link">View Details</a>
                         </div>
-                    </article>
-                    <article class="work-card reveal">
-                        <div class="work-image">
-                            <div class="image-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Explainable ML</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder gradient-3"></div>
                         </div>
-                        <div class="work-content">
-                            <h3 class="work-title">Explainable ML for HMDA</h3>
-                            <p class="work-description">Interpretable machine learning models for fair lending analysis and compliance.</p>
-                            <div class="work-tags">
+                        <div class="project-content">
+                            <h3 class="project-title">Explainable ML for HMDA</h3>
+                            <p class="project-description">Interpretable machine learning models for fair lending analysis and compliance.</p>
+                            <div class="project-tags">
                                 <span class="tag">Machine Learning</span>
                                 <span class="tag">Ethics</span>
                             </div>
-                            <a href="./projects/project-template.html" class="work-link">View Case Study</a>
+                            <a href="./projects/project-template.html" class="project-link">View Details</a>
                         </div>
-                    </article>
+                    </div>
                 </div>
                 <div class="section-cta">
-                    <a href="./projects/" class="btn btn-secondary">View All Projects</a>
+                    <a href="./projects/" class="btn btn-outline">View All Projects</a>
                 </div>
             </div>
         </section>
 
-        <section class="experience">
+        <section class="contact" id="contact">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-label">Experience</p>
-                    <h2 class="section-title">Trusted By</h2>
-                </div>
-                <div class="experience-strip">
-                    <div class="experience-item">Analytics Firm</div>
-                    <div class="experience-item">Tech Startup</div>
-                    <div class="experience-item">Financial Institution</div>
-                    <div class="experience-item">Research Lab</div>
-                    <div class="experience-item">Consulting Agency</div>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p>I'm always interested in discussing new opportunities, collaborations, or interesting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <a href="mailto:rahul.saha@example.com">rahul.saha@example.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                                <a href="https://linkedin.com/in/rahulsahasony" target="_blank">linkedin.com/in/rahulsahasony</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-details">
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/rahulsahasony" target="_blank">github.com/rahulsahasony</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,16 +267,7 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>&copy; <span id="current-year"></span> Rahul Saha. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:rahul.saha@example.com">Email</a>
-                </div>
-            </div>
+            <p>&copy; <span id="current-year"></span> Rahul Saha. All rights reserved.</p>
         </div>
     </footer>
 
