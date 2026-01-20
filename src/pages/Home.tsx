@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import { Github, Linkedin, Download, ExternalLink } from "lucide-react";
 import { profile } from "@/data/profile";
 import { Button } from "@/components/UI/Button";
