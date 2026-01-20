@@ -1,3 +1,4 @@
+// src/components/Layout/Header.tsx
 import { NavLink } from "react-router-dom";
 import { profile } from "@/data/profile";
 import { ThemeToggle } from "./ThemeToggle";
