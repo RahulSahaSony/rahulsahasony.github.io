@@ -1,3 +1,4 @@
+// src/components/UI/Badge.tsx
 import { HTMLAttributes, forwardRef } from "react";
 import { cn } from "@/utils/helpers";
 
