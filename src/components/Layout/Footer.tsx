@@ -1,3 +1,4 @@
+// src/components/Layout/Footer.tsx
 import { Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "@/data/profile";
 
