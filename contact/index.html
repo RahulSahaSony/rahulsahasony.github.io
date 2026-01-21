@@ -1,143 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Rahul Saha</title>
-    <meta name="description" content="Get in touch with Rahul Saha to discuss business analytics, data science, or collaboration opportunities.">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Rahul Saha</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
-    
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="../index.html" class="nav-logo">Rahul Saha</a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="../projects/index.html" class="nav-link">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../about/index.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link resume-link" id="resume-link">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                            <span class="theme-icon">🌙</span>
-                        </button>
-                    </li>
-                </ul>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                </button>
-            </div>
-        </nav>
-    </header>
+  <nav>
+    <div class="container nav-container">
+      <div class="nav-logo">RS</div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/projects/" class="nav-link">Projects</a></li>
+        <li><a href="/experience/" class="nav-link">Experience</a></li>
+        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+    </div>
+  </nav>
 
-    <main id="main">
-        <section class="page-header">
-            <div class="container">
-                <p class="section-label">Get In Touch</p>
-                <h1 class="page-title">Contact</h1>
-                <p class="page-subtitle">I'm always interested in discussing new opportunities, collaborations, or interesting projects.</p>
-            </div>
-        </section>
-
-        <section class="contact-content">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
-                        <h2>Let's Connect</h2>
-                        <p>Whether you have a question, want to discuss a potential collaboration, or just want to say hello, I'd love to hear from you.</p>
-                        <p>I'm particularly interested in opportunities related to business analytics, programmatic advertising, and machine learning applications that solve real-world business problems.</p>
-                        <div class="contact-methods">
-                            <a href="mailto:rahul.saha@example.com" class="contact-method">
-                                <div class="contact-icon">📧</div>
-                                <div class="contact-details">
-                                    <h3>Email</h3>
-                                    <p>rahul.saha@example.com</p>
-                                </div>
-                            </a>
-                            <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer" class="contact-method">
-                                <div class="contact-icon">💼</div>
-                                <div class="contact-details">
-                                    <h3>LinkedIn</h3>
-                                    <p>linkedin.com/in/rahulsahasony</p>
-                                </div>
-                            </a>
-                            <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer" class="contact-method">
-                                <div class="contact-icon">💻</div>
-                                <div class="contact-details">
-                                    <h3>GitHub</h3>
-                                    <p>github.com/rahulsahasony</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-form reveal">
-                        <h2>Send a Message</h2>
-                        <form id="contact-form" class="form">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" id="name" name="name" class="form-input" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-input" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject" class="form-label">Subject</label>
-                                <input type="text" id="subject" name="subject" class="form-input" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="response-time">
-            <div class="container">
-                <div class="response-info reveal">
-                    <h2>Response Time</h2>
-                    <p>I typically respond to messages within 24-48 hours. For urgent matters, please mention it in your message subject.</p>
-                    <p>If you're reaching out about a specific project or opportunity, please include as much detail as possible to help me provide a more informed response.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>&copy; <span id="current-year"></span> Rahul Saha. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:rahul.saha@example.com">Email</a>
-                </div>
-            </div>
+  <main>
+    <div class="container">
+      <section class="section">
+        <h1 class="section-title">Contact</h1>
+        <div class="card">
+          <p>I'm always open to discussing new opportunities, collaborations, or just chatting about data and analytics. Feel free to reach out through any of the channels below.</p>
         </div>
-    </footer>
+        
+        <div class="contact-container">
+          <div class="contact-card">
+            <h3 class="contact-card-title">Email</h3>
+            <div class="contact-card-content">
+              <a href="mailto:rahulsahasony@gmail.com" class="contact-link">rahulsahasony@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <h3 class="contact-card-title">LinkedIn</h3>
+            <div class="contact-card-content">
+              <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer" class="contact-link">Connect with me</a>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <h3 class="contact-card-title">GitHub</h3>
+            <div class="contact-card-content">
+              <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer" class="contact-link">View my code</a>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <h3 class="contact-card-title">Location</h3>
+            <div class="contact-card-content">
+              Falls Church, VA 22041, United States
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Best way to reach me</h3>
+          <p>Email is the most reliable way to get in touch. I typically respond within 24-48 hours.</p>
+        </div>
+      </section>
+    </div>
+  </main>
 
-    <script src="../assets/js/main.js"></script>
+  <footer>
+    <div class="container footer-container">
+      <div>© 2025 Rahul Saha. Built with HTML, CSS & JavaScript.</div>
+      <div class="footer-links">
+        <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:rahulsahasony@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/profile.js"></script>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
