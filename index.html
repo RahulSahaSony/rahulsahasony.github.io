@@ -1,14 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rahul Saha - Portfolio</title>
+    <title>(Edit me) Portfolio</title>
+    <script>
+      // GitHub Pages SPA fallback:
+      // 404.html redirects to /?p=/path. This restores the path.
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const p = params.get("p");
+        if (p) {
+          window.history.replaceState(null, "", p + window.location.hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <!-- This should reference the built file, not the source file -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
