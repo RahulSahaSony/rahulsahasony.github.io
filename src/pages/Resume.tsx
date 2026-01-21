@@ -1,120 +1,139 @@
-// src/pages/Resume.tsx
+import Container from "../components/ui/Container";
+import Divider from "../components/ui/Divider";
+import Button from "../components/ui/Button";
+import Chip from "../components/ui/Chip";
+import Card from "../components/ui/Card";
+import { profile } from "../data/profile";
 import { Download, Printer } from "lucide-react";
-import { profile } from "@/data/profile";
-import { Button } from "@/components/UI/Button";
 
-export const Resume = () => {
-  const handlePrint = () => {
-    window.print();
-  };
-  
+export default function Resume() {
+  const onPrint = () => window.print();
+
+  // Preferred: /public/resume.pdf
+  const pdfHref = "/resume.pdf";
+
   return (
-    <div className="container max-w-4xl py-12">
-      <div className="no-print flex justify-end space-x-2 mb-6">
-        <Button icon={<Download size={16} />} asChild>
-          <a href={profile.links.resume} download>
+    <Container>
+      <div className="no-print">
+        <h1 className="text-3xl font-bold text-zinc-50">Resume</h1>
+        <Divider />
+
+        <div className="flex flex-wrap gap-3">
+          <Button
+            href={pdfHref}
+            variant="primary"
+            leftIcon={<Download size={16} />}
+            ariaLabel="Download PDF"
+            download
+          >
             Download PDF
-          </a>
-        </Button>
-        <Button variant="outline" icon={<Printer size={16} />} onClick={handlePrint}>
-          Print
-        </Button>
+          </Button>
+          <Button
+            onClick={onPrint}
+            variant="secondary"
+            leftIcon={<Printer size={16} />}
+            ariaLabel="Print resume"
+          >
+            Print
+          </Button>
+        </div>
+
+        <p className="mt-4 text-sm text-zinc-400">
+          Note: Replace <span className="text-zinc-200">public/resume.pdf</span> with your real PDF.
+          If you don’t have one, printing this page works as a clean fallback.
+        </p>
+
+        <Divider />
       </div>
-      
-      <div className="space-y-8">
-        <header className="text-center space-y-2">
-          <h1 className="text-3xl font-bold tracking-tighter">{profile.name}</h1>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-            <span>{profile.links.email}</span>
-            <span>{profile.contact.phone}</span>
-            <span>{profile.contact.location}</span>
-            <a href={profile.links.linkedin} className="hover:text-foreground">
-              LinkedIn
-            </a>
-            <a href={profile.links.github} className="hover:text-foreground">
-              GitHub
-            </a>
+
+      {/* Printable resume surface */}
+      <Card>
+        <div className="print-surface p-6 sm:p-8">
+          <div className="flex flex-col gap-2">
+            <div className="text-2xl font-bold text-zinc-50">{profile.name}</div>
+            <div className="text-sm text-zinc-300">{profile.resumePage.bestLine}</div>
+            <div className="text-sm text-zinc-400 print-text-muted">{profile.resumePage.locationLine}</div>
           </div>
-        </header>
-        
-        <section>
-          <h2 className="text-xl font-bold mb-4">Education</h2>
-          <div className="space-y-4">
-            {profile.education.map((edu) => (
-              <div key={edu.id} className="space-y-1">
-                <div className="flex justify-between">
-                  <h3 className="font-medium">{edu.degree}</h3>
-                  <span className="text-sm text-muted-foreground">{edu.period}</span>
-                </div>
-                <p className="text-muted-foreground">{edu.school}</p>
-                {edu.coursework && (
-                  <div>
-                    <p className="text-sm font-medium mt-2">Coursework:</p>
-                    <p className="text-sm text-muted-foreground">
-                      {edu.coursework.join(", ")}
-                    </p>
+
+          <div className="mt-6 border-t border-white/10 pt-6">
+            <div className="text-sm font-semibold text-zinc-50">Skills</div>
+            <div className="mt-3 grid gap-5 md:grid-cols-2">
+              {profile.skills.map((g) => (
+                <div key={g.group}>
+                  <div className="text-xs font-semibold text-zinc-300">{g.group}</div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {g.items.map((s) => (
+                      <Chip key={s}>{s}</Chip>
+                    ))}
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-        
-        <section>
-          <h2 className="text-xl font-bold mb-4">Experience</h2>
-          <div className="space-y-6">
-            {profile.experience.map((exp) => (
-              <div key={exp.id} className="space-y-2">
-                <div className="flex justify-between">
-                  <h3 className="font-medium">{exp.title}</h3>
-                  <span className="text-sm text-muted-foreground">{exp.period}</span>
                 </div>
-                <p className="text-muted-foreground">{exp.company}, {exp.location}</p>
-                <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </section>
-        
-        <section>
-          <h2 className="text-xl font-bold mb-4">Projects</h2>
-          <div className="space-y-4">
-            {profile.allProjects.map((project) => (
-              <div key={project.id} className="space-y-1">
-                <div className="flex justify-between">
-                  <h3 className="font-medium">{project.title}</h3>
-                  <span className="text-sm text-muted-foreground">{project.period}</span>
+
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="text-sm font-semibold text-zinc-50">Experience</div>
+            <div className="mt-4 space-y-6">
+              {profile.experience.map((r) => (
+                <div key={`${r.company}-${r.title}`}>
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                    <div>
+                      <div className="font-semibold text-zinc-50">{r.title}</div>
+                      <div className="text-sm text-zinc-300">{r.company}</div>
+                    </div>
+                    <div className="text-sm text-zinc-400 print-text-muted">
+                      {r.dates} • {r.location}
+                    </div>
+                  </div>
+                  <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-zinc-300">
+                    {r.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-sm text-muted-foreground">{project.description}</p>
-                <div>
-                  <span className="text-sm font-medium">Impact: </span>
-                  <span className="text-sm text-muted-foreground">{project.impact}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="text-sm font-semibold text-zinc-50">Projects</div>
+            <div className="mt-4 space-y-5">
+              {profile.featuredProjects.map((p) => (
+                <div key={p.title}>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="font-semibold text-zinc-50">{p.title}</div>
+                      <div className="mt-1 text-sm text-zinc-300">{p.description}</div>
+                      <div className="mt-2 text-sm">
+                        <span className="font-semibold text-blue-300">Impact:</span>{" "}
+                        <span className="text-zinc-300">{p.impact}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <Chip key={t}>{t}</Chip>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-medium">Technologies: </span>
-                  {project.tech.join(", ")}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </section>
-        
-        <section>
-          <h2 className="text-xl font-bold mb-4">Skills</h2>
-          <div className="space-y-3">
-            {profile.skillGroups.map((group) => (
-              <div key={group.title}>
-                <h3 className="font-medium">{group.title}</h3>
-                <p className="text-sm text-muted-foreground">{group.skills.join(", ")}</p>
-              </div>
-            ))}
+
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="text-sm font-semibold text-zinc-50">Education</div>
+            <div className="mt-4 space-y-3">
+              {profile.education.map((e) => (
+                <div key={e.degree} className="text-sm text-zinc-300">
+                  <span className="font-semibold text-zinc-50">{e.degree}</span>{" "}
+                  <span className="text-zinc-300">— {e.school}</span>{" "}
+                  <span className="text-zinc-400 print-text-muted">({e.year}{e.gpa ? `, GPA: ${e.gpa}` : ""})</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
-      </div>
-    </div>
+        </div>
+      </Card>
+    </Container>
   );
-};
+}
