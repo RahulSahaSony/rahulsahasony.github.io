@@ -1,23 +1,29 @@
-// src/components/UI/Chip.tsx
-import { HTMLAttributes, forwardRef } from "react";
-import { cn } from "@/utils/helpers";
+import { ReactNode } from "react";
 
-interface ChipProps extends HTMLAttributes<HTMLDivElement> {}
+export default function Chip({
+  children,
+  active,
+  onClick,
+  asButton = false
+}: {
+  children: ReactNode;
+  active?: boolean;
+  onClick?: () => void;
+  asButton?: boolean;
+}) {
+  const base =
+    "inline-flex items-center rounded-full border px-3 py-1 text-xs leading-none transition";
+  const cls = active
+    ? "border-blue-400/60 bg-blue-500/15 text-blue-200"
+    : "border-white/10 bg-white/5 text-zinc-200 hover:border-white/20 hover:bg-white/8";
 
-export const Chip = forwardRef<HTMLDivElement, ChipProps>(
-  ({ className, children, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-        "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-);
+  if (asButton) {
+    return (
+      <button type="button" onClick={onClick} className={`${base} ${cls}`}>
+        {children}
+      </button>
+    );
+  }
 
-Chip.displayName = "Chip";
+  return <span className={`${base} ${cls}`}>{children}</span>;
+}
