@@ -11,7 +11,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: 'rahulsahasony.github.io', // Replace with your repository name
+  base: '/', // Replace with your repository name
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
