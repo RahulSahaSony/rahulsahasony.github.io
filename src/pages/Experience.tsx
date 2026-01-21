@@ -1,34 +1,34 @@
-// src/pages/Experience.tsx
-import { profile } from "@/data/profile";
-import { Divider } from "@/components/UI/Divider";
+import Container from "../components/ui/Container";
+import Divider from "../components/ui/Divider";
+import { profile } from "../data/profile";
 
-export const Experience = () => {
+export default function Experience() {
   return (
-    <div className="container max-w-4xl py-12">
-      <section className="space-y-8">
-        <h1 className="text-3xl font-bold tracking-tighter">Experience</h1>
-        
-        <div className="space-y-8">
-          {profile.experience.map((exp, index) => (
-            <div key={exp.id}>
-              <div className="space-y-2">
-                <h3 className="text-xl font-medium">{exp.title}</h3>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <p className="text-muted-foreground">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground">{exp.period}</p>
-                </div>
-                <p className="text-sm text-muted-foreground">{exp.location}</p>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
+    <Container>
+      <h1 className="text-3xl font-bold text-zinc-50">Experience</h1>
+      <Divider />
+
+      <div className="divide-y divide-white/10">
+        {profile.experience.map((r) => (
+          <div key={`${r.company}-${r.title}`} className="py-6">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+              <div>
+                <div className="text-lg font-semibold text-zinc-50">{r.title}</div>
+                <div className="text-sm text-zinc-300">{r.company}</div>
               </div>
-              {index < profile.experience.length - 1 && <Divider className="mt-8" />}
+              <div className="text-sm text-zinc-400">
+                {r.dates} • {r.location}
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+
+            <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-zinc-300">
+              {r.bullets.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Container>
   );
-};
+}
