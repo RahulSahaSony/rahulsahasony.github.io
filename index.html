@@ -1,23 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>(Edit me) Portfolio</title>
-    <script>
-      // GitHub Pages SPA fallback:
-      // 404.html redirects to /?p=/path. This restores the path.
-      (function () {
-        const params = new URLSearchParams(window.location.search);
-        const p = params.get("p");
-        if (p) {
-          window.history.replaceState(null, "", p + window.location.hash);
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahul Saha | Business Analytics | Data Science | ML & Growth</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <nav>
+    <div class="container nav-container">
+      <div class="nav-logo">RS</div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/projects/" class="nav-link">Projects</a></li>
+        <li><a href="/experience/" class="nav-link">Experience</a></li>
+        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <section class="section">
+        <h1 class="section-title">Rahul Saha</h1>
+        <p class="headline">Business Analytics | Data Science | ML & Growth</p>
+        <p class="subheadline">Turning data into actionable insights and scalable solutions.</p>
+        
+        <div class="social-links">
+          <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="/resume/">Resume</a>
+        </div>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Now</h2>
+        <p>Building ML pipelines for customer intelligence and revenue optimization</p>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div id="featured-projects"></div>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <div id="skills-preview"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div>© 2025 Rahul Saha. Built with HTML, CSS & JavaScript.</div>
+      <div class="footer-links">
+        <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:rahulsahasony@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/profile.js"></script>
+  <script src="/assets/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Render featured projects
+      const featuredProjectsContainer = document.getElementById('featured-projects');
+      if (featuredProjectsContainer && profile.featuredProjects) {
+        featuredProjectsContainer.innerHTML = profile.featuredProjects.map(project => `
+          <div class="card project-card">
+            <div class="project-header">
+              <h3 class="project-title">${project.title}</h3>
+              <div class="project-links">
+                ${project.github ? `<a href="${project.github}" class="project-link" target="_blank" rel="noopener noreferrer" title="GitHub">G</a>` : ''}
+                ${project.demo ? `<a href="${project.demo}" class="project-link" target="_blank" rel="noopener noreferrer" title="Demo">D</a>` : ''}
+              </div>
+            </div>
+            <p class="project-description">${project.description}</p>
+            <p class="project-impact">Impact: ${project.impact}</p>
+            <div class="project-tags">
+              ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+            </div>
+          </div>
+        `).join('');
+      }
+      
+      // Render skills preview
+      const skillsPreviewContainer = document.getElementById('skills-preview');
+      if (skillsPreviewContainer && profile.skills) {
+        skillsPreviewContainer.innerHTML = Object.entries(profile.skills).slice(0, 3).map(([category, skills]) => `
+          <div class="skill-category">
+            <h3 class="skill-category-title">${category}</h3>
+            <div class="skill-list">
+              ${skills.slice(0, 5).map(skill => `<span class="skill-item">${skill}</span>`).join('')}
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
 </html>
