@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience | Rahul Saha</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <nav>
+    <div class="container nav-container">
+      <div class="nav-logo">RS</div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/projects/" class="nav-link">Projects</a></li>
+        <li><a href="/experience/" class="nav-link">Experience</a></li>
+        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+    </div>
+  </nav>
 
+  <main>
+    <div class="container">
+      <section class="section">
+        <h1 class="section-title">Experience</h1>
+        <div id="experience-container"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div>© 2025 Rahul Saha. Built with HTML, CSS & JavaScript.</div>
+      <div class="footer-links">
+        <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:rahulsahasony@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/profile.js"></script>
+  <script src="/assets/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Render experience
+      const experienceContainer = document.getElementById('experience-container');
+      if (experienceContainer && profile.experience) {
+        experienceContainer.innerHTML = profile.experience.map(exp => `
+          <div class="card experience-card">
+            <div class="experience-header">
+              <div>
+                <h3 class="experience-title">${exp.role}</h3>
+                <div class="experience-company">${exp.company}</div>
+                <div class="experience-dates">${exp.dates}</div>
+                <div class="experience-location">${exp.location}</div>
+              </div>
+            </div>
+            <ul class="experience-list">
+              ${exp.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>
