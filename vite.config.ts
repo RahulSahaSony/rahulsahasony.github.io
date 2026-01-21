@@ -16,21 +16,17 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    // Add this to ensure proper MIME types
+    // Ensure proper file extensions and MIME types
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-      },
-    },
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
   },
   server: {
     port: 3000,
     open: true,
-  },
-  // Add this to ensure proper MIME types
-  preview: {
-    headers: {
-      'Content-Type': 'text/javascript',
-    },
   },
 })
