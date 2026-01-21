@@ -783,3 +783,43 @@ footer {
     gap: 24px;
   }
 }
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  transition: transform 120ms ease, background 120ms ease, border 120ms ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+}
+
+.impact-label {
+  color: #60a5fa; /* blue label */
+  font-weight: 600;
+}
+
