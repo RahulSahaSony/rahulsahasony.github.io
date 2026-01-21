@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rahul Saha | Business Analytics | Data Science | ML & Growth</title>
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
+
 <body>
   <nav>
     <div class="container nav-container">
       <div class="nav-logo">RS</div>
+
       <ul class="nav-menu" id="nav-menu">
         <li><a href="/" class="nav-link">Home</a></li>
         <li><a href="/about/" class="nav-link">About</a></li>
@@ -18,8 +20,22 @@
         <li><a href="/resume/" class="nav-link">Resume</a></li>
         <li><a href="/contact/" class="nav-link">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="theme-toggle">🌙</button>
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <!-- Moon icon -->
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu">
+        <!-- Hamburger icon -->
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
@@ -29,40 +45,50 @@
         <h1 class="section-title">Rahul Saha</h1>
         <p class="headline">Business Analytics | Data Science | ML & Growth</p>
         <p class="subheadline">Turning data into actionable insights and scalable solutions.</p>
-        
+
         <div class="social-links">
           <a href="/resume/" class="contact-link">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- File icon -->
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Resume
           </a>
+
           <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- LinkedIn icon -->
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="2" y="9" width="4" height="12"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="4" cy="4" r="2"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             LinkedIn
           </a>
+
           <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- GitHub icon -->
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             GitHub
           </a>
         </div>
       </section>
-      
+
       <section class="section">
         <h2 class="section-title">Now</h2>
         <p>Building ML pipelines for customer intelligence and revenue optimization</p>
       </section>
-      
+
       <section class="section">
         <h2 class="section-title">Featured Projects</h2>
         <div id="featured-projects"></div>
@@ -72,7 +98,7 @@
 
   <footer>
     <div class="container footer-container">
-      <div>© 2025 Rahul Saha. Built with HTML, CSS & JavaScript.</div>
+      <div>© 2025 Rahul Saha. Built with HTML, CSS &amp; JavaScript.</div>
       <div class="footer-links">
         <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -83,27 +109,63 @@
 
   <script src="/assets/profile.js"></script>
   <script src="/assets/app.js"></script>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    // Inline SVG icons for Project links (GitHub + External/Demo)
+    const ICONS = {
+      github: `
+        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `,
+      external: `
+        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14 3h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
       // Render featured projects
-      const featuredProjectsContainer = document.getElementById('featured-projects');
-      if (featuredProjectsContainer && profile.featuredProjects) {
-        featuredProjectsContainer.innerHTML = profile.featuredProjects.map(project => `
-          <div class="card project-card">
-            <div class="project-header">
-              <h3 class="project-title">${project.title}</h3>
-              <div class="project-links">
-                ${project.github ? `<a href="${project.github}" class="project-link" target="_blank" rel="noopener noreferrer" title="GitHub">G</a>` : ''}
-                ${project.demo ? `<a href="${project.demo}" class="project-link" target="_blank" rel="noopener noreferrer" title="Demo">D</a>` : ''}
+      const featuredProjectsContainer = document.getElementById("featured-projects");
+
+      if (featuredProjectsContainer && window.profile?.featuredProjects) {
+        featuredProjectsContainer.innerHTML = window.profile.featuredProjects
+          .map((project) => `
+            <div class="card project-card">
+              <div class="project-header">
+                <h3 class="project-title">${project.title}</h3>
+                <div class="project-links">
+                  ${
+                    project.github
+                      ? `<a href="${project.github}" class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                           ${ICONS.github}
+                         </a>`
+                      : ""
+                  }
+                  ${
+                    project.demo
+                      ? `<a href="${project.demo}" class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                           ${ICONS.external}
+                         </a>`
+                      : ""
+                  }
+                </div>
+              </div>
+
+              <p class="project-description">${project.description}</p>
+              <p class="project-impact"><span class="impact-label">Impact:</span> ${project.impact}</p>
+
+              <div class="project-tags">
+                ${project.technologies.map((t) => `<span class="tag">${t}</span>`).join("")}
               </div>
             </div>
-            <p class="project-description">${project.description}</p>
-            <p class="project-impact">Impact: ${project.impact}</p>
-            <div class="project-tags">
-              ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
-            </div>
-          </div>
-        `).join('');
+          `)
+          .join("");
       }
     });
   </script>
