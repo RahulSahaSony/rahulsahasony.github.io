@@ -11,13 +11,26 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: '/', // Replace with your repository name
+  // This should be '/' for username.github.io domains
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    // Add this to ensure proper MIME types
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   server: {
     port: 3000,
     open: true,
+  },
+  // Add this to ensure proper MIME types
+  preview: {
+    headers: {
+      'Content-Type': 'text/javascript',
+    },
   },
 })
