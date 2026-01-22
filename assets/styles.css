@@ -14,9 +14,8 @@
   --shadow: rgba(0, 0, 0, 0.2);
   --transition: all 0.2s ease;
   
-  /* Font variables */
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-heading: 'Playfair Display', Georgia, serif;
+  /* Font variable - Playfair Display for everything */
+  --font-primary: 'Playfair Display', Georgia, serif;
 }
 
 [data-theme="light"] {
@@ -46,12 +45,12 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.7; /* Increased for better readability with serif fonts */
   transition: var(--transition);
   font-size: 16px;
+  color: var(--text-primary);
 }
 
 a {
@@ -98,10 +97,12 @@ nav {
 }
 
 .nav-logo {
+  font-family: var(--font-primary);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
 .nav-menu {
@@ -111,6 +112,7 @@ nav {
 }
 
 .nav-link {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 15px;
@@ -169,12 +171,13 @@ main {
 }
 
 .section-title {
+  font-family: var(--font-primary);
   font-size: 28px;
   margin-bottom: 24px;
   color: var(--text-primary);
   position: relative;
   padding-bottom: 12px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .section-title::after {
@@ -189,6 +192,7 @@ main {
 
 /* Typography */
 .headline {
+  font-family: var(--font-primary);
   font-size: 18px;
   color: var(--text-secondary);
   margin-bottom: 8px;
@@ -196,6 +200,7 @@ main {
 }
 
 .subheadline {
+  font-family: var(--font-primary);
   font-size: 16px;
   color: var(--text-tertiary);
   margin-bottom: 32px;
@@ -211,6 +216,7 @@ main {
 .social-link {
   display: inline-flex;
   align-items: center;
+  font-family: var(--font-primary);
   color: var(--accent);
   font-weight: 500;
   font-size: 15px;
@@ -256,6 +262,7 @@ main {
 }
 
 .project-title {
+  font-family: var(--font-primary);
   font-size: 20px;
   color: var(--text-primary);
   margin-bottom: 8px;
@@ -286,6 +293,7 @@ main {
 }
 
 .project-description {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   margin-bottom: 8px;
   font-size: 15px;
@@ -293,6 +301,7 @@ main {
 }
 
 .project-impact {
+  font-family: var(--font-primary);
   font-weight: 500;
   color: var(--text-primary);
   margin-bottom: 16px;
@@ -306,13 +315,14 @@ main {
 }
 
 .tag {
+  font-family: var(--font-primary);
   padding: 4px 12px;
   background-color: var(--bg-secondary);
   border-radius: 16px;
   font-size: 13px;
   color: var(--text-secondary);
   transition: var(--transition);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .tag:hover {
@@ -334,6 +344,7 @@ main {
 }
 
 .filter-chip {
+  font-family: var(--font-primary);
   padding: 6px 16px;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
@@ -342,7 +353,7 @@ main {
   color: var(--text-secondary);
   cursor: pointer;
   transition: var(--transition);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .filter-chip:hover {
@@ -369,12 +380,14 @@ main {
 }
 
 .experience-title {
+  font-family: var(--font-primary);
   font-size: 20px;
   color: var(--text-primary);
   font-weight: 600;
 }
 
 .experience-company {
+  font-family: var(--font-primary);
   font-size: 16px;
   color: var(--accent);
   margin-bottom: 4px;
@@ -382,11 +395,13 @@ main {
 }
 
 .experience-dates {
+  font-family: var(--font-primary);
   color: var(--text-tertiary);
   font-size: 14px;
 }
 
 .experience-location {
+  font-family: var(--font-primary);
   color: var(--text-tertiary);
   font-size: 14px;
   margin-bottom: 16px;
@@ -398,6 +413,7 @@ main {
 }
 
 .experience-list li {
+  font-family: var(--font-primary);
   position: relative;
   padding-left: 16px;
   margin-bottom: 8px;
@@ -419,6 +435,7 @@ main {
 }
 
 .education-degree {
+  font-family: var(--font-primary);
   font-size: 20px;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -426,6 +443,7 @@ main {
 }
 
 .education-school {
+  font-family: var(--font-primary);
   font-size: 16px;
   color: var(--accent);
   margin-bottom: 4px;
@@ -441,6 +459,7 @@ main {
 }
 
 .education-awards {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 8px;
@@ -462,6 +481,7 @@ main {
 }
 
 .skill-category-title {
+  font-family: var(--font-primary);
   font-size: 18px;
   color: var(--text-primary);
   margin-bottom: 16px;
@@ -477,12 +497,13 @@ main {
 }
 
 .skill-item {
+  font-family: var(--font-primary);
   padding: 4px 12px;
   background-color: var(--bg-secondary);
   border-radius: 4px;
   font-size: 14px;
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* Contact */
@@ -509,6 +530,7 @@ main {
 }
 
 .contact-card-title {
+  font-family: var(--font-primary);
   font-size: 18px;
   color: var(--text-primary);
   margin-bottom: 16px;
@@ -516,6 +538,7 @@ main {
 }
 
 .contact-card-content {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   margin-bottom: 16px;
   font-size: 15px;
@@ -525,6 +548,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--font-primary);
   color: var(--accent);
   font-weight: 500;
   font-size: 15px;
@@ -566,6 +590,7 @@ footer {
 }
 
 .footer-link {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   transition: var(--transition);
   font-size: 15px;
@@ -586,6 +611,7 @@ footer {
   color: white;
   border: none;
   border-radius: 8px;
+  font-family: var(--font-primary);
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
@@ -634,12 +660,14 @@ footer {
 }
 
 .resume-header h2 {
+  font-family: var(--font-primary);
   font-size: 28px;
   margin-bottom: 8px;
   font-weight: 600;
 }
 
 .resume-header p {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   margin-bottom: 8px;
   font-size: 16px;
@@ -650,6 +678,7 @@ footer {
 }
 
 .contact-info p {
+  font-family: var(--font-primary);
   color: var(--text-tertiary);
   font-size: 14px;
 }
@@ -659,6 +688,7 @@ footer {
 }
 
 .resume-section h3 {
+  font-family: var(--font-primary);
   font-size: 20px;
   margin-bottom: 16px;
   padding-bottom: 8px;
@@ -671,6 +701,7 @@ footer {
 }
 
 .resume-item h4 {
+  font-family: var(--font-primary);
   font-size: 16px;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -678,6 +709,7 @@ footer {
 }
 
 .resume-item p {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   margin-bottom: 8px;
   font-size: 15px;
@@ -690,6 +722,7 @@ footer {
 }
 
 .resume-item ul li {
+  font-family: var(--font-primary);
   position: relative;
   padding-left: 16px;
   margin-bottom: 4px;
@@ -850,6 +883,7 @@ footer {
 }
 
 .certification-title {
+  font-family: var(--font-primary);
   font-size: 18px;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -857,6 +891,7 @@ footer {
 }
 
 .certification-issuer {
+  font-family: var(--font-primary);
   font-size: 16px;
   color: var(--accent);
   font-weight: 500;
@@ -867,29 +902,34 @@ footer {
 }
 
 .certification-date {
+  font-family: var(--font-primary);
   font-size: 14px;
   color: var(--text-tertiary);
   margin-bottom: 4px;
 }
 
 .certification-id {
+  font-family: var(--font-primary);
   font-size: 14px;
   color: var(--text-tertiary);
 }
 
 .certification-skills {
   margin-bottom: 12px;
+  font-family: var(--font-primary);
   font-size: 14px;
   color: var(--text-secondary);
 }
 
 .certification-link a {
+  font-family: var(--font-primary);
   color: var(--accent);
   font-weight: 500;
   font-size: 14px;
 }
 
 .experience-event {
+  font-family: var(--font-primary);
   color: var(--text-tertiary);
   font-size: 14px;
   margin-bottom: 16px;
@@ -942,11 +982,13 @@ footer {
 }
 
 .section-subtitle {
+  font-family: var(--font-primary);
   font-size: 1.8rem;
   color: var(--text-primary);
   margin-bottom: 8px;
   position: relative;
   padding-bottom: 8px;
+  font-weight: 700;
 }
 
 .section-subtitle::after {
@@ -960,9 +1002,11 @@ footer {
 }
 
 .section-description {
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   font-size: 1rem;
   margin-top: 8px;
+  font-weight: 400;
 }
 
 .contact-form-section, .calendly-section {
@@ -996,6 +1040,7 @@ footer {
 }
 
 .form-group label {
+  font-family: var(--font-primary);
   font-weight: 600;
   color: var(--text-primary);
   font-size: 0.95rem;
@@ -1003,28 +1048,12 @@ footer {
 
 .form-group input,
 .form-group textarea {
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  font-family: inherit;
+  font-family: var(--font-primary);
   font-size: 1rem;
-  transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
 }
 
 .form-status {
-  margin-top: 16px;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
+  font-family: var(--font-primary);
   font-weight: 500;
 }
 
@@ -1072,6 +1101,7 @@ footer {
 }
 
 .best-way-card h3 {
+  font-family: var(--font-primary);
   margin-bottom: 8px;
   color: var(--text-primary);
 }
@@ -1096,13 +1126,12 @@ footer {
   }
 }
 
-/* Add these styles to your existing CSS file */
-
 /* Credential Icon Styles */
 .credential-link-with-icon {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--font-primary);
   color: var(--accent);
   font-weight: 500;
   font-size: 14px;
@@ -1188,18 +1217,9 @@ footer {
   }
 }
 
-/* Base Typography */
-body {
-  font-family: var(--font-body);
-  font-weight: 400;
-  line-height: 1.6;
-  transition: var(--transition);
-  font-size: 16px;
-}
-
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-primary);
   font-weight: 700;
   line-height: 1.3;
   color: var(--text-primary);
@@ -1208,165 +1228,32 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.5rem; /* 40px */
+  font-weight: 800;
 }
 
 h2 {
   font-size: 2rem; /* 32px */
+  font-weight: 700;
 }
 
 h3 {
   font-size: 1.5rem; /* 24px */
+  font-weight: 600;
 }
 
 h4 {
   font-size: 1.25rem; /* 20px */
+  font-weight: 600;
 }
 
 h5 {
   font-size: 1.125rem; /* 18px */
+  font-weight: 500;
 }
 
 h6 {
   font-size: 1rem; /* 16px */
-}
-
-/* Section Titles */
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  margin-bottom: 24px;
-  color: var(--text-primary);
-  position: relative;
-  padding-bottom: 12px;
-  font-weight: 700;
-}
-
-.section-subtitle {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  position: relative;
-  padding-bottom: 8px;
-  font-weight: 700;
-}
-
-/* Navigation */
-.nav-logo {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-
-.nav-link {
-  font-family: var(--font-body);
-  color: var(--text-secondary);
   font-weight: 500;
-  font-size: 15px;
-  position: relative;
-  transition: var(--transition);
-  padding: 4px 0;
-}
-
-/* Project Titles */
-.project-title {
-  font-family: var(--font-heading);
-  font-size: 20px;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-/* Experience and Education Titles */
-.experience-title,
-.education-degree {
-  font-family: var(--font-heading);
-  font-size: 20px;
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-/* Certification Titles */
-.certification-title {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-  font-weight: 700;
-}
-
-/* Skill Category Titles */
-.skill-category-title {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-  font-weight: 700;
-}
-
-/* Contact Card Titles */
-.contact-card-title {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-
-/* Form Labels */
-.form-group label {
-  font-family: var(--font-body);
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-}
-
-/* Buttons */
-.btn {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 15px;
-}
-
-/* Social Links */
-.social-link {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 15px;
-}
-
-/* Tags and Chips */
-.tag, .filter-chip, .skill-item {
-  font-family: var(--font-body);
-  font-weight: 500;
-}
-
-/* Responsive Font Sizes */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem; /* 32px */
-  }
-  
-  h2 {
-    font-size: 1.75rem; /* 28px */
-  }
-  
-  h3 {
-    font-size: 1.5rem; /* 24px */
-  }
-  
-  .section-title {
-    font-size: 24px;
-  }
-  
-  .section-subtitle {
-    font-size: 1.5rem;
-  }
 }
 
 /* Font Weight Utilities */
@@ -1391,26 +1278,10 @@ h6 {
 }
 
 /* Specific Element Adjustments */
-.headline {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 18px;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-
-.subheadline {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 16px;
-  color: var(--text-tertiary);
-  margin-bottom: 32px;
-}
-
 .experience-company,
 .education-school,
 .certification-issuer {
-  font-family: var(--font-body);
+  font-family: var(--font-primary);
   font-size: 16px;
   color: var(--accent);
   margin-bottom: 4px;
@@ -1420,16 +1291,66 @@ h6 {
 .experience-dates,
 .experience-location,
 .certification-date {
-  font-family: var(--font-body);
+  font-family: var(--font-primary);
   color: var(--text-tertiary);
   font-size: 14px;
   font-weight: 400;
 }
 
 .section-description {
-  font-family: var(--font-body);
+  font-family: var(--font-primary);
   color: var(--text-secondary);
   font-size: 1rem;
   margin-top: 8px;
   font-weight: 400;
+}
+
+.closing-message {
+  font-family: var(--font-primary);
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-secondary);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* 32px */
+  }
+  
+  h2 {
+    font-size: 1.75rem; /* 28px */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 24px */
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  body {
+    font-size: 15px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.02em;
+}
+
+.section-title {
+  letter-spacing: 0.03em;
+}
+
+p {
+  letter-spacing: 0.01em;
 }
