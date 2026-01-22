@@ -914,3 +914,122 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Contact Form and Calendly Styles */
+.contact-form-calendly {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 32px 0;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.contact-form-container {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--shadow);
+  border: 1px solid var(--card-border);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-status {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.form-loading {
+  color: var(--text-secondary);
+}
+
+.form-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.form-error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Calendly Styles */
+.calendly-container {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--shadow);
+  border: 1px solid var(--card-border);
+}
+
+.calendly-inline-widget {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-form-calendly {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .calendly-inline-widget {
+    min-width: 100% !important;
+    height: 550px !important;
+  }
+}
