@@ -792,3 +792,49 @@ footer {
     gap: 24px;
   }
 }
+
+/* Navigation Profile Photo */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.profile-photo:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Ensure nav logo link maintains its styling */
+.nav-logo {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.nav-logo:hover {
+  color: var(--accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-profile {
+    display: none; /* Hide profile photo on mobile to save space */
+  }
+  
+  .nav-container {
+    padding: 12px 0;
+  }
+}
