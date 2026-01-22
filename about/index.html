@@ -142,16 +142,19 @@
                 </div>
                 <div class="certification-details">
                   <div class="certification-date">${cert.date}</div>
-                  ${cert.credentialId ? `<div class="certification-id">Credential ID: ${cert.credentialId}</div>` : ''}
                 </div>
-                ${cert.skills ? `
-                  <div class="certification-skills">
-                    <strong>Skills:</strong> ${cert.skills.join(', ')}
-                  </div>
-                ` : ''}
                 ${cert.credentialLink ? `
                   <div class="certification-link">
-                    <a href="${cert.credentialLink}" target="_blank" rel="noopener noreferrer">Show credential</a>
+                    <a href="${cert.credentialLink}" target="_blank" rel="noopener noreferrer" class="credential-link-with-icon">
+                      <svg class="credential-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      Show credential
+                    </a>
                   </div>
                 ` : ''}
               </div>
