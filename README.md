@@ -82,7 +82,7 @@ rahulsahasony.github.io/
 
 ### Prerequisites
 - GitHub account
-- Basic knowledge of Git/GitHub
+- Basic knowledge of GitHub
 
 ### Step 1: Fork the Repository
 1. Click the "Fork" button in the top right of this repository
@@ -93,6 +93,6 @@ rahulsahasony.github.io/
 git clone https://github.com/yourusername/yourusername.github.io.git
 cd yourusername.github.io
 ```
-### License
+## 📄 License
 This project is open source and available under the MIT License.
 See the [LICENSE](./LICENSE) file for details.
