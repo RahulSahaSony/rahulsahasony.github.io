@@ -1089,3 +1089,95 @@ footer {
     padding: 24px;
   }
 }
+
+/* Add these styles to your existing CSS file */
+
+/* Credential Icon Styles */
+.credential-link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.credential-link-with-icon:hover {
+  color: var(--accent-hover);
+}
+
+.credential-icon {
+  transition: var(--transition);
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 12px 0;
+    position: relative;
+  }
+  
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    order: 2;
+  }
+  
+  .theme-toggle {
+    order: 1;
+    margin-right: auto;
+    margin-left: 16px;
+  }
+  
+  .mobile-menu-toggle {
+    order: 3;
+    margin-left: auto;
+    margin-right: 16px;
+  }
+  
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  /* Mobile Hero Section */
+  .hero-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .hero-text {
+    flex: 1;
+    order: 2;
+  }
+  
+  .hero-image {
+    flex: 1;
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
