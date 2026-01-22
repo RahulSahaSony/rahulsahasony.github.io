@@ -10,23 +10,20 @@
 </head>
 <body>
   <nav>
-  <div class="container nav-container">
-    <a href="/" class="nav-logo">RS</a>
-    <ul class="nav-menu" id="nav-menu">
-      <li><a href="/" class="nav-link">Home</a></li>
-      <li><a href="/about/" class="nav-link">About</a></li>
-      <li><a href="/projects/" class="nav-link">Projects</a></li>
-      <li><a href="/experience/" class="nav-link">Experience</a></li>
-      <li><a href="/resume/" class="nav-link">Resume</a></li>
-      <li><a href="/contact/" class="nav-link">Contact</a></li>
-    </ul>
-    <div class="nav-profile">
-      <img src="/assets/profile-photo.jpg" alt="Rahul Saha" class="profile-photo">
+    <div class="container nav-container">
+      <a href="/" class="nav-logo">RS</a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/projects/" class="nav-link">Projects</a></li>
+        <li><a href="/experience/" class="nav-link">Experience</a></li>
+        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
     </div>
-    <button class="theme-toggle" id="theme-toggle">🌙</button>
-    <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
-  </div>
-</nav>
+  </nav>
 
   <main>
     <div class="container">
@@ -39,9 +36,9 @@
           <br>
           <p>I recently completed my Master of Science in Business Analytics (STEM) from The George Washington University, where I strengthened my expertise in machine learning, optimization, time series forecasting, and responsible AI. This academic foundation, combined with my industry background, enables me to translate complex data into clear, actionable insights that drive strategic decision-making.</p>
           <br>
-          <p>I’m especially interested in opportunities where I take ownership of my work and support teams wherever needed. I may not know everything on day one, but I learn fast and take feedback seriously. I value clear processes, clean data, and delivering results on time.</p>
+          <p>I'm especially interested in opportunities where I take ownership of my work and support teams wherever needed. I may not know everything on day one, but I learn fast and take feedback seriously. I value clear processes, clean data, and delivering results on time.</p>
           <br>
-          <p>Always open to connecting with professionals who believe data isn’t just about dashboards but about building better systems and better outcomes.</p>
+          <p>Always open to connecting with professionals who believe data isn't just about dashboards but about building better systems and better outcomes.</p>
         </div>
       </section>
       
@@ -56,6 +53,11 @@
       </section>
       
       <section class="section">
+        <h2 class="section-title">Licenses & Certifications</h2>
+        <div id="certifications-container"></div>
+      </section>
+      
+      <section class="section">
         <h2 class="section-title">Research Interests</h2>
         <div class="card">
           <div id="research-interests"></div>
@@ -64,8 +66,7 @@
     </div>
   </main>
 
-
-    <footer>
+  <footer>
     <div class="container footer-container">
       <div>© Rahul Saha</div>
       <div class="footer-links">
@@ -126,6 +127,37 @@
             ` : ''}
           </div>
         `).join('');
+      }
+      
+      // Render certifications
+      const certificationsContainer = document.getElementById('certifications-container');
+      if (certificationsContainer) {
+        certificationsContainer.innerHTML = `
+          <div class="certifications-grid">
+            ${profile.certifications.map(cert => `
+              <div class="card certification-card">
+                <div class="certification-header">
+                  <h3 class="certification-title">${cert.name}</h3>
+                  <div class="certification-issuer">${cert.issuer}</div>
+                </div>
+                <div class="certification-details">
+                  <div class="certification-date">${cert.date}</div>
+                  ${cert.credentialId ? `<div class="certification-id">Credential ID: ${cert.credentialId}</div>` : ''}
+                </div>
+                ${cert.skills ? `
+                  <div class="certification-skills">
+                    <strong>Skills:</strong> ${cert.skills.join(', ')}
+                  </div>
+                ` : ''}
+                ${cert.credentialLink ? `
+                  <div class="certification-link">
+                    <a href="${cert.credentialLink}" target="_blank" rel="noopener noreferrer">Show credential</a>
+                  </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          </div>
+        `;
       }
       
       // Render research interests
