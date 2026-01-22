@@ -93,6 +93,6 @@ rahulsahasony.github.io/
 git clone https://github.com/yourusername/yourusername.github.io.git
 cd yourusername.github.io
 ```
-### License
+## 📄 License
 This project is open source and available under the MIT License.
 See the [LICENSE](./LICENSE) file for details.
