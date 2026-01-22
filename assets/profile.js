@@ -1,12 +1,11 @@
 const profile = {
   name: "Rahul Saha",
-  headline: "Business Analytics | Data Science | ML & Growth",
-  subheadline: "Turning data into actionable insights and scalable solutions.",
+  headline: "Business Analytics | Data & Growth Analytics | Programmatic Advertising",
+  subheadline: "I build clear, practical analytics that help teams grow revenue, improve operations, and make better decisions.",
   nowStatement: "Building ML pipelines for customer intelligence and revenue optimization",
   initials: "RS",
   location: "Falls Church, VA",
   email: "rahulsahasony@gmail.com",
-  phone: "(240) 467-7141",
   linkedin: "https://linkedin.com/in/rahulsahasony",
   github: "https://github.com/rahulsahasony",
   resumePdf: "/assets/resume.pdf",
@@ -174,6 +173,44 @@ const profile = {
     }
   ],
   
+  volunteering: [
+    {
+      role: "Registration Team Volunteer",
+      organization: "International Monetary Fund",
+      dates: "Apr 2025",
+      event: "2025 Spring Meetings of the World Bank Group (WBG) and the International Monetary Fund (IMF)",
+      description: []
+    },
+    {
+      role: "Volunteer",
+      organization: "DC Startup & Tech Week",
+      dates: "Oct 2025",
+      event: "Science and Technology",
+      description: []
+    },
+    {
+      role: "Volunteer",
+      organization: "IEEE Cloud Summit",
+      dates: "Jun 2025",
+      event: null,
+      description: []
+    },
+    {
+      role: "Open Source Contributor at GW Open Source Conference 2025",
+      organization: "GW Open Source Program Office",
+      dates: "Mar 2025",
+      event: "GW's First Annual Open Source Conference",
+      description: []
+    },
+    {
+      role: "Volunteer",
+      organization: "60th Presidential Inaugural Committee",
+      dates: "Jan 2025",
+      event: null,
+      description: []
+    }
+  ],
+  
   education: [
     {
       degree: "Master of Science in Business Analytics",
@@ -222,6 +259,153 @@ const profile = {
     }
   ],
   
+  certifications: [
+    {
+      name: "Academy Accreditation - Generative AI Fundamentals",
+      issuer: "Databricks",
+      date: "Issued Jul 2025 · Expires Jul 2027",
+      credentialId: "156279935",
+      skills: ["Generative AI", "Large Language Models (LLM)"],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Converged Planning Master",
+      issuer: "Nexxen",
+      date: "Issued Jul 2025",
+      credentialId: "9fad9d07-1fdf-495b-93ab-28b311daa91d",
+      skills: ["Ad Tech", "Advertising Campaign Management", "Programmatic Advertising", "Advertising KPIs", "Converged Media", "Programmatic", "Programmatic Media Buying"],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Programmatic Advertising Foundations",
+      issuer: "LinkedIn",
+      date: "Issued Jul 2025",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Elements of AI",
+      issuer: "University of Helsinki",
+      date: "Issued Jan 2023",
+      credentialId: null,
+      skills: ["Artificial Intelligence (AI)", "Neural Networks", "Machine Learning"],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Dashboards & Data Visualization",
+      issuer: "Corporate Finance Institute® (CFI)",
+      date: "Issued May 2022",
+      credentialId: "52065236",
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Introduction to Business Intelligence",
+      issuer: "Corporate Finance Institute® (CFI)",
+      date: "Issued May 2022",
+      credentialId: "51928989",
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Professional Ethics",
+      issuer: "Corporate Finance Institute® (CFI)",
+      date: "Issued May 2022",
+      credentialId: "52022127",
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Python for Data Science",
+      issuer: "IBM",
+      date: "Issued Feb 2021",
+      credentialId: "be4b355f-a358-41d6-a7b8-1a8a5b0c19f2",
+      skills: ["Data Science", "Pandas", "Python (Programming Language)"],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Programming Foundations: Fundamentals",
+      issuer: "LinkedIn",
+      date: "Issued Jan 2021",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Programming Foundations: Web Security",
+      issuer: "LinkedIn",
+      date: "Issued Jan 2021",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Time Management: Working from Home",
+      issuer: "LinkedIn",
+      date: "Issued Jan 2021",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Edge Academy Certified: Data-Driven Planning",
+      issuer: "The Trade Desk",
+      date: "Issued Dec 2020",
+      credentialId: "84b00d1a-a3e9-4102-bddd-b8ee0d1b751f",
+      skills: ["Ad Operations", "Ad Tech", "Advertising KPIs", "Data Analysis", "Data-Driven Advertising"],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Programming Foundations: Databases",
+      issuer: "LinkedIn",
+      date: "Issued Dec 2020",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Reading Financial Statements",
+      issuer: "Corporate Finance Institute® (CFI)",
+      date: "Issued Jul 2019",
+      credentialId: "13380432",
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Excel Fundamentals – Formulas for Finance",
+      issuer: "Corporate Finance Institute® (CFI)",
+      date: "Issued Jun 2019",
+      credentialId: "13124219",
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Human Resources: Recruitment & Selection",
+      issuer: "The Open University",
+      date: "Issued Apr 2019",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Fundamentals of Digital Marketing",
+      issuer: "Google",
+      date: "Issued Mar 2019",
+      credentialId: "Z2U PH9 8VA",
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    },
+    {
+      name: "Google Analytics for Beginners",
+      issuer: "Google",
+      date: "Issued Feb 2021 · Expired Apr 2023",
+      credentialId: null,
+      skills: [],
+      credentialLink: "https://credential.com" // Replace with actual link
+    }
+  ],
+  
   skills: {
     "Languages & Analytics": ["R", "Python", "SQL"],
     "Visualization": ["Power BI", "Tableau", "Matplotlib", "Excel (Advanced)", "Google Sheets", "PowerPoint"],
@@ -229,15 +413,6 @@ const profile = {
     "Tools & Platforms": ["Microsoft 365", "Google Workspace", "AWS (basic)", "GitHub", "Grafana", "QuickBooks", "Canva", "Figma"],
     "Business & Strategy": ["A/B Testing", "Cohort Analysis", "Forecasting", "Product Analytics", "Growth Modeling"]
   },
-  
-  certifications: [
-    "Generative AI Fundamentals (Databricks)",
-    "Elements of AI (University of Helsinki)",
-    "Dashboards & Data Visualization (CFI)",
-    "Google Analytics for Beginners",
-    "Python for Data Science (IBM)",
-    "Data-Driven Planning (The Trade Desk)"
-  ],
   
   contact: {
     email: "rahulsahasony@gmail.com",
