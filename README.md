@@ -56,7 +56,7 @@ This portfolio website showcases my professional journey, projects, skills, and 
 ---
 
 ## 📁 Project Structure
-
+```text
 rahulsahasony.github.io/
 ├── index.html                  # Home page
 ├── about/
