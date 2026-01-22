@@ -82,7 +82,7 @@ rahulsahasony.github.io/
 
 ### Prerequisites
 - GitHub account
-- Basic knowledge of Git/GitHub
+- Basic knowledge of GitHub
 
 ### Step 1: Fork the Repository
 1. Click the "Fork" button in the top right of this repository
