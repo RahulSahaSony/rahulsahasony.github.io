@@ -1395,7 +1395,7 @@ footer {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 24px 0;
+    padding: 40px 0;
     position: relative;
   }
   
