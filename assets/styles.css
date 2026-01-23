@@ -1332,53 +1332,432 @@ footer {
   border: 1px solid rgba(244, 67, 54, 0.3);
 }
 
-/* Add these styles to improve mobile hero section */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  /* Keep your existing mobile styles and add these */
-  
-  .hero-section {
-    padding: 0 8px; /* Add extra padding to hero section */
+  .container {
+    padding: 0 16px; /* Reduced from 24px */
   }
   
-  .hero-text {
-    padding: 0 8px; /* Add padding to hero text specifically */
-    text-align: center; /* Center-align text for better mobile appearance */
-  }
-  
-  .hero-content {
-    padding: 0 8px; /* Add padding to hero content container */
-  }
-  
-  .social-links {
-    justify-content: center; /* Center the social links */
-    padding: 0 8px; /* Add padding to social links */
+  main {
+    padding: 32px 0; /* Reduced from 40px */
   }
   
   .section {
-    padding: 0 8px; /* Add padding to all sections */
+    margin-bottom: 40px; /* Reduced from 48px */
   }
   
-  /* Ensure container padding is consistent */
-  .container {
-    padding: 0 16px;
+  .section-title {
+    font-size: 24px; /* Reduced from 28px */
+    margin-bottom: 20px; /* Reduced from 24px */
   }
   
-  /* Add max-width to prevent text from stretching too wide on larger mobile devices */
-  .hero-text {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  /* Add some spacing between elements in hero section */
   .headline {
-    margin-bottom: 12px;
+    margin-bottom: 6px; /* Reduced from 8px */
   }
   
   .subheadline {
-    margin-bottom: 24px;
+    margin-bottom: 24px; /* Reduced from 32px */
   }
   
   .social-links {
+    margin-bottom: 24px; /* Reduced from 32px */
+  }
+  
+  .hero-content {
+    padding: 32px 16px; /* Added horizontal padding */
+    gap: 32px; /* Increased gap between sections */
+  }
+  
+  .hero-text {
+    text-align: center; /* Center text on mobile */
+    padding: 0 16px; /* Add horizontal padding */
+  }
+  
+  .hero-image {
+    padding: 0 16px; /* Add horizontal padding */
+  }
+  
+  .profile-photo {
+    width: 140px; /* Slightly smaller for mobile */
+    height: 140px;
+  }
+  
+  /* Better spacing for mobile */
+  .project-card {
+    margin-bottom: 20px; /* Reduced from 24px */
+  }
+  
+  .card {
+    padding: 20px; /* Reduced from 24px */
+  }
+  
+  /* Better mobile navigation */
+  .nav-container {
+    padding: 12px 16px; /* More compact navigation */
+  }
+  
+  /* Mobile navigation improvements */
+  .nav-menu {
+    padding: 20px; /* More padding in menu */
+  }
+  
+  .nav-menu li a {
+    padding: 16px 20px; /* Better touch targets */
+  }
+  
+  .nav-menu-close {
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+  }
+}
+
+/* Hero Section Mobile Improvements */
+@media (max-width: 768px) {
+  .hero-section {
+    margin-bottom: 40px;
+  }
+  
+  .hero-content {
+    gap: 32px;
+    padding: 32px 16px;
+  }
+  
+  .hero-text {
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
+  }
+  
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Project Cards Mobile */
+@media (max-width: 768px) {
+  .project-card {
+    margin-bottom: 20px;
+  }
+  
+  .project-title {
+    font-size: 18px; /* Slightly smaller */
+  }
+  
+  .project-description {
+    font-size: 14px; /* Slightly smaller */
+  }
+  
+  .project-impact {
+    font-size: 14px;
+  }
+  
+  .project-tags {
+    gap: 6px; /* Tighter spacing */
+  }
+  
+  .tag {
+    font-size: 12px;
+    padding: 3px 10px; /* Smaller tags */
+  }
+}
+
+/* Contact Form Mobile */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Skills Grid Mobile */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .skill-category {
+    padding: 20px;
+  }
+  
+  .skill-category-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .skill-list {
+    gap: 6px;
+  }
+  
+  .skill-item {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+
+/* Footer Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 24px 16px;
+  }
+  
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+/* Resume Mobile Resume */
+@media (max-width: 768px) {
+  .resume-content {
+    padding: 24px;
+  }
+  
+  .resume-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .btn {
+    padding: 12px 16px;
+  }
+}
+
+/* Typography Mobile Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* 32px */
+  }
+  
+  h2 {
+    font-size: 1.75rem; /* 28px */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 24px */
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Cards Mobile Card Improvements */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card:hover {
+    transform: none; /* Remove hover effects on mobile for better performance */
+  }
+  
+  .project-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* Experience Cards Mobile */
+@media (max-width: 768px) {
+  .experience-card {
     margin-bottom: 24px;
+  }
+  
+  .experience-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .experience-title {
+    font-size: 18px;
+  }
+  
+  .experience-company {
+    font-size: 15px;
+  }
+  
+  .experience-dates,
+  .experience-location {
+    font-size: 13px;
+  }
+  
+  .experience-list {
+    padding-left: 16px;
+  }
+  
+  .experience-list li {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+}
+
+/* Education Cards Mobile */
+@media (max-width: 768px) {
+  .education-card {
+    margin-bottom: 24px;
+  }
+  
+  .education-degree {
+    font-size: 18px;
+  }
+  
+  .education-school {
+    font-size: 15px;
+  }
+  
+  .education-details {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .education-awards {
+    font-size: 13px;
+  }
+}
+
+/* Contact Cards Mobile */
+@media (max-width: 768px) {
+  .contact-card {
+    margin-bottom: 20px;
+  }
+  
+  .contact-card-title {
+    font-size: 16px;
+  }
+  
+  .contact-card-content {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .contact-link {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+/* Button Mobile Optimizations */
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 16px;
+  }
+  
+  .btn-icon {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+
+/* Mobile Navigation Menu Animation */
+@media (max-width: 768px) {
+  .nav-menu {
+    animation: slideInFromRight 0.3s ease-out;
+  }
+  
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Mobile Hero Section */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+  }
+  
+  .hero-content {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .hero-text {
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
+  }
+}
+
+/* Ensure mobile content doesn't touch screen edges */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  main {
+    padding: 20px 0;
+  }
+  
+  .section {
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+  }
+  
+  .section-title::after {
+    width: 30px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Ensure no horizontal scrolling on mobile */
+@media (max-width: 480px) {
+  .hero-content {
+    overflow-x: hidden;
   }
 }
