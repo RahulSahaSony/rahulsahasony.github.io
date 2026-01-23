@@ -101,20 +101,17 @@ nav {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
   text-decoration: none;
 }
 
-.nav-logo-icon {
-  width: 24px;
-  height: 24px;
+.nav-logo-image {
+  height: 32px; /* Adjust height as needed */
+  width: auto; /* Maintain aspect ratio */
+  transition: var(--transition);
 }
 
-.nav-logo-text {
-  font-size: 27px; /* 1.5 times bigger than 18px */
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.5px;
+.nav-logo-image:hover {
+  transform: scale(1.05);
 }
 
 .nav-menu {
