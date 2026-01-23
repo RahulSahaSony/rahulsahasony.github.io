@@ -266,7 +266,7 @@ const profile = {
       date: "Issued Jul 2025 · Expires Jul 2027",
       credentialId: "156279935",
       skills: ["Generative AI", "Large Language Models (LLM)"],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://credentials.databricks.com/1d2d6ac6-c75b-41fc-987f-57db12ff58e7"
     },
     {
       name: "Converged Planning Master",
@@ -274,7 +274,7 @@ const profile = {
       date: "Issued Jul 2025",
       credentialId: "9fad9d07-1fdf-495b-93ab-28b311daa91d",
       skills: ["Ad Tech", "Advertising Campaign Management", "Programmatic Advertising", "Advertising KPIs", "Converged Media", "Programmatic", "Programmatic Media Buying"],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.credly.com/badges/9fad9d07-1fdf-495b-93ab-28b311daa91d/public_url"
     },
     {
       name: "Programmatic Advertising Foundations",
@@ -282,7 +282,7 @@ const profile = {
       date: "Issued Jul 2025",
       credentialId: null,
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.linkedin.com/learning/certificates/040dee9fbe6dceb3aee3d115441bcf808c97a1cdb8671ff27360c4268a315575?trk=share_certificate"
     },
     {
       name: "Elements of AI",
@@ -290,7 +290,7 @@ const profile = {
       date: "Issued Jan 2023",
       credentialId: null,
       skills: ["Artificial Intelligence (AI)", "Neural Networks", "Machine Learning"],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://certificates.mooc.fi/validate/7oyeok88b8j"
     },
     {
       name: "Dashboards & Data Visualization",
@@ -298,7 +298,7 @@ const profile = {
       date: "Issued May 2022",
       credentialId: "52065236",
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "http://credentials.corporatefinanceinstitute.com/3f5de3a0-0805-4de3-953e-3767222d7915"
     },
     {
       name: "Introduction to Business Intelligence",
@@ -306,7 +306,7 @@ const profile = {
       date: "Issued May 2022",
       credentialId: "51928989",
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "http://credentials.corporatefinanceinstitute.com/3f5de3a0-0805-4de3-953e-3767222d7915" 
     },
     {
       name: "Professional Ethics",
@@ -314,7 +314,7 @@ const profile = {
       date: "Issued May 2022",
       credentialId: "52022127",
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "http://credentials.corporatefinanceinstitute.com/60325595-0d3c-4ec0-a40c-7ff4887e958a" 
     },
     {
       name: "Python for Data Science",
@@ -322,7 +322,7 @@ const profile = {
       date: "Issued Feb 2021",
       credentialId: "be4b355f-a358-41d6-a7b8-1a8a5b0c19f2",
       skills: ["Data Science", "Pandas", "Python (Programming Language)"],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.youracclaim.com/badges/be4b355f-a358-41d6-a7b8-1a8a5b0c19f2?source=linked_in_profile" 
     },
     {
       name: "Programming Foundations: Fundamentals",
@@ -330,7 +330,7 @@ const profile = {
       date: "Issued Jan 2021",
       credentialId: null,
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.linkedin.com/learning/certificates/404110e0688ae72f9f7b86deb2f4cab454822ca8380214a57262537cdd43412b?trk=backfilled_certificate" 
     },
     {
       name: "Programming Foundations: Web Security",
@@ -338,7 +338,7 @@ const profile = {
       date: "Issued Jan 2021",
       credentialId: null,
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.linkedin.com/learning/certificates/b273f8f68af8591baeec14250e9eebef032b0c4e38166e6ddfe4ae79090e1e67?trk=backfilled_certificate" 
     },
     {
       name: "Time Management: Working from Home",
@@ -346,7 +346,7 @@ const profile = {
       date: "Issued Jan 2021",
       credentialId: null,
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.linkedin.com/learning/certificates/8182a6971d1910a217085b28e3532640e0f7dfc0ffbf384d27462605cb53b87d?trk=backfilled_certificate" 
     },
     {
       name: "Edge Academy Certified: Data-Driven Planning",
@@ -354,7 +354,7 @@ const profile = {
       date: "Issued Dec 2020",
       credentialId: "84b00d1a-a3e9-4102-bddd-b8ee0d1b751f",
       skills: ["Ad Operations", "Ad Tech", "Advertising KPIs", "Data Analysis", "Data-Driven Advertising"],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.youracclaim.com/badges/84b00d1a-a3e9-4102-bddd-b8ee0d1b751f?source=linked_in_profile"
     },
     {
       name: "Programming Foundations: Databases",
@@ -362,7 +362,7 @@ const profile = {
       date: "Issued Dec 2020",
       credentialId: null,
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "https://www.linkedin.com/learning/certificates/fe023a547b58b1b964e32f230500b864abd7540e7a8465734937097044760d7e?trk=backfilled_certificate"
     },
     {
       name: "Reading Financial Statements",
@@ -370,7 +370,7 @@ const profile = {
       date: "Issued Jul 2019",
       credentialId: "13380432",
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "http://credentials.corporatefinanceinstitute.com/11e48c0a-d527-4bad-9308-d03edd45ea03" 
     },
     {
       name: "Excel Fundamentals – Formulas for Finance",
@@ -378,7 +378,7 @@ const profile = {
       date: "Issued Jun 2019",
       credentialId: "13124219",
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: "http://credentials.corporatefinanceinstitute.com/10aa72c4-70eb-4873-bca8-ad2fb5ac6d34" 
     },
     {
       name: "Human Resources: Recruitment & Selection",
@@ -386,24 +386,8 @@ const profile = {
       date: "Issued Apr 2019",
       credentialId: null,
       skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
+      credentialLink: null // Replace with actual link
     },
-    {
-      name: "Fundamentals of Digital Marketing",
-      issuer: "Google",
-      date: "Issued Mar 2019",
-      credentialId: "Z2U PH9 8VA",
-      skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
-    },
-    {
-      name: "Google Analytics for Beginners",
-      issuer: "Google",
-      date: "Issued Feb 2021 · Expired Apr 2023",
-      credentialId: null,
-      skills: [],
-      credentialLink: "https://credential.com" // Replace with actual link
-    }
   ],
   
   skills: {
@@ -419,8 +403,7 @@ const profile = {
     linkedin: "https://linkedin.com/in/rahulsahasony",
     github: "https://github.com/rahulsahasony",
     location: "Falls Church, VA 22041, United States",
-    phone: "(240) 467-7141",
-    bestWayToReach: "Email is the most reliable way to get in touch. I typically respond within 24-48 hours."
+    bestWayToReach: "Email is the most reliable way to get in touch. I typically respond within 12 hours."
   },
   
   researchInterests: [
