@@ -14,13 +14,21 @@
 <body>
   <nav>
     <div class="container nav-container">
-      <a href="/" class="nav-logo">RS</a>
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="nav-logo-text">Rahul Saha</span>
+      </a>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="/" class="nav-link">Home</a></li>
         <li><a href="/about/" class="nav-link">About</a></li>
         <li><a href="/projects/" class="nav-link">Projects</a></li>
         <li><a href="/experience/" class="nav-link">Experience</a></li>
         <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/stories/" class="nav-link">Stories</a></li>
         <li><a href="/contact/" class="nav-link">Contact</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle">🌙</button>
@@ -149,14 +157,12 @@
                 ${cert.credentialLink ? `
                   <div class="certification-link">
                     <a href="${cert.credentialLink}" target="_blank" rel="noopener noreferrer" class="credential-link-with-icon">
-                      <svg class="credential-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
                       Show credential
+                      <svg class="credential-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
                     </a>
                   </div>
                 ` : ''}
