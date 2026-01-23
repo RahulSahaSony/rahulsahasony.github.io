@@ -97,13 +97,24 @@ nav {
   padding: 16px 0;
 }
 
+/* Navigation Logo */
 .nav-logo {
-  font-family: var(--font-primary);
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-logo-text {
+  font-size: 27px; /* 1.5 times bigger than 18px */
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.5px;
-  text-decoration: none;
 }
 
 .nav-menu {
@@ -505,6 +516,12 @@ main {
   font-size: 14px;
   color: var(--text-secondary);
   font-weight: 400;
+  transition: var(--transition);
+}
+
+.skill-item:hover {
+  background-color: var(--accent);
+  color: white;
 }
 
 /* Contact */
@@ -603,12 +620,12 @@ footer {
 
 /* Buttons */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 10px 16px;
   background-color: var(--accent);
-  align-items: center;
-  gap: 8px;
-  line-height: 1;
   color: white;
   border: none;
   border-radius: 8px;
@@ -643,6 +660,7 @@ footer {
 /* Resume Page */
 .resume-actions {
   display: flex;
+  align-items: center;
   gap: 16px;
   margin-bottom: 32px;
 }
@@ -804,7 +822,7 @@ footer {
 .certifications-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 32px; /* Same gap as skills section */
 }
 
 .certification-card {
@@ -860,6 +878,29 @@ footer {
   color: var(--accent);
   font-weight: 500;
   font-size: 14px;
+}
+
+/* Credential Link */
+.credential-link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-primary);
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 14px;
+  transition: var(--transition);
+  padding: 8px 0;
+}
+
+.credential-link-with-icon:hover {
+  color: var(--accent-hover);
+}
+
+.credential-icon {
+  transition: var(--transition);
+  margin-left: 8px;
 }
 
 .experience-event {
@@ -1033,24 +1074,31 @@ footer {
   color: var(--text-primary);
 }
 
-/* Credential Icon Styles */
-.credential-link-with-icon {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-primary);
+/* Stories Page */
+.coming-soon-card {
+  text-align: center;
+  padding: 48px 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.coming-soon-content h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
   color: var(--accent);
-  font-weight: 500;
-  font-size: 14px;
-  transition: var(--transition);
 }
 
-.credential-link-with-icon:hover {
-  color: var(--accent-hover);
+.coming-soon-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: var(--text-secondary);
 }
 
-.credential-icon {
-  transition: var(--transition);
+.coming-soon-illustration {
+  margin-top: 24px;
+  color: var(--accent);
+  opacity: 0.7;
 }
 
 /* Light Theme Enhancements */
@@ -1097,6 +1145,58 @@ footer {
   border: 1px solid rgba(244, 67, 54, 0.3);
 }
 
+/* Project Tags and Links Hover Effect */
+.project-tags .tag:hover,
+.project-link:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Skills Tags Hover Effect */
+.skill-item:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Projects Page Tags and Links Hover Effect */
+.filter-chip:hover,
+.filter-chip.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.project-tags .tag:hover,
+.project-link:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Light theme specific hover effects */
+[data-theme="light"] .project-tags .tag:hover,
+[data-theme="light"] .project-link:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+[data-theme="light"] .skill-item:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+[data-theme="light"] .filter-chip:hover,
+[data-theme="light"] .filter-chip.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+[data-theme="light"] .project-tags .tag:hover,
+[data-theme="light"] .project-link:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .nav-menu {
@@ -1107,7 +1207,7 @@ footer {
     width: 100%;
     background-color: var(--bg-secondary);
     flex-direction: column;
-    padding: 16px;
+    padding: 12px; /* Reduced padding */
     border-bottom: 1px solid var(--border);
     z-index: 100;
     text-align: right;
@@ -1160,6 +1260,12 @@ footer {
   
   .section-title {
     font-size: 24px;
+    text-align: center;
+  }
+  
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .skills-container {
@@ -1196,8 +1302,23 @@ footer {
   
   .social-links {
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 0 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .social-links::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .social-links::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+  
+  .social-links::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 2px;
   }
   
   .headline {
@@ -1232,12 +1353,52 @@ footer {
   .contact-form-container {
     padding: 24px;
   }
+  
+  .nav-container {
+    padding: 18px 0; /* Increased header size by 1.5x */
+  }
+  
+  footer {
+    padding: 16px 0; /* Reduced footer size by half */
+    margin-top: 24px;
+  }
+  
+  .footer-container {
+    padding: 0;
+  }
+  
+  .nav-logo-text {
+    font-size: 22px; /* Slightly smaller on mobile */
+  }
+  
+  .nav-logo-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .nav-menu li a {
+    padding: 8px 16px; /* Reduced vertical padding */
+  }
+  
+  .nav-menu-close {
+    top: 4px;
+    right: 12px;
+  }
+  
+  .resume-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
 }
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 12px 0;
+    padding: 18px 0;
     position: relative;
   }
   
@@ -1268,7 +1429,7 @@ footer {
     width: 100%;
     background-color: var(--bg-secondary);
     flex-direction: column;
-    padding: 16px;
+    padding: 12px;
     border-bottom: 1px solid var(--border);
     z-index: 100;
     text-align: right;
@@ -1286,7 +1447,7 @@ footer {
   
   .nav-menu li a {
     display: block;
-    padding: 12px 16px;
+    padding: 8px 16px;
     color: var(--text-secondary);
     font-weight: 500;
     font-size: 16px;
@@ -1311,8 +1472,8 @@ footer {
   /* Menu Close Button */
   .nav-menu-close {
     position: absolute;
-    top: 8px;
-    right: 16px;
+    top: 4px;
+    right: 12px;
     background: none;
     border: none;
     color: var(--text-secondary);
@@ -1411,6 +1572,25 @@ footer {
   
   .hero-content {
     overflow-x: hidden;
+  }
+}
+
+/* Contact Page Desktop Layout */
+@media (min-width: 769px) {
+  .contact-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .contact-form-section,
+  .calendly-section {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .calendly-container {
+    height: 700px !important;
   }
 }
 
@@ -1523,12 +1703,6 @@ footer {
     padding: 6px 12px;
   }
   
-  .btn {
-    width: 100%;
-    text-align: center;
-    padding: 12px 16px;
-  }
-  
   .btn-icon {
     display: inline-block;
     margin-right: 8px;
@@ -1536,11 +1710,6 @@ footer {
   
   .resume-content {
     padding: 24px;
-  }
-  
-  .resume-actions {
-    flex-direction: column;
-    gap: 12px;
   }
   
   .footer-container {
