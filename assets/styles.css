@@ -1072,30 +1072,24 @@ footer {
 }
 
 /* Stories Page */
-.coming-soon-card {
+.coming-soon-text {
   text-align: center;
   padding: 48px 24px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.coming-soon-content h2 {
+.coming-soon-text h2 {
   font-size: 32px;
   margin-bottom: 16px;
   color: var(--accent);
 }
 
-.coming-soon-content p {
+.coming-soon-text p {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 32px;
   color: var(--text-secondary);
-}
-
-.coming-soon-illustration {
-  margin-top: 24px;
-  color: var(--accent);
-  opacity: 0.7;
 }
 
 /* Light Theme Enhancements */
@@ -1204,7 +1198,7 @@ footer {
     width: 100%;
     background-color: var(--bg-secondary);
     flex-direction: column;
-    padding: 12px; /* Reduced padding */
+    padding: 8px; /* Reduced padding */
     border-bottom: 1px solid var(--border);
     z-index: 100;
     text-align: right;
@@ -1257,10 +1251,20 @@ footer {
   
   .section-title {
     font-size: 24px;
-    text-align: center;
+    text-align: left; /* Changed from center to left */
   }
   
   .section-title::after {
+    left: 0; /* Changed from center to left */
+    transform: none; /* Removed center transform */
+  }
+  
+  /* Keep home page title centered on mobile */
+  .hero-section .section-title {
+    text-align: center;
+  }
+  
+  .hero-section .section-title::after {
     left: 50%;
     transform: translateX(-50%);
   }
@@ -1352,7 +1356,7 @@ footer {
   }
   
   .nav-container {
-    padding: 18px 0; /* Increased header size by 1.5x */
+    padding: 24px 0; /* Increased header size by 1.5x */
   }
   
   footer {
@@ -1364,17 +1368,13 @@ footer {
     padding: 0;
   }
   
-  .nav-logo-text {
-    font-size: 22px; /* Slightly smaller on mobile */
-  }
-  
   .nav-logo-icon {
     width: 20px;
     height: 20px;
   }
   
   .nav-menu li a {
-    padding: 8px 16px; /* Reduced vertical padding */
+    padding: 6px 16px; /* Reduced vertical padding */
   }
   
   .nav-menu-close {
@@ -1395,7 +1395,7 @@ footer {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 18px 0;
+    padding: 24px 0;
     position: relative;
   }
   
@@ -1426,7 +1426,7 @@ footer {
     width: 100%;
     background-color: var(--bg-secondary);
     flex-direction: column;
-    padding: 12px;
+    padding: 8px;
     border-bottom: 1px solid var(--border);
     z-index: 100;
     text-align: right;
@@ -1444,7 +1444,7 @@ footer {
   
   .nav-menu li a {
     display: block;
-    padding: 8px 16px;
+    padding: 6px 16px;
     color: var(--text-secondary);
     font-weight: 500;
     font-size: 16px;
@@ -1576,14 +1576,14 @@ footer {
 @media (min-width: 769px) {
   .contact-sections {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 32px;
+    margin-left: 0; /* Align to left margin */
   }
   
   .contact-form-section,
   .calendly-section {
     max-width: 600px;
-    margin: 0 auto;
   }
   
   .calendly-container {
