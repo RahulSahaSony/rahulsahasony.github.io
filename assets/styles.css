@@ -1331,3 +1331,54 @@ footer {
   background-color: rgba(244, 67, 54, 0.15);
   border: 1px solid rgba(244, 67, 54, 0.3);
 }
+
+/* Add these styles to improve mobile hero section */
+@media (max-width: 768px) {
+  /* Keep your existing mobile styles and add these */
+  
+  .hero-section {
+    padding: 0 8px; /* Add extra padding to hero section */
+  }
+  
+  .hero-text {
+    padding: 0 8px; /* Add padding to hero text specifically */
+    text-align: center; /* Center-align text for better mobile appearance */
+  }
+  
+  .hero-content {
+    padding: 0 8px; /* Add padding to hero content container */
+  }
+  
+  .social-links {
+    justify-content: center; /* Center the social links */
+    padding: 0 8px; /* Add padding to social links */
+  }
+  
+  .section {
+    padding: 0 8px; /* Add padding to all sections */
+  }
+  
+  /* Ensure container padding is consistent */
+  .container {
+    padding: 0 16px;
+  }
+  
+  /* Add max-width to prevent text from stretching too wide on larger mobile devices */
+  .hero-text {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Add some spacing between elements in hero section */
+  .headline {
+    margin-bottom: 12px;
+  }
+  
+  .subheadline {
+    margin-bottom: 24px;
+  }
+  
+  .social-links {
+    margin-bottom: 24px;
+  }
+}
