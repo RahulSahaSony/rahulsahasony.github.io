@@ -132,15 +132,3 @@ closeBtn.addEventListener('click', function() {
 if (navMenu) {
   navMenu.appendChild(closeBtn);
 }
-
-// Add a close button to the mobile menu
-const closeBtn = document.createElement('button');
-closeBtn.className = 'nav-menu-close';
-closeBtn.innerHTML = '×';
-closeBtn.addEventListener('click', function() {
-  navMenu.classList.remove('active');
-});
-
-if (navMenu) {
-  navMenu.appendChild(closeBtn);
-}
