@@ -391,10 +391,10 @@ const profile = {
   ],
   
   skills: {
-    "Languages & Analytics": ["R", "Python", "SQL"],
-    "Visualization": ["Power BI", "Tableau", "Matplotlib", "Excel (Advanced)", "Google Sheets", "PowerPoint"],
+    "Languages & Analytics": ["R", "Python", "SQL", "HTML/CSS"],
+    "Visualization": ["Power BI", "Tableau", "Matplotlib", "Excel (Advanced)", "Google Sheets", "PowerPoint", "Canva"],
     "Machine Learning": ["Linear Regression", "Logistic Regression", "Decision Trees", "SVM", "KNN", "BERT", "LSTM"],
-    "Tools & Platforms": ["Microsoft 365", "Google Workspace", "AWS (basic)", "GitHub", "Grafana", "QuickBooks", "Canva", "Figma"],
+    "Tools & Platforms": ["Microsoft 365", "Google Workspace", "AWS (EC2, Lamda)", "GitHub", "Streamlit", "Grafana", "QuickBooks", "Figma"],
     "Business & Strategy": ["A/B Testing", "Cohort Analysis", "Forecasting", "Product Analytics", "Growth Modeling"]
   },
   
