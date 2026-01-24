@@ -411,4 +411,33 @@ const profile = {
     "Computational Social Science",
     "Public Administration- General"
   ]
+},
+
+const profile = {
+  // ... other existing properties ...
+  
+  // Add latest updates data
+  latestUpdates: [
+    {
+      text: "Recently completed an MS in Business Analytics at George Washington University",
+      date: "May 2025",
+      icon: "graduation-cap",
+      type: "education"
+    },
+    {
+      text: "Actively seeking Business Analyst, Data Analyst, AI, or Machine Learning roles",
+      date: "May 2025",
+      icon: "briefcase"
+    },
+    {
+      text: "Building ML pipelines for customer intelligence and revenue optimization",
+      date: "April 2025",
+      icon: "machine-learning"
+    },
+    {
+      text: "Building and refining real-world analytics and ML projects",
+      date: "March 2025",
+      icon: "project"
+    }
+  ]
 };
