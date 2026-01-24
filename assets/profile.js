@@ -404,36 +404,11 @@ const profile = {
   },
   
   researchInterests: [
-  {
     "Interpretable & Responsible Machine Learning",
     "Optimization & Decision Analytics",
     "Applied Econometrics & Policy Analytics",
     "Human-Centered AI",
     "Computational Social Science",
     "Public Administration- General"
-  }
-  ],
-  
-  latestUpdates: [
-    {
-      text: "Recently completed an MS in Business Analytics at George Washington University",
-      date: "May 2025",
-      icon: "graduation-cap",
-      type: "education"
-    },
-    {
-      text: "Actively seeking Business Analyst, Data Analyst, AI, or Machine Learning roles",
-      date: "May 2025",
-      icon: "briefcase"
-    },
-    {
-      text: "Building ML pipelines for customer intelligence and revenue optimization",
-      date: "April 2025",
-      icon: "machine-learning"
-    },
-    {
-      text: "Building and refining real-world analytics and ML projects",
-      date: "March 2025",
-      icon: "project"
-    }
   ]
+},
