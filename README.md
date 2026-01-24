@@ -67,6 +67,8 @@ rahulsahasony.github.io/
 │   └── index.html              # Experience and volunteering
 ├── resume/
 │   └── index.html              # Resume page
+├── stories/
+│   └── index.html              # Stories page
 ├── contact/
 │   └── index.html              # Contact + Calendly
 ├── assets/
