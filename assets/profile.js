@@ -404,19 +404,16 @@ const profile = {
   },
   
   researchInterests: [
+  {
     "Interpretable & Responsible Machine Learning",
     "Optimization & Decision Analytics",
     "Applied Econometrics & Policy Analytics",
     "Human-Centered AI",
     "Computational Social Science",
     "Public Administration- General"
-  ]
-},
-
-const profile = {
-  // ... other existing properties ...
+  }
+  ],
   
-  // Add latest updates data
   latestUpdates: [
     {
       text: "Recently completed an MS in Business Analytics at George Washington University",
