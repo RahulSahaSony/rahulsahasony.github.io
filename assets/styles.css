@@ -819,7 +819,7 @@ footer {
 .certifications-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 32px; /* Same gap as skills section */
+  gap: 24px; /* Same gap as skills section */
 }
 
 .certification-card {
