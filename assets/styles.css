@@ -1699,3 +1699,112 @@ footer {
     gap: 16px;
   }
 }
+
+/* Social Feed Styles */
+.latest-updates {
+  margin-bottom: 48px;
+}
+
+.social-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.social-feed-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--card-border);
+}
+
+.social-feed-content {
+  display: flex;
+  gap: 16px;
+}
+
+.social-feed-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.social-feed-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-feed-date {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Social Feed Hover Effects */
+.social-feed-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+/* Social Feed Mobile Styles */
+@media (max-width: 768px) {
+  .social-feed {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .social-feed-content {
+    flex-direction: column;
+  }
+  
+  .social-feed-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-feed-text {
+    text-align: center;
+  }
+}
+
+/* Social Feed Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation for social feed items */
+.social-feed-item {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Individual item animation */
+.social-feed-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+/* Individual item animation */
+.social-feed-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
