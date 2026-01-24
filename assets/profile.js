@@ -437,4 +437,3 @@ const profile = {
       icon: "project"
     }
   ]
-};
