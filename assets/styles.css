@@ -824,7 +824,7 @@ footer {
 }
 
 .certification-card {
-  padding: 20px;
+  padding: 24px;
 }
 
 .certification-header {
@@ -878,7 +878,7 @@ footer {
   font-size: 14px;
 }
 
-/* Credential Link */
+/* Credential Link - Updated positioning */
 .credential-link-with-icon {
   display: inline-flex;
   align-items: center;
@@ -2248,5 +2248,267 @@ footer {
   
   .story-full-text {
     font-size: 1rem;
+  }
+}
+
+/* Contact Popup Styles */
+.contact-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.contact-popup-content {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.contact-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.contact-popup-close:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.contact-popup-header {
+  padding: 32px 32px 24px;
+  text-align: center;
+}
+
+.contact-popup-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.contact-popup-header p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.contact-popup-form {
+  padding: 0 32px 32px;
+}
+
+.contact-popup-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-popup-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.contact-popup-form .form-group input,
+.contact-popup-form .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-popup-form .form-group input:focus,
+.contact-popup-form .form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+.contact-popup-form .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* LinkedIn Popup Styles */
+.linkedin-preview {
+  padding: 0 32px 32px;
+}
+
+.linkedin-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.linkedin-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.linkedin-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linkedin-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.linkedin-info p {
+  color: var(--text-secondary);
+  margin: 0 0 4px;
+}
+
+/* GitHub Popup Styles */
+.github-projects {
+  padding: 0 32px 32px;
+}
+
+.github-project {
+  padding: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.github-project h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.github-project p {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.github-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.github-link:hover {
+  color: var(--accent-hover);
+}
+
+/* Calendly Popup Styles */
+#calendly-popup .contact-popup-content {
+  max-width: 800px;
+}
+
+#calendly-popup .contact-popup-header {
+  padding-bottom: 0;
+}
+
+#calendly-popup .calendly-inline-widget {
+  margin: 0 32px 32px;
+}
+
+/* Updated Contact Method Button */
+.contact-method-btn {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  margin-top: 12px;
+}
+
+.contact-method-btn:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Updated Stories Page Styles */
+.story-date {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.story-full-date {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+/* Mobile Responsive Styles for Popups */
+@media (max-width: 768px) {
+  .contact-popup-content {
+    max-width: 95%;
+    max-height: 95vh;
+  }
+  
+  .contact-popup-header {
+    padding: 24px 24px 20px;
+  }
+  
+  .contact-popup-form {
+    padding: 0 24px 24px;
+  }
+  
+  .linkedin-preview,
+  .github-projects {
+    padding: 0 24px 24px;
+  }
+  
+  .linkedin-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  #calendly-popup .calendly-inline-widget {
+    margin: 0 24px 24px;
   }
 }
