@@ -411,4 +411,4 @@ const profile = {
     "Computational Social Science",
     "Public Administration- General"
   ]
-},
+};
