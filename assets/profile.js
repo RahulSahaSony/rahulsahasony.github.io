@@ -16,21 +16,21 @@ const profile = {
       description: "Built a dual-model architecture combining a SQL-based market-insights engine and a RAG-based LLM pipeline to deliver verified salary benchmarks, skill gaps, and career insights.",
       impact: "Delivered actionable career insights through semantic search and data-driven recommendations",
       technologies: ["Python", "SQL", "BERT", "Sentence Transformers", "ETL"],
-      github: "https://github.com/rahulsahasony"
+      github: "https://github.com/RahulSahaSony/LaborIQ-demo"
     },
     {
       title: "AI Beyond Defense: Tackling Concentration Risk",
       description: "Built a multimodal AI tool (SupplyGuard) using OpenAI's APIs to help U.S. policymakers identify and mitigate non-military national security threats.",
       impact: "Identified single-source risks for critical materials with clear visualizations",
       technologies: ["Python", "OpenAI API", "Streamlit", "AI Ethics"],
-      github: "https://github.com/rahulsahasony"
+      github: "https://github.com/RahulSahaSony/ai-expo_hackathon"
     },
     {
       title: "Forecasting Monthly Ridership for Capital Bikeshare",
       description: "Conducted time series forecasting on Capital Bikeshare's monthly ridership data to support demand planning and resource optimization.",
       impact: "Delivered actionable forecasting results with clear visualizations and model justification",
       technologies: ["R", "Time Series", "ARIMA", "Holt-Winters", "Statistical Analysis"],
-      github: "https://github.com/rahulsahasony"
+      github: null
     }
   ],
   
@@ -40,7 +40,7 @@ const profile = {
       description: "Built a dual-model architecture combining a SQL-based market-insights engine and a RAG-based LLM pipeline to deliver verified salary benchmarks, skill gaps, and career insights.",
       impact: "Delivered actionable career insights through semantic search and data-driven recommendations",
       technologies: ["Python", "SQL", "BERT", "Sentence Transformers", "ETL"],
-      github: "https://github.com/rahulsahasony",
+      github: "https://github.com/RahulSahaSony/LaborIQ-demo",
       demo: null
     },
     {
@@ -48,7 +48,7 @@ const profile = {
       description: "Built a multimodal AI tool (SupplyGuard) using OpenAI's APIs to help U.S. policymakers identify and mitigate non-military national security threats.",
       impact: "Identified single-source risks for critical materials with clear visualizations",
       technologies: ["Python", "OpenAI API", "Streamlit", "AI Ethics"],
-      github: "https://github.com/rahulsahasony",
+      github: "https://github.com/RahulSahaSony/ai-expo_hackathon",
       demo: null
     },
     {
@@ -56,7 +56,7 @@ const profile = {
       description: "Conducted time series forecasting on Capital Bikeshare's monthly ridership data to support demand planning and resource optimization.",
       impact: "Delivered actionable forecasting results with clear visualizations and model justification",
       technologies: ["R", "Time Series", "ARIMA", "Holt-Winters", "Statistical Analysis"],
-      github: "https://github.com/rahulsahasony",
+      github: null,
       demo: null
     },
     {
@@ -64,7 +64,7 @@ const profile = {
       description: "Built explainable models (EBM, GLM) to predict high-priced mortgage loans while reducing demographic bias using HMDA data (180K+ records).",
       impact: "Final model (EBM) achieved AUC of 0.83 and improved fairness across race and gender",
       technologies: ["Python", "EBM", "GLM", "Machine Learning", "Fairness"],
-      github: "https://github.com/rahulsahasony",
+      github: "https://github.com/RahulSahaSony/ResponsibleML",
       demo: null
     },
     {
@@ -72,7 +72,7 @@ const profile = {
       description: "Simulated the analytics department of the Golden State Warriors to identify player performance trends and improvement areas.",
       impact: "Delivered insights using SQL queries and visual dashboards to guide executive decisions",
       technologies: ["SQL", "PostgreSQL", "JupyterLab", "Data Analysis"],
-      github: "https://github.com/rahulsahasony",
+      github: null,
       demo: null
     },
     {
@@ -80,15 +80,7 @@ const profile = {
       description: "Modeled an investment decision for a $10M recreational property using decision trees and sensitivity analysis.",
       impact: "Applied Monte Carlo simulations to recommend a $400K budget, improving decision confidence by 15%",
       technologies: ["Decision Modeling", "Monte Carlo", "Risk Analysis", "@Risk"],
-      github: "https://github.com/rahulsahasony",
-      demo: null
-    },
-    {
-      title: "Harnessing Sentiment Analysis for Mental Health Support",
-      description: "Explored the use of AI-powered sentiment analysis to detect early signs of anxiety, depression, and PTSD.",
-      impact: "Built and evaluated models including BERT (92% accuracy) and LSTM (89%) for sentiment classification",
-      technologies: ["Python", "BERT", "LSTM", "CNN-LSTM", "NLP"],
-      github: "https://github.com/rahulsahasony",
+      github: null,
       demo: null
     }
   ],
@@ -100,7 +92,7 @@ const profile = {
       location: "Washington, DC",
       dates: "Aug 2025 - Nov 2025",
       bullets: [
-        "Assisted budget officer with expense tracking, compliance documentation, and real-time monitoring of event expenditures for a $3M project.",
+        "Assisted budget officer with real-time monitoring of event expenditures and compliance documentation for a $3M project.",
         "Supported planning and execution of the WB IMF annual meetings, and cross-department workflows.",
         "Liaised with internal teams and external stakeholders, including member country officials, to ensure smooth communication.",
         "Analyzed budget data and presented trends using Power BI."
@@ -113,8 +105,8 @@ const profile = {
       dates: "Jul 2025 - Sep 2025",
       bullets: [
         "Analyzed small business workflows to identify inefficiencies and opportunities for automation.",
-        "Designed AI-powered solutions to improve customer engagement and operational efficiency",
-        "Developed an ethical AI deployment framework addressing transparency, bias, and privacy concerns",
+        "Designed LLM-powered solutions to improve customer engagement and operational efficiency.",
+        "Applied responsible AI principles (bias, transparency, privacy) aligned with enterprise AI governance.",
         "Presented an actionable deployment strategy tailored to real-world small business use cases."
       ]
     },
@@ -124,12 +116,16 @@ const profile = {
       location: "Middletown, DE",
       dates: "Jul 2023 - Jul 2024",
       bullets: [
-        "Served as a founding team member, helping shape Adferry's strategic direction, operational structure, and growth engine from the ground up.",
+        "Served as a founding team member, helping shape Adferry’s strategic direction, operational structure, and growth engine from the ground up.",
         "Led cross-functional initiatives spanning ad operations (mostly on CTV and In-app), growth strategy, marketing, HR, finance, and internal systems.",
         "Built and launched Adferry's official website and brand identity, including logo and all visual assets.",
         "Oversaw onboarding and training of 13+ team members across departments; managed HR documentation and contracts.",
         "Collaborated with the finance team to streamline collections and revenue tracking systems for enhanced transparency.",
-        "Monitored programmatic ad campaigns across DSPs and SSPs, driving a 25% increase in revenue through real-time optimizations and reporting."
+        "Monitored programmatic ad campaigns across DSPs and SSPs, driving a 25% increase in revenue through real-time optimizations and reporting.",
+        "Conducted fraud detection audits and implemented compliance practices to improve platform quality and trust.",
+        "Designed interactive tools for revenue and performance tracking, increasing operational efficiency across ad tech and finance teams.",
+        "Partnered with advertisers to define KPIs, optimize campaign performance, and drive measurable ROI.",
+        "Guided the sales team in upselling to existing accounts and contributed to expanding inventory and partner relationships."
       ]
     },
     {
@@ -143,7 +139,10 @@ const profile = {
         "Oversaw daily ad operations and campaign performance across 50+ partners, improving delivery rates by 20% and optimizing profitability through floor price adjustments.",
         "Managed relationships with SSPs, affiliates, ad networks, and media buyers, negotiating CPC/CPM-based deals to expand market reach and ROI.",
         "Built and maintained interactive dashboards for real-time performance tracking and reporting, enhancing decision-making for both internal and external stakeholders.",
-        "Scaled programmatic revenue from $500/day to $3,000/day by managing real-time bidding (RTB) campaigns across SmartHub, PLL, and AppNexus exchanges."
+        "Scaled programmatic revenue from $500/day to $3,000/day by managing real-time bidding (RTB) campaigns across SmartHub, PLL, and AppNexus exchanges.",
+        "Conducted A/B testing, campaign optimization, and fraud detection using ad tech tools to ensure high-quality traffic and maximize conversion rates.",
+        "Led team recruitment and performance management, building a strong, cross-functional team with expertise in programmatic advertising and campaign execution.",
+        "Created internal revenue tracking and payment collection files, supporting finance operations and streamlining billing workflows."
       ]
     },
     {
@@ -152,11 +151,9 @@ const profile = {
       location: "Dhaka, Bangladesh",
       dates: "Aug 2018 - Aug 2020",
       bullets: [
-        "Worked in the data processing team, handling tasks like content moderation, data entry, and data mining based on client needs.",
-        "Used tools like Google Sheets and CRM systems to manage and organize data efficiently.",
-        "Completed various online back-office tasks, always following client instructions closely.",
-        "Raised any task-related issues with supervisors to prevent delays or errors.",
-        "Shared progress and insights with the team during regular meetings and presentations."
+        "Coordinated data processing tasks including content moderation, data mining, and large-scale data validation.",
+        "Managed and organized datasets using Google Sheets and CRM tools, ensuring accuracy, consistency, and on-time delivery.",
+        "Partnered with team leads to resolve issues, communicate progress, and meet daily and weekly targets."
       ]
     },
     {
@@ -178,36 +175,36 @@ const profile = {
       role: "Registration Team Volunteer",
       organization: "International Monetary Fund",
       dates: "Apr 2025",
-      event: "2025 Spring Meetings of the World Bank Group (WBG) and the International Monetary Fund (IMF)",
-      description: []
+      event: "Facilitated delegate registration and venue support of the World Bank (WBG) and the International Monetary Fund (IMF) 2025 Spring Meetings",
+      description: null
     },
     {
       role: "Volunteer",
       organization: "DC Startup & Tech Week",
       dates: "Oct 2025",
-      event: "Science and Technology",
-      description: []
+      event: "Helped check in guests and guide attendees throughout the DC 2025 Startup & Tech Week event",
+      description: null
     },
     {
       role: "Volunteer",
       organization: "IEEE Cloud Summit",
       dates: "Jun 2025",
-      event: null,
-      description: []
+      event: "Supported event staff and assisted attendees during sessions",
+      description: null
     },
     {
-      role: "Open Source Contributor at GW Open Source Conference 2025",
-      organization: "GW Open Source Program Office",
+      role: "Open Source Contributor",
+      organization: "GW Open Source Conference",
       dates: "Mar 2025",
-      event: "GW's First Annual Open Source Conference",
-      description: []
+      event: "Took part in GW’s first open source conference and supported community discussions",
+      description: null
     },
     {
       role: "Volunteer",
       organization: "60th Presidential Inaugural Committee",
       dates: "Jan 2025",
       event: null,
-      description: []
+      description: null
     }
   ],
   
@@ -391,10 +388,10 @@ const profile = {
   ],
   
   skills: {
-    "Languages & Analytics": ["R", "Python", "SQL"],
-    "Visualization": ["Power BI", "Tableau", "Matplotlib", "Excel (Advanced)", "Google Sheets", "PowerPoint"],
+    "Languages & Analytics": ["R", "Python", "SQL", "HTML/CSS"],
+    "Visualization": ["Power BI", "Tableau", "Matplotlib", "Excel (Advanced)", "Google Sheets", "PowerPoint", "Canva"],
     "Machine Learning": ["Linear Regression", "Logistic Regression", "Decision Trees", "SVM", "KNN", "BERT", "LSTM"],
-    "Tools & Platforms": ["Microsoft 365", "Google Workspace", "AWS (basic)", "GitHub", "Grafana", "QuickBooks", "Canva", "Figma"],
+    "Tools & Platforms": ["Microsoft 365", "Google Workspace", "AWS (EC2, Lamda)", "GitHub", "Streamlit", "Grafana", "QuickBooks", "Figma"],
     "Business & Strategy": ["A/B Testing", "Cohort Analysis", "Forecasting", "Product Analytics", "Growth Modeling"]
   },
   
