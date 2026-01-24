@@ -1165,6 +1165,29 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* Mobile Navigation Enhancements */
+  .nav-container {
+    padding: 24px 0; /* Increased header padding */
+    height: 80px; /* Fixed height for consistency */
+  }
+  
+  .theme-toggle {
+    font-size: 28px; /* Increased theme toggle size */
+    padding: 8px;
+    margin-left: 16px;
+  }
+  
+  .nav-logo-image {
+    height: 48px; /* Increased logo size */
+    width: auto;
+  }
+  
+  .mobile-menu-toggle {
+    font-size: 28px; /* Increased hamburger menu size */
+    padding: 8px;
+    margin-right: 16px;
+  }
+  
   .nav-menu {
     display: none;
     position: absolute;
@@ -1335,10 +1358,6 @@ footer {
     padding: 16px 20px;
   }
   
-  .nav-container {
-    padding: 48px 0; /* Increased header size by 1.5x */
-  }
-  
   footer {
     padding: 16px 0; /* Reduced footer size by half */
     margin-top: 24px;
@@ -1377,6 +1396,7 @@ footer {
   .nav-container {
     padding: 24px 0;
     position: relative;
+    height: 80px; /* Ensure consistent height */
   }
   
   .nav-logo {
@@ -1390,12 +1410,16 @@ footer {
     order: 1;
     margin-right: auto;
     margin-left: 16px;
+    font-size: 28px; /* Increased size */
+    padding: 8px;
   }
   
   .mobile-menu-toggle {
     order: 3;
     margin-left: auto;
     margin-right: 16px;
+    font-size: 28px; /* Increased size */
+    padding: 8px;
   }
   
   .nav-menu {
@@ -1498,6 +1522,26 @@ footer {
 
 /* For very small screens (iPhone SE, etc.) */
 @media (max-width: 480px) {
+  /* Even larger navigation for very small screens */
+  .nav-container {
+    padding: 28px 0; /* Further increased padding */
+    height: 90px; /* Increased height */
+  }
+  
+  .theme-toggle {
+    font-size: 32px; /* Even larger */
+    padding: 10px;
+  }
+  
+  .nav-logo-image {
+    height: 52px; /* Even larger logo */
+  }
+  
+  .mobile-menu-toggle {
+    font-size: 32px; /* Even larger */
+    padding: 10px;
+  }
+  
   .hero-section .container {
     padding-left: 20px;
     padding-right: 20px;
@@ -1697,23 +1741,5 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
-  }
-}
-/* Add a close button to the mobile menu */
-.nav-menu-close {
-  display: none;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 24px;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .nav-menu-close {
-    display: block;
   }
 }
