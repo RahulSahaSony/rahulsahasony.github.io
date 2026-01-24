@@ -1699,4 +1699,21 @@ footer {
     gap: 16px;
   }
 }
+/* Add a close button to the mobile menu */
+.nav-menu-close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 24px;
+  cursor: pointer;
+}
 
+@media (max-width: 768px) {
+  .nav-menu-close {
+    display: block;
+  }
+}
