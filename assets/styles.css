@@ -909,10 +909,6 @@ footer {
   font-style: italic;
 }
 
-/* =================================== */
-/* CONTACT PAGE STYLES - UPDATED */
-/* =================================== */
-
 /* Intro text - left aligned instead of centered */
 .intro-text-left {
   text-align: left;
@@ -1049,9 +1045,6 @@ footer {
   line-height: 1.5;
 }
 
-/* =================================== */
-/* END OF CONTACT PAGE UPDATES */
-/* =================================== */
 
 /* Stories Page */
 .coming-soon-text {
@@ -1343,7 +1336,7 @@ footer {
   }
   
   .nav-container {
-    padding: 24px 0; /* Increased header size by 1.5x */
+    padding: 48px 0; /* Increased header size by 1.5x */
   }
   
   footer {
