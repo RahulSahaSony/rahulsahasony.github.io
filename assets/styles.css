@@ -105,8 +105,8 @@ nav {
 }
 
 .nav-logo-image {
-  height: 32px; /* Adjust height as needed */
-  width: auto; /* Maintain aspect ratio */
+  height: 32px;
+  width: auto;
   transition: var(--transition);
 }
 
@@ -478,7 +478,7 @@ main {
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 32px;
 }
 
 .skill-category {
@@ -751,7 +751,8 @@ footer {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--accent);
+    color: var(--accent);
+  }
 }
 
 /* Print Styles */
@@ -819,7 +820,7 @@ footer {
 .certifications-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px; /* Same gap as skills section */
+  gap: 32px; /* Same gap as skills section */
 }
 
 .certification-card {
@@ -908,55 +909,28 @@ footer {
   font-style: italic;
 }
 
-/* Contact Page Styles */
-.intro-card {
+/* =================================== */
+/* CONTACT PAGE STYLES - UPDATED */
+/* =================================== */
+
+/* Intro text - left aligned instead of centered */
+.intro-text-left {
+  text-align: left;
   margin-bottom: 32px;
-  text-align: center;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
+/* Contact sections - side by side with equal width */
 .contact-sections {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 32px;
   margin-bottom: 32px;
-}
-
-.section-header {
-  margin-bottom: 24px;
-}
-
-.section-subtitle {
-  font-family: var(--font-primary);
-  font-size: 1.8rem;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  position: relative;
-  padding-bottom: 8px;
-  font-weight: 700;
-}
-
-.section-subtitle::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: var(--accent);
-}
-
-.section-description {
-  font-family: var(--font-primary);
-  color: var(--text-secondary);
-  font-size: 1rem;
-  margin-top: 8px;
-  font-weight: 400;
+  width: 100%;
 }
 
 .contact-form-section, .calendly-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1057,19 +1031,27 @@ footer {
   min-width: 100% !important;
 }
 
+/* Best way card - simplified with left-aligned single line text */
 .best-way-card {
-  text-align: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  text-align: left;
+  box-shadow: 0 2px 8px var(--shadow);
+  border: 1px solid var(--card-border);
 }
 
-.best-way-card h3 {
-  font-family: var(--font-primary);
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-primary);
+.best-way-card p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
+
+/* =================================== */
+/* END OF CONTACT PAGE UPDATES */
+/* =================================== */
 
 /* Stories Page */
 .coming-soon-text {
@@ -1105,7 +1087,7 @@ footer {
 [data-theme="light"] .filter-chip {
   background-color: rgba(30, 102, 208, 0.1);
   color: #1e66d0;
-  border-color: rgba(30, 102, 208, 0.1); /* Fixed the typo from 1.0 to 102 */
+  border-color: rgba(30, 102, 208, 0.1);
 }
 
 [data-theme="light"] .project-link:hover {
@@ -1338,8 +1320,9 @@ footer {
     grid-template-columns: 1fr;
   }
   
+  /* Contact Page Mobile Styles */
   .contact-sections {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 24px;
   }
   
@@ -1353,6 +1336,10 @@ footer {
   
   .contact-form-container {
     padding: 24px;
+  }
+  
+  .best-way-card {
+    padding: 16px 20px;
   }
   
   .nav-container {
@@ -1395,7 +1382,7 @@ footer {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 40px 0;
+    padding: 24px 0;
     position: relative;
   }
   
