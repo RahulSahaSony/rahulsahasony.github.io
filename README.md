@@ -11,11 +11,7 @@ https://rahulsahasony.github.io/
 - About  
 - Features  
 - Technologies Used  
-- Project Structure  
-- Setup Instructions  
-- Customization  
-- Deployment  
-- Contact  
+- Project Structure    
 - License  
 
 ---
@@ -79,22 +75,8 @@ rahulsahasony.github.io/
 │   └── favicon.png             # Favicon
 └── README.md
 ```
+---
 
-## 🚀 Setup Instructions
-
-### Prerequisites
-- GitHub account
-- Basic knowledge of GitHub
-
-### Step 1: Fork the Repository
-1. Click the "Fork" button in the top right of this repository
-2. This creates a copy under your GitHub username
-
-### Step 2: Clone Your Fork
-```bash
-git clone https://github.com/yourusername/yourusername.github.io.git
-cd yourusername.github.io
-```
 ## 📄 License
 This project is open source and available under the MIT License.
 See the [LICENSE](./LICENSE) file for details.
