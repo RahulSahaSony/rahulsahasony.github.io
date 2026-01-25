@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hiring / Recruiter-friendly
   "is rahul a good hire": "Rahul brings strong analytics skills, business context, and ownership mindset.",
   "should i hire rahul": "If you want someone who combines business context with analytics execution—yes.",
-  "can you hire rahul": "I can’t hire, but I can convince you. Want his resume link?",
+  "can you hire rahul": "I can’t hire, but I can convince you.",
   "does rahul need micromanagement": "No. Rahul works best with clear goals and autonomy.",
   "does rahul work well in teams": "Yes. He has experience collaborating across technical and business teams.",
   "how should i evaluate rahul": "Based on impact, problem-solving ability, and communication clarity.",
