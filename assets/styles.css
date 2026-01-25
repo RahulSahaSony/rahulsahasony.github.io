@@ -2582,6 +2582,9 @@ footer {
   border-bottom: 1px solid var(--border);
   background-color: var(--bg-secondary);
   border-radius: 12px 12px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .chatbot-avatar {
@@ -2590,6 +2593,7 @@ footer {
   border-radius: 50%;
   overflow: hidden;
   margin-right: 12px;
+  flex-shrink: 0;
 }
 
 .chatbot-avatar img {
@@ -2598,10 +2602,18 @@ footer {
   object-fit: cover;
 }
 
+.chatbot-title {
+  flex: 1;
+  min-width: 0;
+}
+
 .chatbot-title h3 {
   margin: 0;
   font-size: 16px;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .chatbot-status {
@@ -2626,7 +2638,8 @@ footer {
   cursor: pointer;
   padding: 4px;
   border-radius: 4px;
-  margin-left: auto;
+  margin-left: 8px;
+  flex-shrink: 0;
   transition: var(--transition);
 }
 
@@ -2642,6 +2655,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-height: 0;
 }
 
 .message {
@@ -2726,6 +2740,9 @@ footer {
   border-top: 1px solid var(--border);
   background-color: var(--bg-secondary);
   border-radius: 0 0 12px 12px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 #chatbot-input {
@@ -2754,6 +2771,7 @@ footer {
   margin-left: 8px;
   border-radius: 50%;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 #chatbot-send:hover {
@@ -2767,6 +2785,8 @@ footer {
   padding: 0 16px 16px;
   background-color: var(--bg-secondary);
   border-radius: 0 0 12px 12px;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .suggestion-btn {
@@ -2828,6 +2848,12 @@ footer {
     right: 20px;
     left: 20px;
     bottom: 80px;
+    max-height: 600px;
+  }
+  
+  .chatbot-container.keyboard-open {
+    height: 50vh;
+    bottom: 20px;
   }
   
   .chatbot-toggle {
@@ -2839,5 +2865,22 @@ footer {
   
   .message {
     max-width: 90%;
+  }
+  
+  .chatbot-suggestions {
+    max-height: 80px;
+  }
+}
+
+/* Ensure header stays fixed when chatbot is open */
+@media (max-width: 768px) {
+  .chatbot-container.open ~ nav {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 100 !important;
+  }
+  
+  .chatbot-container.open ~ main {
+    padding-top: 80px;
   }
 }

@@ -289,6 +289,29 @@ document.addEventListener("DOMContentLoaded", function () {
     return `${prefix} ${expression} = ${formattedResult}`;
   }
 
+  // Variable to track keyboard state
+  let keyboardOpen = false;
+  let initialViewportHeight = window.innerHeight;
+
+  // Function to detect if keyboard is open
+  function detectKeyboardOpen() {
+    const currentViewportHeight = window.innerHeight;
+    const heightDifference = initialViewportHeight - currentViewportHeight;
+    
+    // If height difference is significant, keyboard is likely open
+    if (heightDifference > 150) {
+      if (!keyboardOpen) {
+        keyboardOpen = true;
+        document.querySelector('.chatbot-container').classList.add('keyboard-open');
+      }
+    } else {
+      if (keyboardOpen) {
+        keyboardOpen = false;
+        document.querySelector('.chatbot-container').classList.remove('keyboard-open');
+      }
+    }
+  }
+
   // Create chatbot UI
   function createChatbot() {
     const chatbotContainer = document.createElement("div");
@@ -318,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="chatbot-input-container">
-        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul..." autocomplete="off">
+        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul or a calculation..." autocomplete="off">
         <button id="chatbot-send">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
             <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -332,6 +355,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <button class="suggestion-btn" data-question="skills">Skills</button>
         <button class="suggestion-btn" data-question="experience">Experience</button>
         <button class="suggestion-btn" data-question="how can i contact rahul">Contact</button>
+        <button class="suggestion-btn" data-question="2+9">Try a calculation</button>
       </div>
     `;
 
@@ -348,13 +372,32 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(chatbotContainer);
     document.body.appendChild(chatbotToggle);
 
+    // Event listeners
     document.getElementById("chatbot-toggle").addEventListener("click", toggleChatbot);
     document.getElementById("chatbot-close").addEventListener("click", closeChatbot);
     document.getElementById("chatbot-send").addEventListener("click", sendMessage);
-    document.getElementById("chatbot-input").addEventListener("keypress", function (e) {
+    
+    // Input event listeners
+    const chatInput = document.getElementById("chatbot-input");
+    chatInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") sendMessage();
     });
+    
+    // Focus and blur events for keyboard detection
+    chatInput.addEventListener("focus", function() {
+      // Small delay to allow keyboard to appear
+      setTimeout(detectKeyboardOpen, 300);
+    });
+    
+    chatInput.addEventListener("blur", function() {
+      // Small delay to allow keyboard to disappear
+      setTimeout(detectKeyboardOpen, 300);
+    });
 
+    // Window resize event for keyboard detection
+    window.addEventListener("resize", detectKeyboardOpen);
+
+    // Suggestion button event listeners
     document.querySelectorAll(".suggestion-btn").forEach((button) => {
       button.addEventListener("click", function () {
         const question = this.getAttribute("data-question");
