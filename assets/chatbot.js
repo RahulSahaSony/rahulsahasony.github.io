@@ -46,6 +46,20 @@ document.addEventListener("DOMContentLoaded", function () {
       "where does rahul live": "Rahul is based in Falls Church, Virginia, in the Washington, DC metro area.",
       "rahul nationality": "Rahul is originally from Bangladesh and currently based in the United States.",
       "rahul age": "Rahul prefers to focus on his work and experience rather than age.",
+      "how are you": "I’m doing well, thanks for asking! How can I help you learn more about Rahul?",
+      "how are you doing": "All good here. What would you like to know about Rahul?",
+      "how's it going": "Going well! Feel free to ask about Rahul’s skills, projects, or experience.",
+      "how is it going": "Pretty good! What can I help you with today?",
+      "how are things": "Everything’s running smoothly. How can I assist you?",
+      "what's up": "Not much—just here to help you learn about Rahul.",
+      "whats up": "Here to help. What would you like to know about Rahul?",
+      "how are you today": "Doing great. Let me know how I can help.",
+      "how are you feeling": "Always ready to help. What can I do for you?",
+      "are you okay": "Yes, all good here. How can I help you today?",
+      "you good": "All good. What would you like to know about Rahul?",
+      "everything good": "Yes. Let me know if you have any questions.",
+      "how are u": "I’m good! What can I help you with?",
+      "how r u": "Doing well 🙂 What would you like to know?",
 
       // =========================
       // Education
@@ -256,6 +270,19 @@ document.addEventListener("DOMContentLoaded", function () {
       "what makes rahul different": "Rahul combines hands-on execution with real business context.",
       "rahul career transition": "Rahul transitioned from operations and finance into advanced analytics and ML.",
       "rahul learning curve": "Rahul learns quickly and adapts to new tools and domains.",
+
+      // =========================
+      // Others
+      // =========================
+      "ok": "Let me know if you want to know anything else.",
+      "okay": "Let me know if you want to know anything else.",
+      "ok got it": "Perfect. Feel free to ask if you need anything else.",
+      "okay got it": "Glad that helped. Want to explore Rahul’s experience or projects?",
+      "alright": "Alright. I’m here if you have more questions.",
+      "fine": "Got it. Let me know if you need anything else.",
+      "cool": "Cool. Want to see Rahul’s resume or portfolio?",
+      "makes sense": "Great. Happy to help if you need more details.",
+      "understood": "Noted. Let me know if you’d like to continue.",
       
       // =========================
       // Fun / Funny Q&A (Professional + Gen Z + Light Humor)
