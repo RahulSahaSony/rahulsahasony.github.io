@@ -31,7 +31,9 @@ This portfolio website showcases my professional journey, projects, skills, and 
 - **Calendly Integration** – Schedule meetings directly through the Contact page  
 - **Professional Layout** – Clean, modern, recruiter-friendly design  
 - **SEO Optimized** – Meta tags and semantic HTML for better search visibility  
-- **Fast Loading** – Pure static files for optimal performance  
+- **Fast Loading** – Pure static files for optimal performance
+- **Chatbot Assistant** – AI-powered chatbot that answers questions about me and performs calculations
+- **Modal Windows** – Interactive popups for contact methods and project details  
 
 ---
 
@@ -47,7 +49,7 @@ This portfolio website showcases my professional journey, projects, skills, and 
 - **GitHub Pages:** - Static site hosting
 - **Formspree:** - Contact form backend
 - **Calendly:** - Meeting scheduling
-- **Google Fonts:** - Typography (Inter font) 
+- **Google Fonts:** - Typography (Lora font) 
 
 ---
 
@@ -71,7 +73,9 @@ rahulsahasony.github.io/
 │   ├── styles.css              # Main stylesheet
 │   ├── app.js                  # Core JavaScript
 │   ├── profile.js              # All content/data
+│   ├── chatbot.js              # Chatbot functionality
 │   ├── profile-photo.jpg       # Profile image
+│   ├── logo.png                # Site logo
 │   └── favicon.png             # Favicon
 └── README.md
 ```
