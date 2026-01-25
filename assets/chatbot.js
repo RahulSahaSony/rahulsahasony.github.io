@@ -332,7 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <button class="suggestion-btn" data-question="skills">Skills</button>
         <button class="suggestion-btn" data-question="experience">Experience</button>
         <button class="suggestion-btn" data-question="how can i contact rahul">Contact</button>
-        <button class="suggestion-btn" data-question="2+9">Try a calculation</button>
       </div>
     `;
 
