@@ -2,24 +2,32 @@ document.addEventListener("DOMContentLoaded", function () {
   // Chatbot data about you
   const chatbotData = {
     greeting: [
-      "Hello! I'm Rahul's virtual assistant. I can tell you about his background, skills, projects, and experience. What would you like to know?",
-      "Hi! I’m Rahul Saha’s virtual assistant. How can I help?",
-      "Hey there! Want to know about Rahul’s skills, projects, or experience?",
-      "Welcome! What would you like to know about Rahul Saha?",
+      "Hello! I'm Rahul's virtual assistant. I can tell you about his background, skills, projects, and experience. I can also help with simple calculations. What would you like to know?",
+      "Hi! I'm Rahul Saha's virtual assistant. I can answer questions about Rahul and help with basic math. How can I help?",
+      "Hey there! Want to know about Rahul's skills, projects, or need help with a calculation?",
+      "Welcome! What would you like to know about Rahul Saha? I can also help with simple math problems.",
     ],
 
     farewell: [
       "Thank you for chatting! If you have more questions, feel free to ask. You can also contact Rahul directly through the contact page.",
       "Happy to help. Feel free to come back anytime.",
       "Goodbye! You can reach Rahul via the contact page.",
-      "Take care, and thanks for visiting Rahul’s portfolio.",
+      "Take care, and thanks for visiting Rahul's portfolio.",
     ],
 
     unknown: [
-      "Sorry, I don’t have an answer for that yet.",
+      "Sorry, I don't have an answer for that yet.",
       "I'm not sure how to answer that. You can ask me about Rahul's education, skills, projects, or work experience.",
-      "I didn’t quite understand that. Try asking something about Rahul’s background.",
-      "That’s a good question, but I don’t have that information right now.",
+      "I didn't quite understand that. Try asking something about Rahul's background or a simple calculation.",
+      "That's a good question, but I don't have that information right now.",
+    ],
+
+    // Math responses
+    mathResponses: [
+      "Let me calculate that for you.",
+      "I can help with that calculation.",
+      "Here's the result of that calculation:",
+      "I've calculated that for you:",
     ],
 
     // Question-answer pairs
@@ -27,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // =========================
       // Identity & Basics
       // =========================
-      "hello": "Hi! I’m Rahul Saha’s virtual assistant. Ask me anything about his background, skills, or work.",
+      "hello": "Hi! I'm Rahul Saha's virtual assistant. Ask me anything about his background, skills, or work.",
       "hi": "Hello! I can help you learn more about Rahul Saha.",
-      "who are you": "I’m a virtual assistant designed to answer questions about Rahul Saha.",
+      "who are you": "I'm a virtual assistant designed to answer questions about Rahul Saha.",
       "who is rahul": "Rahul Saha is a data and analytics professional with 7+ years of experience across analytics, operations, and programmatic advertising.",
       "tell me about rahul": "Rahul Saha is a Business Analytics graduate from GWU with strong experience in data analytics, machine learning, and business strategy.",
       "what does rahul do": "Rahul works at the intersection of data, technology, and business. He builds analytics and ML solutions that support real-world decisions.",
@@ -47,19 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
       "what did rahul study": "He studied Business Analytics at the graduate level and Finance at the undergraduate level.",
       "rahul degree": "MS in Business Analytics (GWU) and BBA in Finance, Banking, and Insurance.",
       "rahul university": "Rahul studied at The George Washington University and the University of Information Technology & Sciences.",
-      "rahul major": "Business Analytics (Master’s), Finance, Banking, and Insurance (Bachelor’s).",
+      "rahul major": "Business Analytics (Master's), Finance, Banking, and Insurance (Bachelor's).",
       "what courses did rahul take": "His coursework includes machine learning, optimization, time series forecasting, statistics, and responsible AI.",
 
       // =========================
       // Skills & Strengths
       // =========================
-      "skills": "Rahul’s skills include data analytics, machine learning, SQL, Python, R, data visualization, and business strategy.",
+      "skills": "Rahul's skills include data analytics, machine learning, SQL, Python, R, data visualization, and business strategy.",
       "rahul skills": "Rahul is skilled in Python, R, SQL, machine learning, analytics, and decision modeling.",
       "technical skills": "Rahul works with Python, R, SQL, HTML/CSS, Power BI, Tableau, GitHub, Streamlit, and cloud basics.",
       "what programming languages does rahul know": "Rahul primarily uses Python, R, and SQL, and also works with HTML and CSS.",
       "rahul tools": "Rahul uses Python, R, SQL, Power BI, Tableau, GitHub, Streamlit, Google Colab, and AWS (basic).",
       "rahul machine learning skills": "Rahul has experience with regression, classification, decision trees, clustering, time series models, and explainable AI.",
-      "rahul strengths": "Rahul’s strengths include problem-solving, ownership mindset, clear communication, and turning data into decisions.",
+      "rahul strengths": "Rahul's strengths include problem-solving, ownership mindset, clear communication, and turning data into decisions.",
 
       // =========================
       // Experience
@@ -80,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "laboriq": "LaborIQ is an AI-powered career assistant that provides salary insights, skill gaps, and job market intelligence.",
       "ai beyond defense": "AI Beyond Defense is a project focused on identifying concentration risk and systemic vulnerabilities using AI.",
       "capital bikeshare project": "Rahul built time series forecasting models to analyze and predict Capital Bikeshare ridership trends.",
-      "rahul portfolio projects": "Rahul’s portfolio includes ML models, dashboards, forecasting systems, and analytics tools.",
+      "rahul portfolio projects": "Rahul's portfolio includes ML models, dashboards, forecasting systems, and analytics tools.",
 
       // =========================
       // Interests & Focus Areas
@@ -110,17 +118,17 @@ document.addEventListener("DOMContentLoaded", function () {
       // Contact & Links
       // =========================
       "how can i contact rahul": "You can reach Rahul via email or through his LinkedIn and portfolio website.",
-      "rahul email": "Rahul’s email is rahulsahasony@gmail.com.",
-      "rahul's email id": "Rahul’s email is rahulsahasony@gmail.com.",
-      "rahul's email": "Rahul’s email is rahulsahasony@gmail.com.",
-      "rahul linkedin": "Rahul’s LinkedIn profile is linkedin.com/in/rahulsahasony.",
-      "rahul's linkedin": "Rahul’s LinkedIn profile is linkedin.com/in/rahulsahasony.",
-      "rahul's linkedin id": "Rahul’s LinkedIn profile is linkedin.com/in/rahulsahasony.",
-      "rahul github": "Rahul’s GitHub is github.com/rahulsahasony.",
-      "rahul's github": "Rahul’s GitHub is github.com/rahulsahasony.",
-      "rahul's github id": "Rahul’s GitHub is github.com/rahulsahasony.",
-      "rahul portfolio": "Rahul’s portfolio is available at rahulsahasony.github.io.",
-      "rahul's portfolio": "Rahul’s portfolio is available at rahulsahasony.github.io.",
+      "rahul email": "Rahul's email is rahulsahasony@gmail.com.",
+      "rahul's email id": "Rahul's email is rahulsahasony@gmail.com.",
+      "rahul's email": "Rahul's email is rahulsahasony@gmail.com.",
+      "rahul linkedin": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
+      "rahul's linkedin": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
+      "rahul's linkedin id": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
+      "rahul github": "Rahul's GitHub is github.com/rahulsahasony.",
+      "rahul's github": "Rahul's GitHub is github.com/rahulsahasony.",
+      "rahul's github id": "Rahul's GitHub is github.com/rahulsahasony.",
+      "rahul portfolio": "Rahul's portfolio is available at rahulsahasony.github.io.",
+      "rahul's portfolio": "Rahul's portfolio is available at rahulsahasony.github.io.",
 
       // =========================
       // Personality & Work Style
@@ -140,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // =========================
       // Portfolio & Website
       // =========================
-      "is this rahul's portfolio": "Yes. This is Rahul Saha’s personal portfolio website.",
-      "what is this site about": "This site showcases Rahul’s background, experience, and projects in data analytics and machine learning.",
+      "is this rahul's portfolio": "Yes. This is Rahul Saha's personal portfolio website.",
+      "what is this site about": "This site showcases Rahul's background, experience, and projects in data analytics and machine learning.",
       "who built this website": "Rahul built this website himself using HTML, CSS, and JavaScript.",
-      "is this website open source": "Yes. The source code for this website is available on Rahul’s GitHub.",
+      "is this website open source": "Yes. The source code for this website is available on Rahul's GitHub.",
       "why did rahul build this site": "Rahul built this site to clearly present his work, skills, and experience in one place.",
       "what tech is used on this site": "This site is built using HTML, CSS, JavaScript, and deployed via GitHub Pages.",
       "is this site responsive": "Yes. The site is designed to work well on desktop, tablet, and mobile devices.",
@@ -151,9 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // =========================
       // Resume & Hiring
       // =========================
-      "can i download rahul's resume": "Yes. Rahul’s resume is available for download on this website.",
+      "can i download rahul's resume": "Yes. Rahul's resume is available for download on this website.",
       "is rahul open to interviews": "Yes. Rahul is actively open to interviews and discussions.",
-      "can rahul start immediately": "Rahul’s start date is flexible depending on the role and employer.",
+      "can rahul start immediately": "Rahul's start date is flexible depending on the role and employer.",
       "is rahul open to contract roles": "Yes. Rahul is open to full-time, contract, and consulting roles.",
       "is rahul open to internships": "Rahul primarily seeks full-time roles but is open to strong project-based opportunities.",
       "is rahul open to startups": "Yes. Rahul has startup experience and enjoys fast-paced environments.",
@@ -170,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "rahul problem solving": "Rahul approaches problems by breaking them down and testing practical solutions.",
       "rahul leadership style": "Rahul leads by taking responsibility and supporting teammates.",
       "rahul feedback": "Rahul values honest feedback and continuous improvement.",
-      "rahul strengths and weaknesses": "Rahul’s strength is execution and ownership. He continuously works on improving speed and depth in new domains.",
+      "rahul strengths and weaknesses": "Rahul's strength is execution and ownership. He continuously works on improving speed and depth in new domains.",
 
       // =========================
       // Technical Depth (Recruiter Friendly)
@@ -191,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // =========================
       "how does laboriq work": "LaborIQ combines structured labor market data with AI to provide reliable career insights.",
       "what problem does laboriq solve": "LaborIQ helps job seekers understand salaries, skills, and market demand.",
-      "is laboriq a real product": "LaborIQ is a portfolio and research project demonstrating Rahul’s applied AI skills.",
+      "is laboriq a real product": "LaborIQ is a portfolio and research project demonstrating Rahul's applied AI skills.",
       "ai beyond defense goal": "The goal is to identify non-military national risks using AI-driven analysis.",
       "rahul forecasting project": "Rahul built forecasting models to predict demand patterns using historical data.",
       "rahul ml pipeline": "Rahul designs end-to-end ML pipelines from data cleaning to evaluation.",
@@ -223,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // =========================
       // FAQ & Clarifications
       // =========================
-      "is rahul a student": "Rahul recently completed his master’s degree and is now a working professional.",
+      "is rahul a student": "Rahul recently completed his master's degree and is now a working professional.",
       "is rahul junior or senior": "Rahul is an experienced professional with both industry and academic depth.",
       "is rahul technical or business": "Rahul bridges both technical analytics and business strategy.",
       "what makes rahul different": "Rahul combines hands-on execution with real business context.",
@@ -235,6 +243,50 @@ document.addEventListener("DOMContentLoaded", function () {
   // Random picker for greeting/farewell/unknown arrays
   function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  // Function to detect and evaluate math expressions
+  function evaluateMathExpression(expression) {
+    // Remove any spaces and convert to lowercase
+    expression = expression.replace(/\s/g, '').toLowerCase();
+    
+    // Check if it's a math expression
+    if (!/^[\d+\-*/().\s]+$/.test(expression)) {
+      return null;
+    }
+    
+    try {
+      // Use Function constructor instead of eval for better security
+      // Only allow mathematical operations
+      const result = new Function('return ' + expression)();
+      
+      // Check if result is a valid number
+      if (isNaN(result) || !isFinite(result)) {
+        return null;
+      }
+      
+      return result;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Function to format the math response
+  function formatMathResponse(expression, result) {
+    const prefix = pickRandom(chatbotData.mathResponses);
+    
+    // Format the result nicely
+    let formattedResult = result;
+    
+    // If it's an integer, don't show decimal places
+    if (Number.isInteger(result)) {
+      formattedResult = result;
+    } else {
+      // Round to 4 decimal places
+      formattedResult = Math.round(result * 10000) / 10000;
+    }
+    
+    return `${prefix} ${expression} = ${formattedResult}`;
   }
 
   // Create chatbot UI
@@ -266,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="chatbot-input-container">
-        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul..." autocomplete="off">
+        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul or a calculation..." autocomplete="off">
         <button id="chatbot-send">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
             <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -280,6 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <button class="suggestion-btn" data-question="skills">Skills</button>
         <button class="suggestion-btn" data-question="experience">Experience</button>
         <button class="suggestion-btn" data-question="how can i contact rahul">Contact</button>
+        <button class="suggestion-btn" data-question="2+9">Try a calculation</button>
       </div>
     `;
 
@@ -388,6 +441,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getResponse(message) {
     const lowerMessage = normalize(message);
+    
+    // Check if it's a math expression
+    const mathResult = evaluateMathExpression(message);
+    if (mathResult !== null) {
+      return formatMathResponse(message, mathResult);
+    }
 
     // greeting intent
     if (
@@ -412,7 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // thanks intent (not farewell)
     if (lowerMessage.includes("thank")) {
-      return "You're welcome! Anything else you’d like to know about Rahul?";
+      return "You're welcome! Anything else you'd like to know about Rahul?";
     }
 
     // Exact match
