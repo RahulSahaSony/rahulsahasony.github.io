@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     greeting: [
       "Hello! I'm Rahul's virtual assistant. I can tell you about his background, skills, projects, and experience. What would you like to know?",
       "Hi! I'm Rahul's virtual assistant. I can answer questions about Rahul. How can I help?",
-      "Hey there! Want to know about Rahul's skills, projects, or experience?",
-      "Welcome! What would you like to know about Rahul?",
+      "Hey there! I'm Rahul's virtual assistant. Want to know about Rahul's skills, projects, or experience?",
+      "Welcome! I'm Rahul's virtual assistant. What would you like to know about Rahul?",
     ],
 
     farewell: [
