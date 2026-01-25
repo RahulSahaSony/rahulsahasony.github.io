@@ -816,15 +816,16 @@ footer {
   transform: scale(1.05);
 }
 
-/* Certifications */
+/* Certifications - Updated spacing and icon position */
 .certifications-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 32px; /* Same gap as skills section */
+  gap: 32px; /* Same gap as skills and education sections */
+  margin-bottom: 32px;
 }
 
 .certification-card {
-  padding: 24px;
+  padding: 24px; /* Same padding as education cards */
 }
 
 .certification-header {
@@ -878,18 +879,16 @@ footer {
   font-size: 14px;
 }
 
-/* Credential Link - Updated positioning */
 .credential-link-with-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
   font-family: var(--font-primary);
   color: var(--accent);
   font-weight: 500;
   font-size: 14px;
   transition: var(--transition);
-  padding: 8px 0;
+  padding: 4px 0;
+  gap: 8px; /* Space between text and icon */
 }
 
 .credential-link-with-icon:hover {
@@ -898,7 +897,7 @@ footer {
 
 .credential-icon {
   transition: var(--transition);
-  margin-left: 8px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .experience-event {
