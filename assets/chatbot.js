@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="chatbot-input-container">
-        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul or a calculation..." autocomplete="off">
+        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul..." autocomplete="off">
         <button id="chatbot-send">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
             <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
