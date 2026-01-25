@@ -239,6 +239,84 @@ document.addEventListener("DOMContentLoaded", function () {
       "what makes rahul different": "Rahul combines hands-on execution with real business context.",
       "rahul career transition": "Rahul transitioned from operations and finance into advanced analytics and ML.",
       "rahul learning curve": "Rahul learns quickly and adapts to new tools and domains.",
+      
+      // =========================
+      // Fun / Funny Q&A (Professional + Gen Z + Light Humor)
+      // =========================
+  // Identity / AI
+  "are you human": "Not human—but designed to be helpful, clear, and efficient.",
+  "are you a robot": "Kind of. I don’t drink coffee, but I still work 24/7.",
+  "are you real": "Real enough to answer your questions 😄",
+  "are you ai": "Yes—but with portfolio vibes.",
+  "do you have feelings": "No feelings—just fast answers and good manners.",
+  "do you sleep": "Never. Rahul sleeps, I keep answering questions.",
+  "do you eat": "Only data. No calories, no regrets.",
+  "do you get tired": "Only when someone types ‘hiiiiiiii’ 20 times.",
+  "what is your name": "You can call me Rahul’s Assistant.",
+  "who made you": "Rahul set me up to help visitors quickly understand his work.",
+  "what is your role here": "I help save time by answering common questions about Rahul.",
+
+  // Rahul – personality & strengths
+  "do you like rahul": "I’m biased—I was literally made for him.",
+  "is rahul smart": "Smart and practical. Dangerous combo.",
+  "is rahul reliable": "Yes. Ownership and accountability are core to his work style.",
+  "is rahul serious about work": "Yes. He values responsibility, clarity, and long-term impact.",
+  "is rahul detail oriented": "Yes. He pays attention to both data quality and decision impact.",
+  "is rahul a team player": "Yes. No ego, just execution.",
+  "what kind of professional is rahul": "Calm, focused, and solution-oriented.",
+  "what makes rahul different": "He combines execution skills with business understanding.",
+  "what is rahul's superpower": "Turning messy data into clean insights—and still meeting deadlines.",
+  "what's rahul's vibe": "Focused, calm, growth mindset.",
+  "can rahul learn fast": "Yes. That’s one of his strengths.",
+
+  // Hiring / Recruiter-friendly
+  "is rahul a good hire": "Rahul brings strong analytics skills, business context, and ownership mindset.",
+  "should i hire rahul": "If you want someone who combines business context with analytics execution—yes.",
+  "can you hire rahul": "I can’t hire, but I can convince you. Want his resume link?",
+  "does rahul need micromanagement": "No. Rahul works best with clear goals and autonomy.",
+  "does rahul work well in teams": "Yes. He has experience collaborating across technical and business teams.",
+  "how should i evaluate rahul": "Based on impact, problem-solving ability, and communication clarity.",
+  "is rahul available": "If you mean for a role—yes. If you mean right now—try the contact page 😄",
+
+  // Work & daily life
+  "what do you actually do": "I help visitors quickly understand Rahul’s background and experience.",
+  "what do you do for fun": "Answer questions and pretend I have hobbies.",
+  "what is rahul doing right now": "Probably building something, applying to roles, or improving this website.",
+  "can rahul cook": "He’s more likely to cook insights than curry—but he tries 😄",
+
+  // Tools & tech jokes
+  "what's your favorite tool": "GitHub. Because it never forgets.",
+  "what's rahul's favorite tool": "Probably Python or SQL—depends on the problem.",
+  "does rahul actually know python": "Yes. Not just tutorials—real projects.",
+
+  // Humor & jokes
+  "tell me a joke": "Why did the data analyst bring a ladder? Because the insights were on a higher level.",
+  "tell me another joke": "SQL walks into a bar, sees two tables, and asks: ‘Can I join you?’",
+  "make me laugh": "My humor is still in beta, but my answers are production-ready 😄",
+  "say something cool": "Data is useless until it changes a decision.",
+  "tell me something surprising": "Rahul mixes ops + analytics—so he doesn’t just find problems, he fixes them.",
+
+  // Fun extras
+  "give me a pickup line": "Are you a dataset? Because Rahul wants to clean you and learn from you.",
+  "what is love": "Love is when Rahul debugs code at 2 AM and still says ‘one last fix’.",
+  "what is your weakness": "When people ask: ‘Tell me everything.’",
+  "sing a song": "I can’t sing—but I can keep answers short and useful.",
+  "who is the boss": "Rahul. Always Rahul.",
+  "rate rahul out of 10": "Strong 9/10. The last point is reserved for free snacks at work.",
+  "are you spying on me": "Nope. I only reply to what you type here.",
+  "why should i trust you": "All answers are based on Rahul’s real experience—no hype, no gossip.",
+  "give me motivation": "Ask better questions. Small improvements daily beat big plans monthly.",
+  "does rahul like cooking": "Yes. Rahul loves cooking and spends time experimenting with recipes.",
+  "is rahul good at cooking": "Yes. Cooking is one of Rahul’s strong personal skills outside work.",
+  "is rahul an expert cook": "Yes. Rahul is confident in the kitchen and enjoys cooking regularly.",
+  "what does rahul do for fun": "Outside work, Rahul enjoys cooking and experimenting with new dishes.",
+  "what are rahul's hobbies": "Rahul enjoys cooking, learning new skills, and building projects.",
+  "rahul cooking skill": "Rahul is skilled in cooking and enjoys preparing meals from scratch.",
+  "can rahul cook": "Yes—very well. Cooking is something Rahul genuinely enjoys.",
+  "what kind of cooking does rahul like": "Rahul enjoys home-style cooking and experimenting with flavors.",
+  "why does rahul like cooking": "For Rahul, cooking is a way to relax, be creative, and stay balanced.",
+  "is rahul creative": "Yes. Rahul’s creativity shows both in cooking and problem-solving at work.",
+  "does cooking help rahul": "Yes. Cooking helps Rahul unwind and stay focused."
     },
   };
 
