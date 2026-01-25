@@ -22,7 +22,7 @@
         <li><a href="/about/" class="nav-link">About</a></li>
         <li><a href="/projects/" class="nav-link">Projects</a></li>
         <li><a href="/experience/" class="nav-link">Experience</a></li>
-        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/resume/" class="nav-link active">Resume</a></li>
         <li><a href="/stories/" class="nav-link">Stories</a></li>
         <li><a href="/contact/" class="nav-link">Contact</a></li>
       </ul>
@@ -55,11 +55,16 @@
         </div>
         <div class="resume-content">
           <div class="resume-header">
-            <h2 id="resume-name"></h2>
-            <p id="resume-headline"></p>
+            <h2 id="resume-name">RAHUL SAHA</h2>
+            <p id="resume-headline">Data Analytics & Machine Learning Professional with 7+ years of experience across business, ad tech, and public-sector environments. Holds an MS in Business Analytics with strong skills in Python, R, SQL, Power BI, and applied machine learning.</p>
             <div class="contact-info">
-              <p id="resume-contact"></p>
+              <p id="resume-contact">Falls Church, VA 22041, United States • (240) 467-7141 • rahulsahasony@gmail.com • <a href="https://rahulsahasony.github.io" target="_blank" rel="noopener noreferrer">Portfolio</a> • <a href="https://linkedin.com/in/rahulsahasony" target="_blank" rel="noopener noreferrer">LinkedIn</a> • <a href="https://github.com/rahulsahasony" target="_blank" rel="noopener noreferrer">GitHub</a></p>
             </div>
+          </div>
+          
+          <div class="resume-section">
+            <h3>EDUCATION</h3>
+            <div id="resume-education"></div>
           </div>
           
           <div class="resume-section">
@@ -73,20 +78,25 @@
           </div>
           
           <div class="resume-section">
-            <h3>EDUCATION</h3>
-            <div id="resume-education"></div>
+            <h3>AI & GENAI</h3>
+            <div id="resume-ai-genai"></div>
           </div>
           
           <div class="resume-section">
-            <h3>SKILLS</h3>
+            <h3>TECHNICAL SKILLS & CERTIFICATIONS</h3>
             <div id="resume-skills"></div>
+          </div>
+          
+          <div class="resume-section">
+            <h3>VOLUNTEER EXPERIENCE</h3>
+            <div id="resume-volunteer"></div>
           </div>
         </div>
       </section>
     </div>
   </main>
 
-    <footer>
+  <footer>
     <div class="container footer-container">
       <div>© Rahul Saha</div>
       <div class="footer-links">
@@ -114,21 +124,229 @@
 
   <script src="/assets/profile.js"></script>
   <script src="/assets/app.js"></script>
-  <script src="/assets/chatbot.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Update resume header
-      document.getElementById('resume-name').textContent = profile.name;
-      document.getElementById('resume-headline').textContent = profile.headline;
-      document.getElementById('resume-contact').innerHTML = 
-        profile.email + ' • ' + profile.location + ' • ' + 
-        '<a href="' + profile.linkedin + '" target="_blank" rel="noopener noreferrer">LinkedIn</a> • ' + 
-        '<a href="' + profile.github + '" target="_blank" rel="noopener noreferrer">GitHub</a>';
+      // Resume data
+      const resumeData = {
+        education: [
+          {
+            degree: "Master of Science, Business Analytics (STEM)",
+            school: "THE GEORGE WASHINGTON UNIVERSITY",
+            location: "Washington, DC",
+            dates: "December 2025",
+            coursework: [
+              "Data Management",
+              "Machine Learning",
+              "Time Series Forecasting",
+              "Responsible Machine Learning",
+              "Statistics for Analytics",
+              "Visualization for Analytics",
+              "Foundation of AI",
+              "Text Analytics"
+            ],
+            awards: ["GW School of Business Fellowship Award"]
+          },
+          {
+            degree: "Bachelor of Business Administration, Finance, Banking, and Insurance",
+            school: "UNIVERSITY OF INFORMATION TECHNOLOGY & SCIENCES",
+            location: "Dhaka, Bangladesh",
+            dates: "February 2017",
+            coursework: [
+              "Operations Management",
+              "Leadership",
+              "International Business",
+              "Corporate Finance",
+              "Portfolio Management"
+            ],
+            awards: []
+          }
+        ],
+        experience: [
+          {
+            role: "Extern - Secretary's Department",
+            company: "INTERNATIONAL MONETARY FUND (IMF)",
+            location: "Washington, DC",
+            dates: "August 2025 - November 2025",
+            bullets: [
+              "Assisted budget officer with real-time monitoring of event expenditures and compliance documentation for a $3M project",
+              "Supported planning and execution of the IMF annual meetings, coordinating logistics and cross-department workflows",
+              "Liaised with internal teams and external stakeholders, including member country officials, to ensure smooth communication",
+              "Analyzed budget data and presented trends using Power BI"
+            ]
+          },
+          {
+            role: "Build Student Consultant – Deploying AI Into Small Businesses",
+            company: "BUILD FELLOWSHIP BY OPEN AVENUES",
+            location: "Washington, DC",
+            dates: "July 2025 - September 2025",
+            bullets: [
+              "Analyzed small business workflows to identify inefficiencies and opportunities for automation",
+              "Designed LLM-powered solutions to improve customer engagement and operational efficiency",
+              "Applied responsible AI principles (bias, transparency, privacy) aligned with enterprise AI governance",
+              "Presented an actionable deployment strategy tailored to real-world small business use cases"
+            ]
+          },
+          {
+            role: "Founding Team - Growth & Strategy Lead",
+            company: "ADFERRY",
+            location: "Middletown, DE",
+            dates: "July 2023 - July 2024",
+            bullets: [
+              "Led cross-functional growth initiatives in business development, ad tech, finance, and operations, reporting to the CEO",
+              "Executed programmatic campaigns across DSPs and SSPs, resulting in a 26% revenue lift in Q4 2023",
+              "Developed the company website, designed the complete brand identity, and managed all commercial presentations",
+              "Boosted client retention by 11% through expanded inventory while guiding sales team to identify upsell opportunities",
+              "Supported HR and finance operations by recruiting and onboarding 13 team members across departments, and strengthening compliance and ad quality measures"
+            ]
+          },
+          {
+            role: "Operations Manager",
+            company: "WONDERLO INC",
+            location: "Wilmington, DE",
+            dates: "October 2020 - July 2023",
+            bullets: [
+              "Collaborated with tech team to launch Wonderlo's ad server and enhance ad delivery, tracking, and reporting systems",
+              "Oversaw daily ad operations across 50+ partners, improving delivery rates by 17% and scaling programmatic revenue from $500/day to $3,000/day through RTB campaigns",
+              "Created interactive dashboards for real-time performance tracking, conducted A/B testing, and implemented fraud detection to maintain high-quality traffic",
+              "Maintained relationships with SSPs, ad networks, and media buyers while negotiating CPM-based deals to maximize ROI"
+            ]
+          },
+          {
+            role: "Senior Analyst",
+            company: "QUANTANITE (FORMERLY TASKEATER)",
+            location: "Dhaka, Bangladesh",
+            dates: "August 2018 - August 2020",
+            bullets: [
+              "Coordinated data processing tasks including content moderation, data mining, and large-scale data validation",
+              "Managed and organized datasets using Google Sheets and CRM tools, ensuring accuracy, consistency, and on-time delivery",
+              "Partnered with team leads to resolve issues, communicate progress, and meet daily and weekly targets"
+            ]
+          }
+        ],
+        projects: [
+          {
+            title: "LaborIQ: An Intelligent Career Assistant for Data Science Job Seekers",
+            dates: "September 2025 - December 2025",
+            bullets: [
+              "Built a dual-model architecture combining a SQL-based market-insights engine and a RAG-based LLM pipeline to deliver verified salary benchmarks, skill gaps, and career insights",
+              "Designed and implemented an ETL pipeline to ingest, clean, and standardize multi-source labor-market datasets",
+              "Integrated semantic search using embeddings (text-embedding-3, Sentence Transformers) to extract in-demand skills from unstructured job descriptions",
+              "Conducted a user survey (n=31) to identify job-seeker pain points, informing feature prioritization around salary comparison, skill-demand insights, and resume matching"
+            ]
+          },
+          {
+            title: "AI Beyond Defense: Tackling Concentration Risk",
+            dates: "June 2025 - June 2025",
+            bullets: [
+              "Built a multimodal AI tool (SupplyGuard) using OpenAI's APIs to help U.S. policymakers identify and mitigate non-military national security threats, such as concentration risk and misinformation",
+              "Integrated text and image reasoning with policy-focused outputs using OpenAI Responses API and Streamlit",
+              "Conducted scenario simulations and generated plain-language strategic insights on supply chain dependencies and diplomatic response planning"
+            ]
+          },
+          {
+            title: "Forecasting Monthly Ridership for Capital Bikeshare",
+            dates: "March 2025 - May 2025",
+            bullets: [
+              "Conducted time series forecasting on Capital Bikeshare's monthly ridership data to support demand planning and resource optimization",
+              "Evaluated and compared multiple forecasting models: deterministic models (trend and seasonality), exponential smoothing (Holt-Winters), and stochastic models (ARIMA, ARMA on residuals)",
+              "Used R to perform residual diagnostics, differencing, and ACF/PACF analysis to assess model stationarity and white noise behavior",
+              "Selected optimal models based on performance metrics (MAPE, MAE, RMSE) on training and hold-out samples"
+            ]
+          },
+          {
+            title: "Explainable ML for High-Priced Mortgage Prediction",
+            dates: "April 2025 - May 2025",
+            bullets: [
+              "Built explainable models (EBM, GLM) to predict high-priced mortgage loans while reducing demographic bias using HMDA data (180K+ records)",
+              "Excluded protected features from training, applied post-processing fairness adjustments, and validated performance using AUC and AIR metrics",
+              "Final model (EBM) achieved AUC of 0.83 and improved fairness across race and gender, supported by partial dependence and global importance plots"
+            ]
+          },
+          {
+            title: "Dimensional Modeling and Analysis of the NBA Shots Dataset",
+            dates: "November 2024 - December 2024",
+            bullets: [
+              "Simulated the analytics department of the Golden State Warriors to identify player performance trends and improvement areas",
+              "Collected, merged, and cleaned over 435,000 rows of shot-level data from two NBA seasons using csvkit, JupyterLab, and PostgreSQL",
+              "Explored clutch-time performance, shot zone accuracy, and player consistency to identify the top 5 players to retain and the bottom 5 to replace"
+            ]
+          }
+        ],
+        aiGenai: [
+          "Large Language Models (LLMs), Prompt Engineering",
+          "Retrieval-Augmented Generation (RAG)",
+          "Embeddings, Semantic Search",
+          "NLP (tokenization, text preprocessing)",
+          "Model evaluation, hallucination reduction",
+          "Responsible & Explainable AI"
+        ],
+        skills: {
+          "Programming": ["R", "Python", "SQL", "HTML/CSS"],
+          "Visualization": ["Power BI", "Tableau", "Matplotlib", "Excel (Advanced)", "Google Sheets", "PowerPoint", "Canva"],
+          "Machine Learning": ["Linear Regression", "Logistic Regression", "Decision Trees", "SVM", "KNN", "BERT", "LSTM"],
+          "Other Tools": ["Microsoft 365", "Google Workspace", "AWS (EC2, Lambda)", "GitHub", "Streamlit", "Grafana", "QuickBooks", "Figma"],
+          "Certifications": [
+            "Generative AI Fundamentals (Databricks)",
+            "Elements of AI (University of Helsinki)",
+            "Dashboards & Data Visualization (CFI)",
+            "Google Analytics for Beginners",
+            "Python for Data Science (IBM)",
+            "Data-Driven Planning (The Trade Desk)"
+          ]
+        },
+        volunteer: [
+          {
+            role: "Registration Team Volunteer",
+            organization: "DC Startup & Tech Week",
+            location: "Washington, DC",
+            dates: "October 2025",
+            description: "Helped check in guests and guide attendees throughout the event"
+          },
+          {
+            role: "Volunteer",
+            organization: "IEEE Cloud Summit",
+            location: "Washington, DC",
+            dates: "June 2025",
+            description: "Supported event staff and assisted attendees during sessions"
+          },
+          {
+            role: "Registration Team Volunteer",
+            organization: "World Bank-IMF Spring Meetings",
+            location: "Washington, DC",
+            dates: "April 2025",
+            description: "Facilitated delegate registration and venue support of high-profile global meetings"
+          },
+          {
+            role: "Open Source Contributor, GW Open Source Conference – Contributor",
+            organization: "GW Open Source Conference",
+            location: "Washington, DC",
+            dates: "March 2025",
+            description: "Took part in GW's first open source conference and supported community discussions"
+          }
+        ]
+      };
+
+      // Render education
+      const educationContainer = document.getElementById('resume-education');
+      if (educationContainer) {
+        educationContainer.innerHTML = resumeData.education.map(edu => `
+          <div class="resume-item">
+            <h4>${edu.degree}</h4>
+            <p>${edu.school} • ${edu.location} • ${edu.dates}</p>
+            ${edu.coursework ? `
+              <p><strong>Relevant Coursework:</strong> ${edu.coursework.join(', ')}</p>
+            ` : ''}
+            ${edu.awards && edu.awards.length > 0 ? `
+              <p><strong>Award:</strong> ${edu.awards.join(', ')}</p>
+            ` : ''}
+          </div>
+        `).join('');
+      }
       
       // Render experience
-      const resumeExperienceContainer = document.getElementById('resume-experience');
-      if (resumeExperienceContainer && profile.experience) {
-        resumeExperienceContainer.innerHTML = profile.experience.map(exp => `
+      const experienceContainer = document.getElementById('resume-experience');
+      if (experienceContainer) {
+        experienceContainer.innerHTML = resumeData.experience.map(exp => `
           <div class="resume-item">
             <h4>${exp.role} — ${exp.company}</h4>
             <p>${exp.dates} — ${exp.location}</p>
@@ -140,37 +358,50 @@
       }
       
       // Render projects
-      const resumeProjectsContainer = document.getElementById('resume-projects');
-      if (resumeProjectsContainer && profile.featuredProjects) {
-        resumeProjectsContainer.innerHTML = profile.featuredProjects.map(project => `
+      const projectsContainer = document.getElementById('resume-projects');
+      if (projectsContainer) {
+        projectsContainer.innerHTML = resumeData.projects.map(project => `
           <div class="resume-item">
             <h4>${project.title}</h4>
-            <p>${project.description}</p>
-            <p><strong>Impact:</strong> ${project.impact}</p>
-            <p><strong>Technologies:</strong> ${project.technologies.join(', ')}</p>
+            <p>${project.dates}</p>
+            <ul>
+              ${project.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+            </ul>
           </div>
         `).join('');
       }
       
-      // Render education
-      const resumeEducationContainer = document.getElementById('resume-education');
-      if (resumeEducationContainer && profile.education) {
-        resumeEducationContainer.innerHTML = profile.education.map(edu => `
+      // Render AI & GenAI
+      const aiGenaiContainer = document.getElementById('resume-ai-genai');
+      if (aiGenaiContainer) {
+        aiGenaiContainer.innerHTML = `
           <div class="resume-item">
-            <h4>${edu.degree} — ${edu.school}</h4>
-            <p>${edu.dates} — ${edu.location}</p>
-            ${edu.gpa !== 'N/A' ? `<p>GPA: ${edu.gpa}</p>` : ''}
+            <ul>
+              ${resumeData.aiGenai.map(item => `<li>${item}</li>`).join('')}
+            </ul>
           </div>
-        `).join('');
+        `;
       }
       
       // Render skills
-      const resumeSkillsContainer = document.getElementById('resume-skills');
-      if (resumeSkillsContainer && profile.skills) {
-        resumeSkillsContainer.innerHTML = Object.entries(profile.skills).map(([category, skills]) => `
+      const skillsContainer = document.getElementById('resume-skills');
+      if (skillsContainer) {
+        skillsContainer.innerHTML = Object.entries(resumeData.skills).map(([category, skills]) => `
           <div class="resume-item">
             <h4>${category}:</h4>
-            <p>${skills.join(', ')}</p>
+            <p>${Array.isArray(skills) ? skills.join(', ') : skills.join(', ')}</p>
+          </div>
+        `).join('');
+      }
+      
+      // Render volunteer experience
+      const volunteerContainer = document.getElementById('resume-volunteer');
+      if (volunteerContainer) {
+        volunteerContainer.innerHTML = resumeData.volunteer.map(vol => `
+          <div class="resume-item">
+            <h4>${vol.role} — ${vol.organization}</h4>
+            <p>${vol.dates} — ${vol.location}</p>
+            ${vol.description ? `<p>${vol.description}</p>` : ''}
           </div>
         `).join('');
       }
