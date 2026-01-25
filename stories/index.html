@@ -99,59 +99,74 @@
           <p>I started with Python, then moved to R, and finally pursued a Master's in Business Analytics. Each step opened new doors and perspectives on how data can drive decisions.</p>
           <p>Writing... will update soon! </p>
         `,
-        date: "2026-01-26",
+        date: "2026-01-20",
         image: "/assets/story1.png"
+      },
+      {
+        id: 2,
+        title: "The Work Behind the Work",
+        excerpt: "The invisible hours, quiet decisions, and learning that shape every finished piece.",
+        content: `
+          <p>I haven't finished that story yet. Hope soon.</p>
+        `,
+        date: "2026-01-26",
+        image: "/assets/story2.png"
       }
     ];
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const storiesContainer = document.getElementById('stories-container');
-      const storyModal = document.getElementById('story-modal');
-      const storyModalBody = document.getElementById('story-modal-body');
-      const storyModalClose = document.getElementById('story-modal-close');
+document.addEventListener('DOMContentLoaded', function() {
+  const storiesContainer = document.getElementById('stories-container');
+  const storyModal = document.getElementById('story-modal');
+  const storyModalBody = document.getElementById('story-modal-body');
+  const storyModalClose = document.getElementById('story-modal-close');
 
-      // Render stories
-      function renderStories() {
-        storiesContainer.innerHTML = stories.map(story => `
-          <div class="story-card" data-id="${story.id}">
-            <div class="story-image">
-              <img src="${story.image}" alt="${story.title}">
-            </div>
-            <div class="story-content">
-              <h3 class="story-title">${story.title}</h3>
-              <div class="story-date">${formatDate(story.date)}</div>
-              <p class="story-excerpt">${story.excerpt}</p>
-              <div class="story-actions">
-                <button class="story-read-more" data-id="${story.id}">Read More</button>
-                <button class="story-share" data-id="${story.id}">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                    <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
+  // Render stories
+  function renderStories() {
+    storiesContainer.innerHTML = stories.map(story => `
+      <div class="story-card" data-id="${story.id}">
+        <div class="story-image">
+          <img src="${story.image}" alt="${story.title}">
+        </div>
+        <div class="story-content">
+          <h3 class="story-title">${story.title}</h3>
+          <div class="story-date">${formatDate(story.date)}</div>
+          <p class="story-excerpt">${story.excerpt}</p>
+          <div class="story-actions">
+            <button class="story-read-more" data-id="${story.id}">Read More</button>
+            <button class="story-share" data-id="${story.id}">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
-        `).join('');
+        </div>
+      </div>
+    `).join('');
 
-        // Add event listeners
-        document.querySelectorAll('.story-read-more').forEach(button => {
-          button.addEventListener('click', function() {
-            const storyId = parseInt(this.getAttribute('data-id'));
-            openStoryModal(storyId);
-          });
-        });
+    // Add event listeners to story cards
+    document.querySelectorAll('.story-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Don't open modal if clicking on share button
+        if (!e.target.closest('.story-share')) {
+          const storyId = parseInt(this.getAttribute('data-id'));
+          openStoryModal(storyId);
+        }
+      });
+    });
 
-        document.querySelectorAll('.story-share').forEach(button => {
-          button.addEventListener('click', function() {
-            const storyId = parseInt(this.getAttribute('data-id'));
-            shareStory(storyId);
-          });
-        });
-      }
+    // Add event listeners to share buttons
+    document.querySelectorAll('.story-share').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent card click
+        const storyId = parseInt(this.getAttribute('data-id'));
+        shareStory(storyId);
+      });
+    });
+  }
 
       // Open story modal
       function openStoryModal(storyId) {

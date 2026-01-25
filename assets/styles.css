@@ -816,15 +816,16 @@ footer {
   transform: scale(1.05);
 }
 
-/* Certifications */
+/* Certifications - Updated spacing and icon position */
 .certifications-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 32px; /* Same gap as skills section */
+  gap: 32px; /* Same gap as skills and education sections */
+  margin-bottom: 32px;
 }
 
 .certification-card {
-  padding: 24px;
+  padding: 24px; /* Same padding as education cards */
 }
 
 .certification-header {
@@ -878,18 +879,16 @@ footer {
   font-size: 14px;
 }
 
-/* Credential Link - Updated positioning */
 .credential-link-with-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
   font-family: var(--font-primary);
   color: var(--accent);
   font-weight: 500;
   font-size: 14px;
   transition: var(--transition);
-  padding: 8px 0;
+  padding: 4px 0;
+  gap: 8px; /* Space between text and icon */
 }
 
 .credential-link-with-icon:hover {
@@ -898,7 +897,7 @@ footer {
 
 .credential-icon {
   transition: var(--transition);
-  margin-left: 8px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .experience-event {
@@ -2027,17 +2026,39 @@ footer {
   align-items: center;
 }
 
+/* Stories Page - Updated Read More Button */
 .story-read-more {
   background: none;
   border: none;
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  font-weight: 400;
   cursor: pointer;
   transition: var(--transition);
+  padding: 0;
+  margin: 0;
 }
 
 .story-read-more:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
+}
+
+.story-share {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-share:hover {
+  color: var(--accent);
+  background-color: transparent;
 }
 
 .story-stats {
@@ -2379,17 +2400,21 @@ footer {
   margin-bottom: 24px;
 }
 
+/* LinkedIn Popup - Fix avatar */
 .linkedin-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent avatar from shrinking */
+  border: 2px solid var(--border);
 }
 
 .linkedin-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Ensure the image is centered */
 }
 
 .linkedin-info h3 {
@@ -2403,7 +2428,7 @@ footer {
   margin: 0 0 4px;
 }
 
-/* GitHub Popup Styles */
+/* GitHub Popup - Fix button alignment */
 .github-projects {
   padding: 0 32px 32px;
 }
@@ -2437,6 +2462,19 @@ footer {
 
 .github-link:hover {
   color: var(--accent-hover);
+}
+
+/* Add a container for the final button */
+.github-button-container {
+  padding: 0 32px 32px;
+  text-align: center;
+}
+
+.github-button-container .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 /* Calendly Popup Styles */
