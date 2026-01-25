@@ -2884,3 +2884,161 @@ footer {
     padding-top: 80px;
   }
 }
+
+/* Resume Page Specific Styles */
+.resume-header {
+  margin-bottom: 32px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+}
+
+.resume-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.resume-header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.contact-info {
+  margin-top: 16px;
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
+
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 32px;
+}
+
+.resume-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.resume-item {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.resume-item:last-child {
+  border-bottom: none;
+}
+
+.resume-item h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.resume-item p {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.resume-item ul {
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.resume-item ul li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.resume-item ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* Mobile Responsive Styles for Resume */
+@media (max-width: 768px) {
+  .resume-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .resume-header p {
+    font-size: 0.9rem;
+  }
+  
+  .contact-info p {
+    font-size: 0.8rem;
+  }
+  
+  .resume-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .resume-item h4 {
+    font-size: 1rem;
+  }
+  
+  .resume-item p {
+    font-size: 0.9rem;
+  }
+  
+  .resume-item ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Print Styles for Resume */
+@media print {
+  .nav-container,
+  .resume-actions,
+  footer {
+    display: none;
+  }
+  
+  .resume-content {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .resume-item {
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+  
+  .resume-section {
+    page-break-inside: avoid;
+    margin-bottom: 24px;
+  }
+  
+  .resume-header {
+    page-break-inside: avoid;
+  }
+}
