@@ -1171,7 +1171,7 @@ footer {
   }
   
   .theme-toggle {
-    font-size: 28px; /* Increased theme toggle size */
+    font-size: 26px; /* Increased theme toggle size */
     padding: 8px;
     margin-left: 12px;
   }
@@ -1182,7 +1182,7 @@ footer {
   }
   
   .mobile-menu-toggle {
-    font-size: 20px; /* Increased hamburger menu size */
+    font-size: 26px; /* Increased hamburger menu size */
     padding: 8px;
     margin-right: 12px;
   }
