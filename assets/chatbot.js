@@ -256,10 +256,24 @@ document.addEventListener("DOMContentLoaded", function () {
       // =========================
       // Availability & Logistics
       // =========================
-      "rahul time zone": "Rahul operates in the Eastern Time Zone (ET).",
+      "rahul's time zone": "Rahul operates in the Eastern Time Zone (ET).",
       "rahul working hours": "Rahul is flexible with working hours depending on the team.",
       "rahul remote work": "Rahul is comfortable working remotely and asynchronously.",
       "rahul on site": "Rahul is open to on-site or hybrid roles.",
+      "where do you live": "Rahul currently lives in Falls Church, Virginia, USA.",
+      "where does rahul live": "Rahul lives in Falls Church, Virginia, in the Washington, DC metro area.",
+      "rahul live where": "Rahul currently lives in Falls Church, Virginia, USA.",
+      "rahul current location": "Rahul is currently based in Falls Church, Virginia, USA.",
+      "where is rahul living now": "Rahul is living in Falls Church, Virginia.",
+      "is rahul living in usa": "Yes. Rahul currently lives in the United States.",
+      "does rahul live in usa": "Yes. Rahul lives in Falls Church, Virginia, USA.",
+      "is rahul living in virginia": "Yes. Rahul lives in Falls Church, Virginia.",
+      "rahul lives in which city": "Rahul lives in Falls Church, Virginia.",
+      "rahul lives in which country": "Rahul currently lives in the United States.",
+      "where is rahul based": "Rahul is based in the Washington, DC metropolitan area.",
+      "rahul residence": "Rahul’s current residence is Falls Church, Virginia, USA.",
+      "where are you located": "I’m a virtual assistant, but Rahul is located in Falls Church, Virginia.",
+      "where are you based": "Rahul is based in the Washington, DC metro area.",
 
       // =========================
       // FAQ & Clarifications
