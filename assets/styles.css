@@ -1173,18 +1173,18 @@ footer {
   .theme-toggle {
     font-size: 28px; /* Increased theme toggle size */
     padding: 8px;
-    margin-left: 16px;
+    margin-left: 12px;
   }
   
   .nav-logo-image {
-    height: 48px; /* Increased logo size */
+    height: 32px; /* Increased logo size */
     width: auto;
   }
   
   .mobile-menu-toggle {
-    font-size: 28px; /* Increased hamburger menu size */
+    font-size: 20px; /* Increased hamburger menu size */
     padding: 8px;
-    margin-right: 16px;
+    margin-right: 12px;
   }
   
   .nav-menu {
@@ -1393,9 +1393,9 @@ footer {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 24px 0;
+    padding: 12px 0;
     position: relative;
-    height: 80px; /* Ensure consistent height */
+    height: 60px; /* Ensure consistent height */
   }
   
   .nav-logo {
@@ -1523,8 +1523,8 @@ footer {
 @media (max-width: 480px) {
   /* Even larger navigation for very small screens */
   .nav-container {
-    padding: 28px 0; /* Further increased padding */
-    height: 90px; /* Increased height */
+    padding: 10px 0; /* Further increased padding */
+    height: 56px; /* Increased height */
   }
   
   .theme-toggle {
@@ -1533,11 +1533,11 @@ footer {
   }
   
   .nav-logo-image {
-    height: 52px; /* Even larger logo */
+    height: 30px; /* Even larger logo */
   }
   
   .mobile-menu-toggle {
-    font-size: 32px; /* Even larger */
+    font-size: 19px; /* Even larger */
     padding: 10px;
   }
   
