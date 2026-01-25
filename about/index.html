@@ -139,37 +139,6 @@
         `).join('');
       }
       
-      // Render certifications
-      const certificationsContainer = document.getElementById('certifications-container');
-      if (certificationsContainer) {
-        certificationsContainer.innerHTML = `
-          <div class="certifications-grid">
-            ${profile.certifications.map(cert => `
-              <div class="card certification-card">
-                <div class="certification-header">
-                  <h3 class="certification-title">${cert.name}</h3>
-                  <div class="certification-issuer">${cert.issuer}</div>
-                </div>
-                <div class="certification-details">
-                  <div class="certification-date">${cert.date}</div>
-                </div>
-                ${cert.credentialLink ? `
-                <div class="certification-link">
-                <a href="${cert.credentialLink}" target="_blank" rel="noopener noreferrer" class="credential-link-with-icon">
-                Show credential
-                <svg class="credential-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                </a>
-                </div>
-                ` : ''}
-              </div>
-            `).join('')}
-          </div>
-        `;
-      }
       
       // Render research interests
       const researchInterestsContainer = document.getElementById('research-interests');
@@ -182,5 +151,124 @@
       }
     });
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Certifications data
+    const certifications = [
+      {
+        id: 1,
+        title: "Generative AI Fundamentals",
+        issuer: "Databricks",
+        date: "2025",
+        description: "Core concepts and applications of generative AI and large language models",
+        credentialUrl: "https://credentials.databricks.com/1d2d6ac6-c75b-41fc-987f-57db12ff58e7",
+        badgeUrl: "https://images.credly.com/size/110x110/images/1d2d6ac6-c75b-41fc-987f-57db12ff58e7/Generative_AI_Fundamentals.png",
+        skills: ["Generative AI", "Large Language Models"]
+      },
+      {
+        id: 2,
+        title: "Converged Planning Master",
+        issuer: "Nexxen",
+        date: "2025",
+        description: "Advanced programmatic advertising and converged media planning strategies",
+        credentialUrl: "https://www.credly.com/badges/9fad9d07-1fdf-495b-93ab-28b311daa91d/public_url",
+        badgeUrl: "https://www.credly.com/badges/9fad9d07-1fdf-495b-93ab-28b311daa91d/public_url",
+        skills: ["Ad Tech", "Advertising Campaign Management", "Programmatic Advertising"]
+      },
+      {
+        id: 3,
+        title: "Elements of AI",
+        issuer: "University of Helsinki",
+        date: "2023",
+        description: "Introduction to artificial intelligence, machine learning, and neural networks",
+        credentialUrl: "https://certificates.mooc.fi/validate/7oyeok88b8j",
+        badgeUrl: "",
+        skills: ["Artificial Intelligence (AI)", "Neural Networks", "Machine Learning"]
+      },
+      {
+        id: 4,
+        title: "Dashboards & Data Visualization",
+        issuer: "Corporate Finance Institute® (CFI)",
+        date: "2022",
+        description: "Creating effective dashboards and visualizations for business intelligence",
+        credentialUrl: "http://credentials.corporatefinanceinstitute.com/3f5de3a0-0805-4de3-953e-3767222d7915",
+        badgeUrl: "",
+        skills: ["Data Visualization", "Dashboard Design", "Business Intelligence"]
+      },
+      {
+        id: 5,
+        title: "Python for Data Science",
+        issuer: "IBM",
+        date: "2021",
+        description: "Python programming for data analysis, visualization, and machine learning",
+        credentialUrl: "https://www.youracclaim.com/badges/be4b355f-a358-41d6-a7b8-1a8a5b0c19f2?source=linked_in_profile",
+        badgeUrl: "",
+        skills: ["Data Science", "Python", "Pandas"]
+      },
+      {
+        id: 6,
+        title: "Data-Driven Planning",
+        issuer: "The Trade Desk",
+        date: "2020",
+        description: "Strategic planning and optimization for programmatic advertising campaigns",
+        credentialUrl: "https://www.youracclaim.com/badges/84b00d1a-a3e9-4102-bddd-b8ee0d1b751f?source=linked_in_profile",
+        badgeUrl: "",
+        skills: ["Ad Operations", "Ad Tech", "Data Analysis"]
+      }
+    ];
+
+    // Render certifications
+    const container = document.getElementById('certifications-container');
+    container.innerHTML = certifications.map(cert => `
+      <div class="certification-card" data-id="${cert.id}">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="certification-header">
+              <div class="certification-badge">
+                ${cert.badgeUrl ? 
+                  `<img src="${cert.badgeUrl}" alt="${cert.title} Badge" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="badge-placeholder" style="display:none;">${cert.issuer.substring(0, 2).toUpperCase()}</div>` : 
+                  `<div class="badge-placeholder">${cert.issuer.substring(0, 2).toUpperCase()}</div>`
+                }
+              </div>
+              <div class="certification-info">
+                <h3>${cert.title}</h3>
+                <p class="certification-issuer">${cert.issuer}</p>
+                <p class="certification-date">${cert.date}</p>
+              </div>
+            </div>
+            <div class="certification-skills">
+              ${cert.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+            </div>
+            <div class="flip-hint">Click to view details</div>
+          </div>
+          <div class="card-back">
+            <h3>${cert.title}</h3>
+            <p class="certification-description">${cert.description}</p>
+            <div class="certification-actions">
+              <a href="${cert.credentialUrl}" target="_blank" rel="noopener noreferrer" class="credential-link">
+                View Credential
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+            <div class="flip-hint">Click to flip back</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Add flip functionality
+    document.querySelectorAll('.certification-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+      });
+    });
+  });
+</script>
 </body>
 </html>
