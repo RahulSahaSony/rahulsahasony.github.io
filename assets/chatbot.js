@@ -121,6 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "rahul email": "Rahul's email is rahulsahasony@gmail.com.",
       "rahul's email id": "Rahul's email is rahulsahasony@gmail.com.",
       "rahul's email": "Rahul's email is rahulsahasony@gmail.com.",
+      "what's his email id": "Rahul's email is rahulsahasony@gmail.com.",
+      "what's his mail id": "Rahul's email is rahulsahasony@gmail.com.",
       "rahul linkedin": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
       "rahul's linkedin": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
       "rahul's linkedin id": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
