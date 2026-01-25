@@ -3051,12 +3051,6 @@ footer {
   margin-bottom: 32px;
 }
 
-.latest-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
 .latest-card {
   background-color: var(--bg-card);
   border-radius: 12px;
