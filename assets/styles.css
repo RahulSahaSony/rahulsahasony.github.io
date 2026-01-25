@@ -2400,17 +2400,21 @@ footer {
   margin-bottom: 24px;
 }
 
+/* LinkedIn Popup - Fix avatar */
 .linkedin-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent avatar from shrinking */
+  border: 2px solid var(--border);
 }
 
 .linkedin-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Ensure the image is centered */
 }
 
 .linkedin-info h3 {
