@@ -2027,17 +2027,39 @@ footer {
   align-items: center;
 }
 
+/* Stories Page - Updated Read More Button */
 .story-read-more {
   background: none;
   border: none;
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  font-weight: 400;
   cursor: pointer;
   transition: var(--transition);
+  padding: 0;
+  margin: 0;
 }
 
 .story-read-more:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
+}
+
+.story-share {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-share:hover {
+  color: var(--accent);
+  background-color: transparent;
 }
 
 .story-stats {
