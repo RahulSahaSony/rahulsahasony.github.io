@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Chatbot data about you
   const chatbotData = {
     greeting: [
-      "Hello! I'm Rahul's virtual assistant. I can tell you about his background, skills, projects, and experience. I can also help with simple calculations. What would you like to know?",
-      "Hi! I'm Rahul Saha's virtual assistant. I can answer questions about Rahul and help with basic math. How can I help?",
-      "Hey there! Want to know about Rahul's skills, projects, or need help with a calculation?",
-      "Welcome! What would you like to know about Rahul Saha? I can also help with simple math problems.",
+      "Hello! I'm Rahul's virtual assistant. I can tell you about his background, skills, projects, and experience. What would you like to know?",
+      "Hi! I'm Rahul's virtual assistant. I can answer questions about Rahul. How can I help?",
+      "Hey there! Want to know about Rahul's skills, projects, or experience?",
+      "Welcome! What would you like to know about Rahul?",
     ],
 
     farewell: [
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     unknown: [
       "Sorry, I don't have an answer for that yet.",
       "I'm not sure how to answer that. You can ask me about Rahul's education, skills, projects, or work experience.",
-      "I didn't quite understand that. Try asking something about Rahul's background or a simple calculation.",
+      "I didn't quite understand that. Try asking something about Rahul's background",
       "That's a good question, but I don't have that information right now.",
     ],
 
