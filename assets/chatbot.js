@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "where does rahul live": "Rahul is based in Falls Church, Virginia, in the Washington, DC metro area.",
       "rahul nationality": "Rahul is originally from Bangladesh and currently based in the United States.",
       "rahul age": "Rahul prefers to focus on his work and experience rather than age.",
+      "how old is rahul": "Old enough to be experienced, young enough to keep learning.",
+      "rahul's age": "Rahul prefers to focus on skills and experience rather than numbers.",
       "how are you": "I’m doing well, thanks for asking! How can I help you learn more about Rahul?",
       "how are you doing": "All good here. What would you like to know about Rahul?",
       "how's it going": "Going well! Feel free to ask about Rahul’s skills, projects, or experience.",
@@ -457,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatbotContainer.innerHTML = `
       <div class="chatbot-header">
         <div class="chatbot-avatar">
-          <img src="/assets/profile-photo.jpg" alt="Rahul's Assistant">
+          <img src="/assets/logo.png" alt="Rahul's Assistant">
         </div>
         <div class="chatbot-title">
           <h3>Rahul's Assistant</h3>
