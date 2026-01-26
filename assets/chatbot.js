@@ -459,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatbotContainer.innerHTML = `
       <div class="chatbot-header">
         <div class="chatbot-avatar">
-          <img src="/assets/profile-photo.jpg" alt="Rahul's Assistant">
+          <img src="/assets/logo.png" alt="Rahul's Assistant">
         </div>
         <div class="chatbot-title">
           <h3>Rahul's Assistant</h3>
