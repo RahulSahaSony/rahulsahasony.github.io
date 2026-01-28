@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.getElementById('theme-toggle');
   const htmlElement = document.documentElement;
   
-  // Check for saved theme preference or default to dark
-  const currentTheme = localStorage.getItem('theme') || 'dark';
+  // Check for saved theme preference or default to day
+  const currentTheme = localStorage.getItem('theme') || 'day';
   htmlElement.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme);
   
   if (themeToggle) {
     themeToggle.addEventListener('click', function() {
-      const theme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      const theme = htmlElement.getAttribute('data-theme') === 'day' ? 'night' : 'day';
       htmlElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
       updateThemeIcon(theme);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function updateThemeIcon(theme) {
     if (themeToggle) {
-      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      themeToggle.textContent = theme === 'day' ? '🌙' : '☀️';
     }
   }
   
