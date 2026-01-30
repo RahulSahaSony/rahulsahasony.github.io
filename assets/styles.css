@@ -1021,7 +1021,7 @@ footer {
 }
 
 .calendly-inline-widget {
-  width: 100%;
+  width: 320px;
   height: 700px !important;
   min-width: 100% !important;
 }
