@@ -3283,5 +3283,5 @@ footer {
 
 /* Light theme adjustments */
 [data-theme="light"] .ambient-canvas {
-  opacity: 0.7;
+  opacity: 0.9;
 }
