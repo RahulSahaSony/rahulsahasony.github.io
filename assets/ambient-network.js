@@ -22,18 +22,40 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const isMobile = isMobileDevice();
   
+  // Get current theme
+  function getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') || 'dark';
+  }
+  
+  // Get colors based on theme
+  function getThemeColors() {
+    const theme = getCurrentTheme();
+    if (theme === 'light') {
+      return {
+        dot: '#1e66d0',      // Bright blue for light theme
+        line: '#1e66d0',     // Bright blue for light theme
+        dotOpacity: 0.8,     // Increased from 0.4/0.5
+        lineOpacity: 0.3     // Increased from 0.08/0.1
+      };
+    } else {
+      return {
+        dot: '#6ab0ff',      // Brighter blue for dark theme
+        line: '#6ab0ff',     // Brighter blue for dark theme
+        dotOpacity: 0.9,     // Increased from 0.4/0.5
+        lineOpacity: 0.4     // Increased from 0.08/0.1
+      };
+    }
+  }
+  
   // Configuration - different for mobile and desktop
   const config = {
     dotCount: isMobile ? 20 : 50,
-    dotSize: isMobile ? 1.5 : 2,
+    dotSize: isMobile ? 2 : 2.5,        // Increased size
     maxDistance: isMobile ? 100 : 150,
     mouseRadius: isMobile ? 50 : 100,
     speed: isMobile ? 0.2 : 0.3,
-    color: getComputedStyle(document.documentElement).getPropertyValue('--accent'),
-    lineColor: getComputedStyle(document.documentElement).getPropertyValue('--accent'),
-    dotOpacity: isMobile ? 0.4 : 0.5,
-    lineOpacity: isMobile ? 0.08 : 0.1,
-    frameSkip: isMobile ? 2 : 1 // Skip frames on mobile for performance
+    frameSkip: isMobile ? 2 : 1,
+    ...getThemeColors() // Spread theme colors
   };
   
   // Resize canvas
@@ -87,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
       this.radius = config.dotSize;
       this.baseRadius = config.dotSize;
       this.pulsePhase = Math.random() * Math.PI * 2;
+      this.brightness = 0.8 + Math.random() * 0.2; // Random brightness variation
     }
     
     update() {
@@ -131,13 +154,30 @@ document.addEventListener('DOMContentLoaded', function() {
       // Breathing effect - reduced on mobile
       const pulseSpeed = isMobile ? 0.01 : 0.02;
       this.pulsePhase += pulseSpeed;
-      this.radius = this.baseRadius + Math.sin(this.pulsePhase) * 0.5;
+      this.radius = this.baseRadius + Math.sin(this.pulsePhase) * 0.8; // Increased pulse effect
     }
     
     draw() {
+      // Create gradient for brighter effect
+      const gradient = ctx.createRadialGradient(
+        this.x, this.y, 0,
+        this.x, this.y, this.radius * 2
+      );
+      
+      const opacity = config.dotOpacity * this.brightness;
+      gradient.addColorStop(0, config.dot + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
+      gradient.addColorStop(0.5, config.dot + Math.floor(opacity * 0.5 * 255).toString(16).padStart(2, '0'));
+      gradient.addColorStop(1, config.dot + '00');
+      
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      
+      // Draw solid center
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = config.color + Math.floor(config.dotOpacity * 255).toString(16).padStart(2, '0');
+      ctx.fillStyle = config.dot + Math.floor(opacity * 255).toString(16).padStart(2, '0');
       ctx.fill();
     }
   }
@@ -163,11 +203,20 @@ document.addEventListener('DOMContentLoaded', function() {
           const distance = Math.sqrt(distanceSq);
           const opacity = (1 - distance / config.maxDistance) * config.lineOpacity;
           
+          // Create gradient for lines
+          const gradient = ctx.createLinearGradient(
+            dots[i].x, dots[i].y,
+            dots[j].x, dots[j].y
+          );
+          gradient.addColorStop(0, config.line + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
+          gradient.addColorStop(0.5, config.line + Math.floor(opacity * 0.8 * 255).toString(16).padStart(2, '0'));
+          gradient.addColorStop(1, config.line + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
+          
           ctx.beginPath();
           ctx.moveTo(dots[i].x, dots[i].y);
           ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.strokeStyle = config.lineColor + Math.floor(opacity * 255).toString(16).padStart(2, '0');
-          ctx.lineWidth = 0.5;
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = isMobile ? 0.8 : 1; // Thicker lines
           ctx.stroke();
         }
       }
@@ -205,8 +254,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       setTimeout(() => {
-        config.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
-        config.lineColor = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+        const newColors = getThemeColors();
+        config.dot = newColors.dot;
+        config.line = newColors.line;
+        config.dotOpacity = newColors.dotOpacity;
+        config.lineOpacity = newColors.lineOpacity;
       }, 100);
     });
   }
