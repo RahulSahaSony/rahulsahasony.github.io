@@ -3,7 +3,7 @@
 A professional portfolio website built with HTML, CSS, and JavaScript, showcasing my work in business analytics, data science, and machine learning.
 
 🌐 **Live Site**  
-https://rahulsahasony.github.io/
+https://rahulsaha.me/
 
 ---
 
