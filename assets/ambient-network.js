@@ -2,132 +2,158 @@ document.addEventListener('DOMContentLoaded', function() {
   // Create tree root container
   const treeContainer = document.createElement('div');
   treeContainer.className = 'tree-root-container';
+  treeContainer.style.position = 'fixed';
+  treeContainer.style.top = '0';
+  treeContainer.style.left = '0';
+  treeContainer.style.width = '100%';
+  treeContainer.style.height = '100%';
+  treeContainer.style.zIndex = '-1';
+  treeContainer.style.overflow = 'hidden';
+  treeContainer.style.pointerEvents = 'none';
   document.body.appendChild(treeContainer);
   
-  // Create multiple tree root origins
-  const origins = [
-    { class: 'tree-origin-1', branches: 3 },
-    { class: 'tree-origin-2', branches: 2 },
-    { class: 'tree-origin-3', branches: 4 },
-    { class: 'tree-origin-4', branches: 2 },
-    { class: 'tree-origin-5', branches: 3 }
-  ];
-  
-  origins.forEach((origin, index) => {
-    const mainRoot = document.createElement('div');
-    mainRoot.className = `tree-root ${origin.class}`;
-    treeContainer.appendChild(mainRoot);
+  // Function to create a single root element
+  function createRoot(x, y, angle, length, delay, thickness) {
+    const root = document.createElement('div');
+    root.style.position = 'absolute';
+    root.style.left = x + 'px';
+    root.style.top = y + 'px';
+    root.style.width = length + 'px';
+    root.style.height = thickness + 'px';
+    root.style.background = 'var(--root-color, #4a9eff)';
+    root.style.transformOrigin = '0 50%';
+    root.style.transform = `rotate(${angle}deg)`;
+    root.style.opacity = '0';
     
-    // Create sub-branches
-    for (let i = 0; i < origin.branches; i++) {
+    // Add animation
+    root.style.animation = `growRoot 15s ease-out ${delay}s`;
+    
+    treeContainer.appendChild(root);
+    
+    // Create branches
+    if (Math.random() > 0.3) {
       setTimeout(() => {
-        const subBranch = document.createElement('div');
-        subBranch.className = 'tree-sub-branch';
-        subBranch.style.top = `${Math.random() * 100}px`;
-        subBranch.style.left = `${Math.random() * 100}px`;
-        subBranch.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
-        subBranch.style.animationDelay = `${Math.random() * 5}s`;
-        treeContainer.appendChild(subBranch);
-      }, index * 1000 + i * 500);
+        createBranch(x + Math.cos(angle * Math.PI / 180) * length * 0.7, 
+                     y + Math.sin(angle * Math.PI / 180) * length * 0.7, 
+                     angle - 20, length * 0.6, delay + 2, thickness * 0.8);
+      }, delay * 1000 + 1000);
     }
-  });
-  
-  // Function to update root variables dynamically
-  function updateRootVariables() {
-    const root = document.documentElement;
-    const theme = root.getAttribute('data-theme') || 'dark';
     
-    if (theme === 'light') {
-      root.style.setProperty('--root-color', '#1e66d0');
-      root.style.setProperty('--root-opacity', '0.25');
-      root.style.setProperty('--root-thickness', '1.5px');
-      root.style.setProperty('--root-growth-speed', '35s');
-    } else {
-      root.style.setProperty('--root-color', '#4a9eff');
-      root.style.setProperty('--root-opacity', '0.3');
-      root.style.setProperty('--root-thickness', '2px');
-      root.style.setProperty('--root-growth-speed', '30s');
+    if (Math.random() > 0.3) {
+      setTimeout(() => {
+        createBranch(x + Math.cos(angle * Math.PI / 180) * length * 0.7, 
+                     y + Math.sin(angle * Math.PI / 180) * length * 0.7, 
+                     angle + 20, length * 0.6, delay + 3, thickness * 0.8);
+      }, delay * 1000 + 2000);
     }
   }
+  
+  // Function to create a branch
+  function createBranch(x, y, angle, length, delay, thickness) {
+    const branch = document.createElement('div');
+    branch.style.position = 'absolute';
+    branch.style.left = x + 'px';
+    branch.style.top = y + 'px';
+    branch.style.width = length + 'px';
+    branch.style.height = thickness + 'px';
+    branch.style.background = 'var(--root-color, #4a9eff)';
+    branch.style.transformOrigin = '0 50%';
+    branch.style.transform = `rotate(${angle}deg)`;
+    branch.style.opacity = '0';
+    
+    // Add animation
+    branch.style.animation = `growRoot 12s ease-out ${delay}s`;
+    
+    treeContainer.appendChild(branch);
+    
+    // Create sub-branches
+    if (Math.random() > 0.4 && length > 30) {
+      setTimeout(() => {
+        createBranch(x + Math.cos(angle * Math.PI / 180) * length * 0.8, 
+                     y + Math.sin(angle * Math.PI / 180) * length * 0.8, 
+                     angle - 15, length * 0.5, delay + 1.5, thickness * 0.7);
+      }, delay * 1000 + 800);
+    }
+    
+    if (Math.random() > 0.4 && length > 30) {
+      setTimeout(() => {
+        createBranch(x + Math.cos(angle * Math.PI / 180) * length * 0.8, 
+                     y + Math.sin(angle * Math.PI / 180) * length * 0.8, 
+                     angle + 15, length * 0.5, delay + 2, thickness * 0.7);
+      }, delay * 1000 + 1200);
+    }
+  }
+  
+  // Add the keyframes animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes growRoot {
+      0% {
+        width: 0;
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      80% {
+        opacity: 0.3;
+      }
+      100% {
+        width: ${document.documentElement.style.getPropertyValue('--root-max-length') || '300px'};
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Set initial root variables
+  const root = document.documentElement;
+  root.style.setProperty('--root-color', '#4a9eff');
+  root.style.setProperty('--root-max-length', '300px');
+  
+  // Create initial roots from different positions
+  createRoot(window.innerWidth * 0.1, window.innerHeight * 0.5, 10, 200, 0, 3);
+  createRoot(window.innerWidth * 0.9, window.innerHeight * 0.3, -170, 180, 1, 2.5);
+  createRoot(window.innerWidth * 0.2, window.innerHeight * 0.8, 30, 220, 2, 3.5);
+  createRoot(window.innerWidth * 0.8, window.innerHeight * 0.7, -190, 160, 3, 2);
+  createRoot(window.innerWidth * 0.5, window.innerHeight * 0.9, 0, 190, 4, 2.8);
+  
+  // Periodically add new roots
+  setInterval(() => {
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    const angle = Math.random() * 360;
+    const length = 150 + Math.random() * 100;
+    const delay = 0;
+    const thickness = 2 + Math.random() * 2;
+    
+    createRoot(x, y, angle, length, delay, thickness);
+  }, 8000);
   
   // Update colors on theme change
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       setTimeout(() => {
-        updateRootVariables();
-        // Regenerate tree with new theme
-        treeContainer.innerHTML = '';
-        origins.forEach((origin, index) => {
-          const mainRoot = document.createElement('div');
-          mainRoot.className = `tree-root ${origin.class}`;
-          treeContainer.appendChild(mainRoot);
-          
-          for (let i = 0; i < origin.branches; i++) {
-            setTimeout(() => {
-              const subBranch = document.createElement('div');
-              subBranch.className = 'tree-sub-branch';
-              subBranch.style.top = `${Math.random() * 100}px`;
-              subBranch.style.left = `${Math.random() * 100}px`;
-              subBranch.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
-              subBranch.style.animationDelay = `${Math.random() * 5}s`;
-              treeContainer.appendChild(subBranch);
-            }, index * 1000 + i * 500);
-          }
-        });
+        const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+        if (theme === 'light') {
+          root.style.setProperty('--root-color', '#1e66d0');
+        } else {
+          root.style.setProperty('--root-color', '#4a9eff');
+        }
       }, 100);
     });
   }
   
-  // Handle visibility change
-  document.addEventListener('visibilitychange', () => {
-    const allRoots = treeContainer.querySelectorAll('.tree-root, .tree-sub-branch');
-    if (document.hidden) {
-      allRoots.forEach(root => root.style.animationPlayState = 'paused');
-    } else {
-      allRoots.forEach(root => root.style.animationPlayState = 'running');
-    }
-  });
-  
-  // Dynamic growth based on scroll
-  let ticking = false;
-  function updateGrowthOnScroll() {
-    const scrollY = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollProgress = scrollY / maxScroll;
-    
-    const root = document.documentElement;
-    root.style.setProperty('--root-curve-intensity', 0.3 + scrollProgress * 0.4);
-    root.style.setProperty('--root-spread-angle', `${45 + scrollProgress * 30}deg`);
-    root.style.setProperty('--root-opacity', `${0.3 - scrollProgress * 0.1}`);
-    
-    ticking = false;
-  }
-  
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateGrowthOnScroll);
-      ticking = true;
-    }
-  });
-  
-  // Periodically add new growth
+  // Clean up old roots periodically to prevent memory issues
   setInterval(() => {
-    if (treeContainer.children.length < 50) { // Limit total elements
-      const newBranch = document.createElement('div');
-      newBranch.className = 'tree-sub-branch';
-      newBranch.style.top = `${Math.random() * 100}%`;
-      newBranch.style.left = `${Math.random() * 100}%`;
-      newBranch.style.transform = `rotate(${Math.random() * 90 - 45}deg)`;
-      treeContainer.appendChild(newBranch);
-      
-      // Remove old branches to prevent memory issues
-      if (treeContainer.children.length > 40) {
-        treeContainer.removeChild(treeContainer.firstChild);
+    const roots = treeContainer.querySelectorAll('div');
+    if (roots.length > 50) {
+      for (let i = 0; i < 10; i++) {
+        if (roots[i]) {
+          treeContainer.removeChild(roots[i]);
+        }
       }
     }
-  }, 5000);
-  
-  // Initialize
-  updateRootVariables();
+  }, 15000);
 });
