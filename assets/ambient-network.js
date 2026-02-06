@@ -1,204 +1,157 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Create SVG container for organic roots
-  const svgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svgContainer.setAttribute('class', 'organic-roots');
-  svgContainer.style.position = 'fixed';
-  svgContainer.style.top = '0';
-  svgContainer.style.left = '0';
-  svgContainer.style.width = '100%';
-  svgContainer.style.height = '100%';
-  svgContainer.style.zIndex = '-1';
-  svgContainer.style.pointerEvents = 'none';
-  svgContainer.setAttribute('viewBox', `0 0 ${window.innerWidth} ${window.innerHeight}`);
-  document.body.appendChild(svgContainer);
+  // Create cherry blossom container
+  const blossomContainer = document.createElement('div');
+  blossomContainer.className = 'cherry-blossom-container';
+  blossomContainer.style.position = 'fixed';
+  blossomContainer.style.top = '0';
+  blossomContainer.style.left = '0';
+  blossomContainer.style.width = '100%';
+  blossomContainer.style.height = '100%';
+  blossomContainer.style.zIndex = '-1';
+  blossomContainer.style.overflow = 'hidden';
+  blossomContainer.style.pointerEvents = 'none';
+  document.body.appendChild(blossomContainer);
   
-  // Create a filter for glow effect
-  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-  const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-  filter.setAttribute('id', 'root-glow');
+  // Cherry blossom colors (pink shades)
+  const blossomColors = [
+    '#FFB7C5', // Light pink
+    '#FFC0CB', // Pink
+    '#FFD1DC', // Pale pink
+    '#FF69B4', // Hot pink
+    '#FF1493'  // Deep pink
+  ];
   
-  const feGaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-  feGaussianBlur.setAttribute('stdDeviation', '2');
-  feGaussianBlur.setAttribute('result', 'coloredBlur');
-  
-  const feMerge = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
-  const feMergeNode1 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
-  feMergeNode1.setAttribute('in', 'coloredBlur');
-  const feMergeNode2 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
-  feMergeNode2.setAttribute('in', 'SourceGraphic');
-  
-  feMerge.appendChild(feMergeNode1);
-  feMerge.appendChild(feMergeNode2);
-  filter.appendChild(feGaussianBlur);
-  filter.appendChild(feMerge);
-  defs.appendChild(filter);
-  svgContainer.appendChild(defs);
-  
-  // Theme colors
-  function getRootColor() {
-    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
-    return theme === 'light' ? '#1e66d0' : '#4a9eff';
-  }
-  
-  // Create a curved path
-  function createPath(startX, startY, length, initialAngle, thickness, delay = 0) {
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    const color = getRootColor();
+  // Function to create a single cherry blossom petal
+  function createBlossom() {
+    const petal = document.createElement('div');
+    petal.className = 'cherry-blossom';
     
-    // Generate control points for a natural curve
-    const segments = 5 + Math.floor(Math.random() * 5);
-    let pathData = `M ${startX} ${startY}`;
+    // Random properties for natural variation
+    const size = 10 + Math.random() * 15; // 10-25px
+    const colorIndex = Math.floor(Math.random() * blossomColors.length);
+    const color = blossomColors[colorIndex];
+    const startX = Math.random() * window.innerWidth;
+    const swayAmount = 30 + Math.random() * 50; // How much it sways side to side
+    const fallDuration = 15 + Math.random() * 20; // 15-35 seconds
+    const swayDuration = 3 + Math.random() * 4; // 3-7 seconds for sway cycle
+    const delay = Math.random() * 5; // 0-5 seconds delay
+    const opacity = 0.6 + Math.random() * 0.3; // 0.6-0.9 opacity
+    const rotationSpeed = 20 + Math.random() * 30; // Rotation speed
     
-    let currentX = startX;
-    let currentY = startY;
-    let currentAngle = initialAngle;
+    // Apply styles
+    petal.style.width = `${size}px`;
+    petal.style.height = `${size}px`;
+    petal.style.backgroundColor = color;
+    petal.style.opacity = opacity;
+    petal.style.left = `${startX}px`;
+    petal.style.top = '-20px'; // Start above the viewport
+    petal.style.borderRadius = '0 100% 0 100%'; // Petal shape
+    petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+    petal.style.boxShadow = `0 0 ${size/2}px ${color}40`; // Soft glow
     
-    for (let i = 0; i < segments; i++) {
-      const segmentLength = length / segments;
-      const angleVariation = (Math.random() - 0.5) * 60; // -30 to 30 degrees
-      currentAngle += angleVariation;
+    // Add to container
+    blossomContainer.appendChild(petal);
+    
+    // Animate falling
+    let startTime = null;
+    let initialX = startX;
+    
+    function animatePetal(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = (timestamp - startTime) / 1000; // Convert to seconds
       
-      const nextX = currentX + Math.cos(currentAngle * Math.PI / 180) * segmentLength;
-      const nextY = currentY + Math.sin(currentAngle * Math.PI / 180) * segmentLength;
-      
-      // Create control points for bezier curve
-      const cp1X = currentX + Math.cos((currentAngle + 45) * Math.PI / 180) * segmentLength * 0.3;
-      const cp1Y = currentY + Math.sin((currentAngle + 45) * Math.PI / 180) * segmentLength * 0.3;
-      const cp2X = nextX - Math.cos((currentAngle - 45) * Math.PI / 180) * segmentLength * 0.3;
-      const cp2Y = nextY - Math.sin((currentAngle - 45) * Math.PI / 180) * segmentLength * 0.3;
-      
-      pathData += ` C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${nextX} ${nextY}`;
-      
-      currentX = nextX;
-      currentY = nextY;
-      
-      // Chance to branch
-      if (i > 1 && Math.random() > 0.6 && thickness > 1) {
-        setTimeout(() => {
-          createBranch(currentX, currentY, currentAngle, length * 0.6, thickness * 0.7, delay + i * 0.5);
-        }, delay * 1000 + i * 800);
+      // Calculate position
+      const progress = elapsed / fallDuration;
+      if (progress >= 1) {
+        // Animation complete, remove petal
+        if (blossomContainer.contains(petal)) {
+          blossomContainer.removeChild(petal);
+        }
+        return;
       }
+      
+      // Vertical position (falling)
+      const y = progress * (window.innerHeight + 40); // 40px extra to ensure it goes off screen
+      
+      // Horizontal position (swaying)
+      const swayX = Math.sin(elapsed / swayDuration * 2 * Math.PI) * swayAmount;
+      const x = initialX + swayX;
+      
+      // Rotation
+      const rotation = elapsed * rotationSpeed;
+      
+      // Apply transform
+      petal.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+      
+      // Continue animation
+      requestAnimationFrame(animatePetal);
     }
     
-    path.setAttribute('d', pathData);
-    path.setAttribute('stroke', color);
-    path.setAttribute('stroke-width', thickness);
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke-linecap', 'round');
-    path.setAttribute('filter', 'url(#root-glow)');
-    path.setAttribute('opacity', '0');
-    
-    // Calculate path length for animation
-    const pathLength = path.getTotalLength();
-    path.style.strokeDasharray = pathLength;
-    path.style.strokeDashoffset = pathLength;
-    
-    // Add to SVG
-    svgContainer.appendChild(path);
-    
-    // Animate the path
+    // Start animation after delay
     setTimeout(() => {
-      path.style.transition = 'stroke-dashoffset 8s ease-in-out, opacity 8s ease-in-out';
-      path.style.strokeDashoffset = '0';
-      path.style.opacity = '0.6';
-      
-      // Fade out at the end
-      setTimeout(() => {
-        path.style.transition = 'opacity 4s ease-out';
-        path.style.opacity = '0';
-      }, 8000);
+      requestAnimationFrame(animatePetal);
     }, delay * 1000);
-    
-    // Clean up after animation
+  }
+  
+  // Create initial blossoms
+  for (let i = 0; i < 15; i++) {
     setTimeout(() => {
-      if (svgContainer.contains(path)) {
-        svgContainer.removeChild(path);
-      }
-    }, (delay + 15) * 1000);
+      createBlossom();
+    }, i * 800);
   }
   
-  // Create a branch from an existing path
-  function createBranch(startX, startY, parentAngle, length, thickness, delay = 0) {
-    const angleVariation = (Math.random() - 0.5) * 90; // -45 to 45 degrees
-    const newAngle = parentAngle + angleVariation;
-    
-    createPath(startX, startY, length, newAngle, thickness, delay);
-  }
+  // Continuously create new blossoms
+  setInterval(createBlossom, 2000);
   
-  // Create initial roots from different positions
-  function createInitialRoots() {
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+  // Adjust for theme
+  function adjustForTheme() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const petals = blossomContainer.querySelectorAll('.cherry-blossom');
     
-    // Bottom left corner
-    createPath(viewportWidth * 0.1, viewportHeight * 0.9, 300, 160, 3, 0);
-    
-    // Bottom right corner
-    createPath(viewportWidth * 0.9, viewportHeight * 0.9, 280, -160, 2.5, 1);
-    
-    // Middle left
-    createPath(viewportWidth * 0.05, viewportHeight * 0.6, 250, 120, 2.8, 2);
-    
-    // Middle right
-    createPath(viewportWidth * 0.95, viewportHeight * 0.4, 270, -120, 2.2, 3);
-    
-    // Top middle
-    createPath(viewportWidth * 0.5, viewportHeight * 0.05, 300, 90, 2.5, 4);
-  }
-  
-  // Start the animation
-  createInitialRoots();
-  
-  // Periodically add new roots
-  setInterval(() => {
-    const edge = Math.floor(Math.random() * 4); // 0: top, 1: right, 2: bottom, 3: left
-    let startX, startY, initialAngle;
-    
-    switch(edge) {
-      case 0: // Top
-        startX = Math.random() * window.innerWidth;
-        startY = 0;
-        initialAngle = 90 + (Math.random() - 0.5) * 60;
-        break;
-      case 1: // Right
-        startX = window.innerWidth;
-        startY = Math.random() * window.innerHeight;
-        initialAngle = 180 + (Math.random() - 0.5) * 60;
-        break;
-      case 2: // Bottom
-        startX = Math.random() * window.innerWidth;
-        startY = window.innerHeight;
-        initialAngle = -90 + (Math.random() - 0.5) * 60;
-        break;
-      case 3: // Left
-        startX = 0;
-        startY = Math.random() * window.innerHeight;
-        initialAngle = (Math.random() - 0.5) * 60;
-        break;
+    if (theme === 'light') {
+      // Lighter colors for light theme
+      const lightColors = ['#FFB7C5', '#FFC0CB', '#FFD1DC', '#FFE4E1', '#FFF0F5'];
+      petals.forEach(petal => {
+        const currentColor = petal.style.backgroundColor;
+        // Only change if it's one of the original colors
+        if (blossomColors.some(color => currentColor.includes(color.substring(1)))) {
+          const newColor = lightColors[Math.floor(Math.random() * lightColors.length)];
+          petal.style.backgroundColor = newColor;
+          petal.style.boxShadow = `0 0 ${parseInt(petal.style.width)/2}px ${newColor}40`;
+        }
+      });
+    } else {
+      // Darker colors for dark theme
+      const darkColors = ['#FF69B4', '#FF1493', '#C71585', '#DB7093', '#FFB6C1'];
+      petals.forEach(petal => {
+        const currentColor = petal.style.backgroundColor;
+        // Only change if it's one of the original colors
+        if (blossomColors.some(color => currentColor.includes(color.substring(1)))) {
+          const newColor = darkColors[Math.floor(Math.random() * darkColors.length)];
+          petal.style.backgroundColor = newColor;
+          petal.style.boxShadow = `0 0 ${parseInt(petal.style.width)/2}px ${newColor}40`;
+        }
+      });
     }
-    
-    const length = 200 + Math.random() * 150;
-    const thickness = 1.5 + Math.random() * 2;
-    
-    createPath(startX, startY, length, initialAngle, thickness, 0);
-  }, 10000);
+  }
   
-  // Update colors on theme change
+  // Listen for theme changes
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      setTimeout(() => {
-        // Update existing paths
-        const paths = svgContainer.querySelectorAll('path');
-        paths.forEach(path => {
-          path.setAttribute('stroke', getRootColor());
-        });
-      }, 100);
+      setTimeout(adjustForTheme, 100);
     });
   }
   
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    svgContainer.setAttribute('viewBox', `0 0 ${window.innerWidth} ${window.innerHeight}`);
-  });
+  // Clean up old petals periodically to prevent memory issues
+  setInterval(() => {
+    const petals = blossomContainer.querySelectorAll('.cherry-blossom');
+    if (petals.length > 50) {
+      for (let i = 0; i < 10; i++) {
+        if (petals[i]) {
+          blossomContainer.removeChild(petals[i]);
+        }
+      }
+    }
+  }, 10000);
 });
