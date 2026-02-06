@@ -3264,8 +3264,8 @@ footer {
     align-self: flex-start;
   }
 }
-/* Organic Roots Animation */
-.organic-roots {
+/* Cherry Blossom Animation */
+.cherry-blossom-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -3276,16 +3276,26 @@ footer {
   pointer-events: none;
 }
 
-/* Ensure proper rendering on all browsers */
-.organic-roots path {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
+.cherry-blossom {
+  position: absolute;
+  border-radius: 0 100% 0 100%;
+  pointer-events: none;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .organic-roots path {
-    stroke-width: 1.5px !important;
+  .cherry-blossom {
+    max-width: 20px;
+    max-height: 20px;
+  }
+}
+
+/* Performance optimization for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cherry-blossom {
+    animation: none !important;
+    transition: none !important;
   }
 }
