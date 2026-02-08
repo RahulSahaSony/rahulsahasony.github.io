@@ -16,7 +16,7 @@ const profile = {
       description: "Built a dual-model architecture combining a SQL-based market-insights engine and a RAG-based LLM pipeline to deliver verified salary benchmarks, skill gaps, and career insights.",
       impact: "Delivered actionable career insights through semantic search and data-driven recommendations",
       technologies: ["Python", "SQL", "BERT", "Sentence Transformers", "ETL"],
-      github: "https://github.com/RahulSahaSony/LaborIQ-demo"
+      github: "https://github.com/RahulSahaSony/SHaRC"
     },
     {
       title: "AI Beyond Defense: Tackling Concentration Risk",
@@ -40,7 +40,7 @@ const profile = {
       description: "Built a dual-model architecture combining a SQL-based market-insights engine and a RAG-based LLM pipeline to deliver verified salary benchmarks, skill gaps, and career insights.",
       impact: "Delivered actionable career insights through semantic search and data-driven recommendations",
       technologies: ["Python", "SQL", "BERT", "Sentence Transformers", "ETL"],
-      github: "https://github.com/RahulSahaSony/LaborIQ-demo",
+      github: "https://github.com/RahulSahaSony/SHaRC",
       demo: null
     },
     {
