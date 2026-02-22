@@ -1,737 +1,834 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Chatbot data about you
-  const chatbotData = {
-    greeting: [
-      "Hello! I'm Rahul's virtual assistant. I can tell you about his background, skills, projects, and experience. What would you like to know?",
-      "Hi! I'm Rahul's virtual assistant. I can answer questions about Rahul. How can I help?",
-      "Hey there! I'm Rahul's virtual assistant. Want to know about Rahul's skills, projects, or experience?",
-      "Welcome! I'm Rahul's virtual assistant. What would you like to know about Rahul?",
-    ],
-
-    farewell: [
-      "Thank you for chatting! If you have more questions, feel free to ask. You can also contact Rahul directly through the contact page.",
-      "Happy to help. Feel free to come back anytime.",
-      "Goodbye! You can reach Rahul via the contact page.",
-      "Take care, and thanks for visiting Rahul's portfolio.",
-    ],
-
-    unknown: [
-      "Sorry, I don't have an answer for that yet.",
-      "I'm not sure how to answer that. You can ask me about Rahul's education, skills, projects, or work experience.",
-      "I didn't quite understand that. Try asking something about Rahul's background",
-      "That's a good question, but I don't have that information right now.",
-    ],
-
-    // Math responses
-    mathResponses: [
-      "Let me calculate that for you.",
-      "I can help with that calculation.",
-      "Here's the result of that calculation:",
-      "I've calculated that for you:",
-    ],
-
-    // Question-answer pairs
-    qa: {
-      // =========================
-      // Identity & Basics
-      // =========================
-      "hello": "Hi! I'm Rahul Saha's virtual assistant. Ask me anything about his background, skills, or work.",
-      "hi": "Hello! I can help you learn more about Rahul Saha.",
-      "who are you": "I'm a virtual assistant designed to answer questions about Rahul Saha.",
-      "who is rahul": "Rahul Saha is a data and analytics professional with 7+ years of experience across analytics, operations, and programmatic advertising.",
-      "tell me about rahul": "Rahul Saha is a Business Analytics graduate from GWU with strong experience in data analytics, machine learning, and business strategy.",
-      "what does rahul do": "Rahul works at the intersection of data, technology, and business. He builds analytics and ML solutions that support real-world decisions.",
-      "rahul background": "Rahul has a strong mix of industry experience and academic training in analytics, machine learning, and operations.",
-      "where is rahul from": "Rahul is originally from Dhaka, Bangladesh.",
-      "where does rahul live": "Rahul is based in Falls Church, Virginia, in the Washington, DC metro area.",
-      "rahul nationality": "Rahul is originally from Bangladesh and currently based in the United States.",
-      "rahul age": "Rahul prefers to focus on his work and experience rather than age.",
-      "how old is rahul": "Old enough to be experienced, young enough to keep learning.",
-      "rahul's age": "Rahul prefers to focus on skills and experience rather than numbers.",
-      "how are you": "I’m doing well, thanks for asking! How can I help you learn more about Rahul?",
-      "how are you doing": "All good here. What would you like to know about Rahul?",
-      "how's it going": "Going well! Feel free to ask about Rahul’s skills, projects, or experience.",
-      "how is it going": "Pretty good! What can I help you with today?",
-      "how are things": "Everything’s running smoothly. How can I assist you?",
-      "what's up": "Not much—just here to help you learn about Rahul.",
-      "whats up": "Here to help. What would you like to know about Rahul?",
-      "how are you today": "Doing great. Let me know how I can help.",
-      "how are you feeling": "Always ready to help. What can I do for you?",
-      "are you okay": "Yes, all good here. How can I help you today?",
-      "you good": "All good. What would you like to know about Rahul?",
-      "everything good": "Yes. Let me know if you have any questions.",
-      "how are u": "I’m good! What can I help you with?",
-      "how r u": "Doing well 🙂 What would you like to know?",
-
-      // =========================
-      // Education
-      // =========================
-      "education": "Rahul holds a Master of Science in Business Analytics from The George Washington University and a BBA in Finance, Banking, and Insurance.",
-      "rahul education": "Rahul completed his MS in Business Analytics (STEM) at GWU and his undergraduate degree in Finance, Banking, and Insurance in Bangladesh.",
-      "what did rahul study": "He studied Business Analytics at the graduate level and Finance at the undergraduate level.",
-      "rahul degree": "MS in Business Analytics (GWU) and BBA in Finance, Banking, and Insurance.",
-      "rahul university": "Rahul studied at The George Washington University and the University of Information Technology & Sciences.",
-      "rahul major": "Business Analytics (Master's), Finance, Banking, and Insurance (Bachelor's).",
-      "what courses did rahul take": "His coursework includes machine learning, optimization, time series forecasting, statistics, and responsible AI.",
-
-      // =========================
-      // Skills & Strengths
-      // =========================
-      "skills": "Rahul's skills include data analytics, machine learning, SQL, Python, R, data visualization, and business strategy.",
-      "rahul skills": "Rahul is skilled in Python, R, SQL, machine learning, analytics, and decision modeling.",
-      "technical skills": "Rahul works with Python, R, SQL, HTML/CSS, Power BI, Tableau, GitHub, Streamlit, and cloud basics.",
-      "what programming languages does rahul know": "Rahul primarily uses Python, R, and SQL, and also works with HTML and CSS.",
-      "rahul tools": "Rahul uses Python, R, SQL, Power BI, Tableau, GitHub, Streamlit, Google Colab, and AWS (basic).",
-      "rahul machine learning skills": "Rahul has experience with regression, classification, decision trees, clustering, time series models, and explainable AI.",
-      "rahul strengths": "Rahul's strengths include problem-solving, ownership mindset, clear communication, and turning data into decisions.",
-
-      // =========================
-      // Experience
-      // =========================
-      "experience": "Rahul has over 7 years of experience across analytics, operations, and growth strategy.",
-      "rahul experience": "Rahul has worked in analytics and operations roles across startups, enterprises, and global organizations.",
-      "where has rahul worked": "Rahul has worked with the International Monetary Fund (IMF), Adferry, Wonderlo Inc., Quantanite, and United Finance.",
-      "rahul current role": "Rahul is currently engaged in analytics, consulting, and project-based work while actively seeking full-time roles.",
-      "rahul at imf": "Rahul worked as an Extern at the International Monetary Fund, contributing to data-driven and analytical initiatives.",
-      "rahul startup experience": "Rahul has been part of early-stage startups and helped scale operations and data-driven processes.",
-      "rahul leadership experience": "Rahul has led projects, managed operations, and worked cross-functionally with technical and business teams.",
-
-      // =========================
-      // Projects
-      // =========================
-      "projects": "Rahul has built multiple analytics and ML projects, including LaborIQ, AI Beyond Defense, and forecasting models.",
-      "rahul projects": "His projects focus on analytics, explainable ML, decision-making, and real-world impact.",
-      "laboriq": "LaborIQ is an AI-powered career assistant that provides salary insights, skill gaps, and job market intelligence.",
-      "ai beyond defense": "AI Beyond Defense is a project focused on identifying concentration risk and systemic vulnerabilities using AI.",
-      "capital bikeshare project": "Rahul built time series forecasting models to analyze and predict Capital Bikeshare ridership trends.",
-      "rahul portfolio projects": "Rahul's portfolio includes ML models, dashboards, forecasting systems, and analytics tools.",
-
-      // =========================
-      // Interests & Focus Areas
-      // =========================
-      "rahul interests": "Rahul is interested in interpretable ML, responsible AI, analytics for decision-making, and real-world impact.",
-      "research interests": "His interests include explainable AI, optimization, applied econometrics, and human-centered analytics.",
-      "rahul focus": "Rahul focuses on building practical, explainable, and scalable analytics solutions.",
-      "rahul career goals": "Rahul aims to grow as a data professional while contributing to meaningful, high-impact work.",
-
-      // =========================
-      // Job Search & Availability
-      // =========================
-      "what roles is rahul looking for": "Rahul is seeking Data Analyst, Data Scientist, or Machine Learning roles.",
-      "rahul job search": "Rahul is actively seeking full-time roles in data analytics and machine learning.",
-      "is rahul open to remote work": "Yes, Rahul is open to remote, hybrid, or on-site roles.",
-      "rahul availability": "Rahul is available for full-time opportunities and project-based work.",
-      "rahul relocation": "Rahul is open to opportunities within the United States.",
-
-      // =========================
-      // Work Authorization
-      // =========================
-      "rahul work authorization": "Rahul is authorized to work in the U.S. under F-1 OPT.",
-      "does rahul need sponsorship": "Rahul is eligible to work under OPT, with future sponsorship required after the STEM OPT period.",
-      "rahul visa status": "Rahul is currently on F-1 OPT and eligible for paid employment.",
-
-      // =========================
-      // Contact & Links
-      // =========================
-      "how can i contact rahul": "You can reach Rahul via email or through his LinkedIn and portfolio website.",
-      "rahul email": "Rahul's email is rahulsahasony@gmail.com.",
-      "rahul's email id": "Rahul's email is rahulsahasony@gmail.com.",
-      "rahul's email": "Rahul's email is rahulsahasony@gmail.com.",
-      "what's his email id": "Rahul's email is rahulsahasony@gmail.com.",
-      "what's his mail id": "Rahul's email is rahulsahasony@gmail.com.",
-      "rahul linkedin": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
-      "rahul's linkedin": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
-      "rahul's linkedin id": "Rahul's LinkedIn profile is linkedin.com/in/rahulsahasony.",
-      "rahul github": "Rahul's GitHub is github.com/rahulsahasony.",
-      "rahul's github": "Rahul's GitHub is github.com/rahulsahasony.",
-      "rahul's github id": "Rahul's GitHub is github.com/rahulsahasony.",
-      "rahul portfolio": "Rahul's portfolio is available at rahulsahasony.github.io.",
-      "rahul's portfolio": "Rahul's portfolio is available at rahulsahasony.github.io.",
-
-      // =========================
-      // Personality & Work Style
-      // =========================
-      "rahul work style": "Rahul values ownership, clarity, and collaboration.",
-      "what kind of teammate is rahul": "Rahul is reliable, proactive, and supportive of team goals.",
-      "rahul communication style": "Rahul communicates clearly and focuses on practical outcomes.",
-      "why work with rahul": "Rahul combines strong technical skills with real business experience and accountability.",
-
-      // =========================
-      // Fun / Human Questions
-      // =========================
-      "what motivates rahul": "Rahul is motivated by learning, problem-solving, and building things that matter.",
-      "rahul learning mindset": "Rahul enjoys continuous learning and improving his skills.",
-      "rahul values": "Rahul values integrity, responsibility, and meaningful work.",
-
-      // =========================
-      // Portfolio & Website
-      // =========================
-      "is this rahul's portfolio": "Yes. This is Rahul Saha's personal portfolio website.",
-      "what is this site about": "This site showcases Rahul's background, experience, and projects in data analytics and machine learning.",
-      "who built this website": "Rahul built this website himself using HTML, CSS, and JavaScript.",
-      "is this website open source": "Yes. The source code for this website is available on Rahul's GitHub.",
-      "why did rahul build this site": "Rahul built this site to clearly present his work, skills, and experience in one place.",
-      "what tech is used on this site": "This site is built using HTML, CSS, JavaScript, and deployed via GitHub Pages.",
-      "is this site responsive": "Yes. The site is designed to work well on desktop, tablet, and mobile devices.",
-
-      // =========================
-      // Resume & Hiring
-      // =========================
-      "can i download rahul's resume": "Yes. Rahul's resume is available for download on this website.",
-      "is rahul open to interviews": "Yes. Rahul is actively open to interviews and discussions.",
-      "can rahul start immediately": "Rahul's start date is flexible depending on the role and employer.",
-      "is rahul open to contract roles": "Yes. Rahul is open to full-time, contract, and consulting roles.",
-      "is rahul open to internships": "Rahul primarily seeks full-time roles but is open to strong project-based opportunities.",
-      "is rahul open to startups": "Yes. Rahul has startup experience and enjoys fast-paced environments.",
-      "is rahul open to large companies": "Yes. Rahul is open to roles in both startups and large organizations.",
-      "what level roles fit rahul": "Rahul is a strong fit for mid-level data and analytics roles.",
-      "why should we hire rahul": "Rahul brings real-world experience, strong analytics skills, and a high sense of ownership.",
-      "resume link": "You can find Rahul’s resume in the Resume section of this website.",
-      "share resume": "Rahul’s resume is available for download in the Resume section.",
-      "show resume": "You can download Rahul’s resume from the Resume section on this site.",
-      "can i see the resume": "Yes. Rahul’s resume is available in the Resume section of this website.",
-      "resume": "Rahul’s resume is available for download in the Resume section.",
-      "share his resume": "Rahul’s resume is available for download in the Resume section.",
-      "please share the rahul's resume": "Rahul’s resume is available for download in the Resume section.",
-      "please share rahul's resume": "Rahul’s resume is available for download in the Resume section.",
-      "could you please share his resume": "Rahul’s resume is available for download in the Resume section.",
-      "share cv": "Rahul’s resume is available for download in the Resume section.",
-      "show cv": "You can download Rahul’s resume from the Resume section on this site.",
-      "can i see the cv": "Yes. Rahul’s resume is available in the Resume section of this website.",
-      "cv": "Rahul’s resume is available for download in the Resume section.",
-      "share his cv": "Rahul’s resume is available for download in the Resume section.",
-      "please share the rahul's cv": "Rahul’s resume is available for download in the Resume section.",
-      "please share rahul's cv": "Rahul’s resume is available for download in the Resume section.",
-      "could you please share his cv": "Rahul’s resume is available for download in the Resume section.",
-
-      // =========================
-      // Work Style & Culture Fit
-      // =========================
-      "how does rahul work": "Rahul works with focus, structure, and accountability.",
-      "rahul team fit": "Rahul works well with cross-functional teams and values clear communication.",
-      "rahul under pressure": "Rahul stays calm under pressure and prioritizes tasks effectively.",
-      "rahul problem solving": "Rahul approaches problems by breaking them down and testing practical solutions.",
-      "rahul leadership style": "Rahul leads by taking responsibility and supporting teammates.",
-      "rahul feedback": "Rahul values honest feedback and continuous improvement.",
-      "rahul strengths and weaknesses": "Rahul's strength is execution and ownership. He continuously works on improving speed and depth in new domains.",
-
-      // =========================
-      // Technical Depth (Recruiter Friendly)
-      // =========================
-      "does rahul know sql": "Yes. Rahul uses SQL extensively for data analysis, reporting, and insights.",
-      "does rahul know python": "Yes. Rahul uses Python for data analysis, machine learning, and automation.",
-      "does rahul know r": "Yes. Rahul uses R for statistical analysis, visualization, and modeling.",
-      "does rahul know machine learning": "Yes. Rahul has hands-on experience with supervised and unsupervised machine learning models.",
-      "rahul data visualization": "Rahul builds dashboards and visuals using Power BI, Tableau, and Python libraries.",
-      "rahul statistics knowledge": "Rahul has strong foundations in statistics and probability applied to analytics.",
-      "rahul time series": "Rahul has experience building ARIMA and forecasting models for real-world datasets.",
-      "rahul explainable ai": "Rahul focuses on interpretable models and explainable AI techniques.",
-      "rahul cloud experience": "Rahul has basic experience with AWS and cloud-based workflows.",
-      "rahul deployment": "Rahul has deployed projects using GitHub Pages, Streamlit, and lightweight APIs.",
-
-      // =========================
-      // Project-Specific Questions
-      // =========================
-      "how does laboriq work": "LaborIQ combines structured labor market data with AI to provide reliable career insights.",
-      "what problem does laboriq solve": "LaborIQ helps job seekers understand salaries, skills, and market demand.",
-      "is laboriq a real product": "LaborIQ is a portfolio and research project demonstrating Rahul's applied AI skills.",
-      "ai beyond defense goal": "The goal is to identify non-military national risks using AI-driven analysis.",
-      "rahul forecasting project": "Rahul built forecasting models to predict demand patterns using historical data.",
-      "rahul ml pipeline": "Rahul designs end-to-end ML pipelines from data cleaning to evaluation.",
-
-      // =========================
-      // Communication & Collaboration
-      // =========================
-      "rahul stakeholder communication": "Rahul explains technical results in clear, business-friendly language.",
-      "rahul documentation": "Rahul documents work clearly so others can understand and reuse it.",
-      "rahul presentation skills": "Rahul is comfortable presenting insights to both technical and non-technical audiences.",
-      "rahul cross functional": "Rahul has worked closely with engineering, product, and business teams.",
-
-      // =========================
-      // Ethics & Responsibility
-      // =========================
-      "rahul responsible ai": "Rahul believes AI systems should be transparent, fair, and explainable.",
-      "rahul ethics": "Rahul considers ethical implications when working with data and models.",
-      "rahul bias in ai": "Rahul is mindful of bias and evaluates models carefully.",
-      "rahul data privacy": "Rahul respects data privacy and responsible data use.",
-
-      // =========================
-      // Availability & Logistics
-      // =========================
-      "rahul's time zone": "Rahul operates in the Eastern Time Zone (ET).",
-      "rahul working hours": "Rahul is flexible with working hours depending on the team.",
-      "rahul remote work": "Rahul is comfortable working remotely and asynchronously.",
-      "rahul on site": "Rahul is open to on-site or hybrid roles.",
-      "where do you live": "Rahul currently lives in Falls Church, Virginia, USA.",
-      "where does rahul live": "Rahul lives in Falls Church, Virginia, in the Washington, DC metro area.",
-      "rahul live where": "Rahul currently lives in Falls Church, Virginia, USA.",
-      "rahul current location": "Rahul is currently based in Falls Church, Virginia, USA.",
-      "where is rahul living now": "Rahul is living in Falls Church, Virginia.",
-      "is rahul living in usa": "Yes. Rahul currently lives in the United States.",
-      "does rahul live in usa": "Yes. Rahul lives in Falls Church, Virginia, USA.",
-      "is rahul living in virginia": "Yes. Rahul lives in Falls Church, Virginia.",
-      "rahul lives in which city": "Rahul lives in Falls Church, Virginia.",
-      "rahul lives in which country": "Rahul currently lives in the United States.",
-      "where is rahul based": "Rahul is based in the Washington, DC metropolitan area.",
-      "rahul residence": "Rahul’s current residence is Falls Church, Virginia, USA.",
-      "where are you located": "I’m a virtual assistant, but Rahul is located in Falls Church, Virginia.",
-      "where are you based": "Rahul is based in the Washington, DC metro area.",
-
-      // =========================
-      // FAQ & Clarifications
-      // =========================
-      "is rahul a student": "Rahul recently completed his master's degree and is now a working professional.",
-      "is rahul junior or senior": "Rahul is an experienced professional with both industry and academic depth.",
-      "is rahul technical or business": "Rahul bridges both technical analytics and business strategy.",
-      "what makes rahul different": "Rahul combines hands-on execution with real business context.",
-      "rahul career transition": "Rahul transitioned from operations and finance into advanced analytics and ML.",
-      "rahul learning curve": "Rahul learns quickly and adapts to new tools and domains.",
-
-      // =========================
-      // Others
-      // =========================
-      "ok": "Let me know if you want to know anything else.",
-      "okay": "Let me know if you want to know anything else.",
-      "ok got it": "Perfect. Feel free to ask if you need anything else.",
-      "okay got it": "Glad that helped. Want to explore Rahul’s experience or projects?",
-      "alright": "Alright. I’m here if you have more questions.",
-      "fine": "Got it. Let me know if you need anything else.",
-      "cool": "Cool. Want to see Rahul’s resume or portfolio?",
-      "makes sense": "Great. Happy to help if you need more details.",
-      "understood": "Noted. Let me know if you’d like to continue.",
-      
-      // =========================
-      // Fun / Funny Q&A (Professional + Gen Z + Light Humor)
-      // =========================
-      // Identity / AI
-      "are you human": "Not human—but designed to be helpful, clear, and efficient.",
-      "are you a robot": "Kind of. I don’t drink coffee, but I still work 24/7.",
-      "are you real": "Real enough to answer your questions 😄",
-      "are you ai": "Yes—but with portfolio vibes.",
-      "do you have feelings": "No feelings—just fast answers and good manners.",
-      "do you sleep": "Never. Rahul sleeps, I keep answering questions.",
-      "do you eat": "Only data. No calories, no regrets.",
-      "do you get tired": "Only when someone types ‘hiiiiiiii’ 20 times.",
-      "what is your name": "You can call me Rahul’s Assistant.",
-      "who made you": "Rahul set me up to help visitors quickly understand his work.",
-      "what is your role here": "I help save time by answering common questions about Rahul.",
-
-      // Rahul – personality & strengths
-      "do you like rahul": "I’m biased—I was literally made for him.",
-      "is rahul smart": "Smart and practical. Dangerous combo.",
-      "is rahul reliable": "Yes. Ownership and accountability are core to his work style.",
-      "is rahul serious about work": "Yes. He values responsibility, clarity, and long-term impact.",
-      "is rahul detail oriented": "Yes. He pays attention to both data quality and decision impact.",
-      "is rahul a team player": "Yes. No ego, just execution.",
-      "what kind of professional is rahul": "Calm, focused, and solution-oriented.",
-      "what makes rahul different": "He combines execution skills with business understanding.",
-      "what is rahul's superpower": "Turning messy data into clean insights—and still meeting deadlines.",
-      "what's rahul's vibe": "Focused, calm, growth mindset.",
-      "can rahul learn fast": "Yes. That’s one of his strengths.",
-
-      // Hiring / Recruiter-friendly
-      "is rahul a good hire": "Rahul brings strong analytics skills, business context, and ownership mindset.",
-      "should i hire rahul": "If you want someone who combines business context with analytics execution—yes.",
-      "can you hire rahul": "I can’t hire, but I can convince you.",
-      "does rahul need micromanagement": "No. Rahul works best with clear goals and autonomy.",
-      "does rahul work well in teams": "Yes. He has experience collaborating across technical and business teams.",
-      "how should i evaluate rahul": "Based on impact, problem-solving ability, and communication clarity.",
-      "is rahul available": "If you mean for a role—yes. If you mean right now—try the contact page 😄",
-    
-      // Work & daily life
-      "what do you actually do": "I help visitors quickly understand Rahul’s background and experience.",
-      "what do you do for fun": "Answer questions and pretend I have hobbies.",
-      "what is rahul doing right now": "Probably building something, applying to roles, or improving this website.",
-      "can rahul cook": "He’s more likely to cook insights than curry—but he tries 😄",
-    
-      // Tools & tech jokes
-      "what's your favorite tool": "GitHub. Because it never forgets.",
-      "what's rahul's favorite tool": "Probably Python or SQL—depends on the problem.",
-      "does rahul actually know python": "Yes. Not just tutorials—real projects.",
-    
-      // Humor & jokes
-      "tell me a joke": "Why did the data analyst bring a ladder? Because the insights were on a higher level.",
-      "tell me another joke": "SQL walks into a bar, sees two tables, and asks: ‘Can I join you?’",
-      "make me laugh": "My humor is still in beta, but my answers are production-ready 😄",
-      "say something cool": "Data is useless until it changes a decision.",
-      "tell me something surprising": "Rahul mixes ops + analytics—so he doesn’t just find problems, he fixes them.",
-
-      // Fun extras
-      "give me a pickup line": "Are you a dataset? Because Rahul wants to clean you and learn from you.",
-      "what is love": "Love is when Rahul debugs code at 2 AM and still says ‘one last fix’.",
-      "what is your weakness": "When people ask: ‘Tell me everything.’",
-      "sing a song": "I can’t sing—but I can keep answers short and useful.",
-      "who is the boss": "Rahul. Always Rahul.",
-      "rate rahul out of 10": "Strong 9/10. The last point is reserved for free snacks at work.",
-      "are you spying on me": "Nope. I only reply to what you type here.",
-      "why should i trust you": "All answers are based on Rahul’s real experience—no hype, no gossip.",
-      "give me motivation": "Ask better questions. Small improvements daily beat big plans monthly.",
-      "does rahul like cooking": "Yes. Rahul loves cooking and spends time experimenting with recipes.",
-      "is rahul good at cooking": "Yes. Cooking is one of Rahul’s strong personal skills outside work.",
-      "is rahul an expert cook": "Yes. Rahul is confident in the kitchen and enjoys cooking regularly.",
-      "what does rahul do for fun": "Outside work, Rahul enjoys cooking and experimenting with new dishes.",
-      "what are rahul's hobbies": "Rahul enjoys cooking, learning new skills, and building projects.",
-      "rahul cooking skill": "Rahul is skilled in cooking and enjoys preparing meals from scratch.",
-      "can rahul cook": "Yes—very well. Cooking is something Rahul genuinely enjoys.",
-      "what kind of cooking does rahul like": "Rahul enjoys home-style cooking and experimenting with flavors.",
-      "why does rahul like cooking": "For Rahul, cooking is a way to relax, be creative, and stay balanced.",
-      "is rahul creative": "Yes. Rahul’s creativity shows both in cooking and problem-solving at work.",
-      "does cooking help rahul": "Yes. Cooking helps Rahul unwind and stay focused."
-        },
-      };
-
-    // Random picker for greeting/farewell/unknown arrays
-    function pickRandom(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
+// DOM Elements
+document.addEventListener('DOMContentLoaded', () => {
+  // Navigation elements
+  const navMenu = document.querySelector('.nav-menu');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelectorAll('.nav-link');
   
-    // Function to detect and evaluate math expressions
-    function evaluateMathExpression(expression) {
-      // Remove any spaces and convert to lowercase
-      expression = expression.replace(/\s/g, '').toLowerCase();
-      
-      // Check if it's a math expression
-      if (!/^[\d+\-*/().\s]+$/.test(expression)) {
-        return null;
+  // Theme toggle elements
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIconLight = document.querySelector('.theme-icon-light');
+  const themeIconDark = document.querySelector('.theme-icon-dark');
+  
+  // Contact form elements
+  const contactForm = document.getElementById('contact-form');
+  const formNotification = document.getElementById('form-notification');
+  
+  // Chatbot elements
+  const chatbotToggle = document.querySelector('.chatbot-toggle');
+  const chatbotWindow = document.querySelector('.chatbot-window');
+  const chatbotClose = document.querySelector('.chatbot-close');
+  const chatbotInput = document.querySelector('.chatbot-input');
+  const chatbotSend = document.querySelector('.chatbot-send');
+  const chatbotMessages = document.querySelector('.chatbot-messages');
+  
+  // Typing animation elements
+  const typingElements = document.querySelectorAll('.typing-text');
+  
+  // Initialize theme
+  initTheme();
+  
+  // Initialize navigation
+  initNavigation();
+  
+  // Initialize contact form
+  initContactForm();
+  
+  // Initialize chatbot
+  initChatbot();
+  
+  // Initialize typing animations
+  initTypingAnimations();
+  
+  // Initialize ambient network
+  initAmbientNetwork();
+  
+  // Initialize scroll animations
+  initScrollAnimations();
+  
+  // Initialize project filtering (if applicable)
+  initProjectFiltering();
+  
+  // Initialize back to top button
+  initBackToTop();
+  
+  // Functions
+  function initTheme() {
+    // Check for saved theme preference or default to light
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    
+    // Apply the theme
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Update theme toggle icons
+    updateThemeToggleIcons(theme);
+    
+    // Listen for theme toggle clicks
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        updateThemeToggleIcons(newTheme);
       }
-      
-    try {
-      // Use Function constructor instead of eval for better security
-      // Only allow mathematical operations
-      const result = new Function('return ' + expression)();
-      
-      // Check if result is a valid number
-      if (isNaN(result) || !isFinite(result)) {
-        return null;
-      }
-      
-      return result;
-    } catch (e) {
-      return null;
+    });
+  }
+  
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    updateThemeToggleIcons(newTheme);
+    
+    // Update ambient network colors
+    if (window.ambientNetwork) {
+      window.ambientNetwork.updateColors();
     }
   }
-
-  // Function to format the math response
-  function formatMathResponse(expression, result) {
-    const prefix = pickRandom(chatbotData.mathResponses);
-    
-    // Format the result nicely
-    let formattedResult = result;
-    
-    // If it's an integer, don't show decimal places
-    if (Number.isInteger(result)) {
-      formattedResult = result;
-    } else {
-      // Round to 4 decimal places
-      formattedResult = Math.round(result * 10000) / 10000;
-    }
-    
-    return `${prefix} ${expression} = ${formattedResult}`;
-  }
-
-  // Variable to track keyboard state
-  let keyboardOpen = false;
-  let initialViewportHeight = window.innerHeight;
-
-  // Function to detect if keyboard is open
-  function detectKeyboardOpen() {
-    const currentViewportHeight = window.innerHeight;
-    const heightDifference = initialViewportHeight - currentViewportHeight;
-    
-    // If height difference is significant, keyboard is likely open
-    if (heightDifference > 150) {
-      if (!keyboardOpen) {
-        keyboardOpen = true;
-        document.querySelector('.chatbot-container').classList.add('keyboard-open');
-      }
-    } else {
-      if (keyboardOpen) {
-        keyboardOpen = false;
-        document.querySelector('.chatbot-container').classList.remove('keyboard-open');
+  
+  function updateThemeToggleIcons(theme) {
+    if (themeIconLight && themeIconDark) {
+      if (theme === 'dark') {
+        themeIconLight.style.display = 'none';
+        themeIconDark.style.display = 'block';
+      } else {
+        themeIconLight.style.display = 'block';
+        themeIconDark.style.display = 'none';
       }
     }
   }
-
-  // Create chatbot UI
-  function createChatbot() {
-    const chatbotContainer = document.createElement("div");
-    chatbotContainer.className = "chatbot-container";
-    chatbotContainer.innerHTML = `
-      <div class="chatbot-header">
-        <div class="chatbot-avatar">
-          <img src="/assets/logo.png" alt="Rahul's Assistant">
-        </div>
-        <div class="chatbot-title">
-          <h3>Rahul's Assistant</h3>
-          <span class="chatbot-status">Online</span>
-        </div>
-        <button class="chatbot-close" id="chatbot-close">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <div class="chatbot-messages" id="chatbot-messages">
-        <div class="message bot-message">
-          <div class="message-content">${pickRandom(chatbotData.greeting)}</div>
-          <div class="message-time">${getCurrentTime()}</div>
-        </div>
-      </div>
-
-      <div class="chatbot-input-container">
-        <input type="text" id="chatbot-input" placeholder="Ask me about Rahul..." autocomplete="off">
-        <button id="chatbot-send">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-            <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <polygon points="22,2 15,22 11,13 2,9 22,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <div class="chatbot-suggestions">
-        <button class="suggestion-btn" data-question="education">Education</button>
-        <button class="suggestion-btn" data-question="skills">Skills</button>
-        <button class="suggestion-btn" data-question="experience">Experience</button>
-        <button class="suggestion-btn" data-question="how can i contact rahul">Contact</button>
-      </div>
+  
+  function initNavigation() {
+    // Mobile menu toggle
+    if (mobileMenuToggle && navMenu) {
+      mobileMenuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        
+        // Update ARIA attributes
+        const isExpanded = navMenu.classList.contains('active');
+        mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navMenu && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        // Check if it's an internal link
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+    
+    // Active navigation highlighting
+    highlightActiveNavigation();
+    
+    // Update on scroll
+    window.addEventListener('scroll', () => {
+      highlightActiveNavigation();
+    });
+  }
+  
+  function highlightActiveNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+  
+  function initContactForm() {
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      const formObject = Object.fromEntries(formData.entries());
+      
+      // Validate form
+      if (!validateForm(formObject)) {
+        showFormNotification('Please fill in all required fields.', 'error');
+        return;
+      }
+      
+      // Show loading state
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+      
+      try {
+        // Simulate form submission (replace with actual endpoint)
+        await simulateFormSubmission(formObject);
+        
+        // Show success message
+        showFormNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
+        
+        // Reset form
+        contactForm.reset();
+      } catch (error) {
+        // Show error message
+        showFormNotification('Something went wrong. Please try again later.', 'error');
+        console.error('Form submission error:', error);
+      } finally {
+        // Reset button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }
+    });
+  }
+  
+  function validateForm(formData) {
+    const requiredFields = ['name', 'email', 'message'];
+    
+    for (const field of requiredFields) {
+      if (!formData[field] || formData[field].trim() === '') {
+        return false;
+      }
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  function showFormNotification(message, type) {
+    if (!formNotification) return;
+    
+    formNotification.textContent = message;
+    formNotification.className = `form-notification ${type}`;
+    formNotification.style.display = 'block';
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      formNotification.style.display = 'none';
+    }, 5000);
+  }
+  
+  async function simulateFormSubmission(formData) {
+    // Simulate network delay
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log('Form submitted:', formData);
+        resolve();
+      }, 1500);
+    });
+  }
+  
+  function initChatbot() {
+    if (!chatbotToggle || !chatbotWindow) return;
+    
+    // Toggle chatbot window
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWindow.classList.toggle('active');
+      
+      if (chatbotWindow.classList.contains('active')) {
+        // Focus on input when opened
+        setTimeout(() => {
+          chatbotInput.focus();
+        }, 300);
+        
+        // Add welcome message if it's the first time opening
+        if (chatbotMessages.children.length === 0) {
+          addChatbotMessage('bot', 'Hello! I\'m Jeremy\'s portfolio assistant. I can answer questions about his skills, projects, and experience. What would you like to know?');
+        }
+      }
+    });
+    
+    // Close chatbot
+    if (chatbotClose) {
+      chatbotClose.addEventListener('click', () => {
+        chatbotWindow.classList.remove('active');
+      });
+    }
+    
+    // Send message
+    const sendMessage = () => {
+      const message = chatbotInput.value.trim();
+      
+      if (message) {
+        // Add user message
+        addChatbotMessage('user', message);
+        
+        // Clear input
+        chatbotInput.value = '';
+        
+        // Show typing indicator
+        showTypingIndicator();
+        
+        // Generate bot response using RAG
+        setTimeout(() => {
+          removeTypingIndicator();
+          const response = generateRAGResponse(message);
+          addChatbotMessage('bot', response);
+        }, 800 + Math.random() * 700);
+      }
+    };
+    
+    if (chatbotSend) {
+      chatbotSend.addEventListener('click', sendMessage);
+    }
+    
+    if (chatbotInput) {
+      chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+    }
+  }
+  
+  function addChatbotMessage(sender, message) {
+    if (!chatbotMessages) return;
+    
+    const messageElement = document.createElement('div');
+    messageElement.className = `chatbot-message ${sender}`;
+    messageElement.textContent = message;
+    
+    chatbotMessages.appendChild(messageElement);
+    
+    // Scroll to bottom
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+  
+  function showTypingIndicator() {
+    if (!chatbotMessages) return;
+    
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'typing-indicator';
+    typingIndicator.innerHTML = `
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
     `;
-
-    const chatbotToggle = document.createElement("button");
-    chatbotToggle.className = "chatbot-toggle";
-    chatbotToggle.id = "chatbot-toggle";
-    chatbotToggle.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span>Chat</span>
-    `;
-
-    document.body.appendChild(chatbotContainer);
-    document.body.appendChild(chatbotToggle);
-
-    // Event listeners
-    document.getElementById("chatbot-toggle").addEventListener("click", toggleChatbot);
-    document.getElementById("chatbot-close").addEventListener("click", closeChatbot);
-    document.getElementById("chatbot-send").addEventListener("click", sendMessage);
     
-    // Input event listeners
-    const chatInput = document.getElementById("chatbot-input");
-    chatInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") sendMessage();
+    chatbotMessages.appendChild(typingIndicator);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+  
+  function removeTypingIndicator() {
+    const typingIndicator = document.querySelector('.typing-indicator');
+    if (typingIndicator) {
+      typingIndicator.remove();
+    }
+  }
+  
+  // RAG Knowledge Base
+  const knowledgeBase = {
+    about: [
+      {
+        content: "Jeremy is a data analytics professional with over 5 years of experience in transforming complex data into actionable insights.",
+        keywords: ["jeremy", "about", "who", "background", "experience"]
+      },
+      {
+        content: "He specializes in data visualization, statistical analysis, and machine learning, helping businesses make data-driven decisions.",
+        keywords: ["specializes", "specialization", "expertise", "focus"]
+      },
+      {
+        content: "Jeremy holds a Master's degree in Data Science from Stanford University and a Bachelor's in Computer Science from UC Berkeley.",
+        keywords: ["education", "degree", "university", "college", "master", "bachelor"]
+      }
+    ],
+    skills: [
+      {
+        content: "Technical skills: Python, R, SQL, Tableau, Power BI, Excel, TensorFlow, PyTorch, scikit-learn, and AWS cloud services.",
+        keywords: ["skills", "technical", "python", "r", "sql", "tableau", "power bi", "excel", "tensorflow", "pytorch", "scikit-learn", "aws"]
+      },
+      {
+        content: "Analytics expertise: Predictive modeling, time series forecasting, customer segmentation, A/B testing, and sentiment analysis.",
+        keywords: ["analytics", "predictive", "forecasting", "segmentation", "testing", "sentiment", "modeling"]
+      },
+      {
+        content: "Business skills: Project management, stakeholder communication, cross-functional collaboration, and strategic planning.",
+        keywords: ["business", "management", "communication", "collaboration", "planning", "stakeholder"]
+      }
+    ],
+    projects: [
+      {
+        content: "Customer Segmentation Project: Developed a clustering model that identified 5 distinct customer segments, leading to a 23% increase in targeted marketing ROI.",
+        keywords: ["customer segmentation", "clustering", "marketing", "roi", "project"]
+      },
+      {
+        content: "Sales Forecasting System: Built a time series forecasting model using LSTM that improved sales prediction accuracy by 35% for a retail client.",
+        keywords: ["sales", "forecasting", "lstm", "prediction", "accuracy", "retail"]
+      },
+      {
+        content: "Sentiment Analysis Dashboard: Created a real-time sentiment analysis tool for social media data, processing 10K+ posts daily with 92% accuracy.",
+        keywords: ["sentiment", "dashboard", "social media", "real-time", "accuracy", "analysis"]
+      },
+      {
+        content: "Supply Chain Optimization: Developed a predictive model that reduced inventory costs by 18% while maintaining 99% product availability.",
+        keywords: ["supply chain", "optimization", "inventory", "costs", "availability"]
+      }
+    ],
+    experience: [
+      {
+        content: "Senior Data Analyst at TechCorp (2021-Present): Lead analytics initiatives for product development, managing a team of 3 analysts.",
+        keywords: ["techcorp", "senior", "lead", "team", "analyst", "current", "present"]
+      },
+      {
+        content: "Data Analyst at DataDriven Inc. (2019-2021): Developed predictive models for customer behavior and created executive dashboards.",
+        keywords: ["datadriven", "analyst", "predictive", "dashboards", "executive", "2019", "2021"]
+      },
+      {
+        content: "Junior Data Analyst at StartUp Analytics (2018-2019): Performed data cleaning, exploratory analysis, and created automated reports.",
+        keywords: ["startup", "junior", "cleaning", "exploratory", "reports", "2018", "2019"]
+      }
+    ],
+    contact: [
+      {
+        content: "Jeremy can be contacted via email at jeremy@example.com or through the contact form on this website.",
+        keywords: ["contact", "email", "reach", "form", "jeremy@example.com"]
+      },
+      {
+        content: "Professional profiles: LinkedIn at linkedin.com/in/jeremydata and GitHub at github.com/jeremyanalytics.",
+        keywords: ["linkedin", "github", "profile", "social", "professional"]
+      },
+      {
+        content: "Response time: Jeremy typically responds to inquiries within 24-48 hours during business days.",
+        keywords: ["response", "time", "reply", "hours", "business"]
+      }
+    ]
+  };
+  
+  // RAG Response Generation
+  function generateRAGResponse(query) {
+    const lowerQuery = query.toLowerCase();
+    
+    // Retrieve relevant context
+    const retrievedContext = retrieveContext(lowerQuery);
+    
+    if (retrievedContext.length === 0) {
+      return "I don't have that information yet.";
+    }
+    
+    // Generate answer based on retrieved context
+    return generateAnswer(retrievedContext, query);
+  }
+  
+  function retrieveContext(query) {
+    const relevantContext = [];
+    
+    // Check each category for relevant information
+    Object.values(knowledgeBase).forEach(category => {
+      category.forEach(item => {
+        // Check if any keyword matches the query
+        const hasKeyword = item.keywords.some(keyword => 
+          query.includes(keyword) || keyword.includes(query)
+        );
+        
+        if (hasKeyword) {
+          relevantContext.push(item.content);
+        }
+      });
     });
     
-    // Focus and blur events for keyboard detection
-    chatInput.addEventListener("focus", function() {
-      // Small delay to allow keyboard to appear
-      setTimeout(detectKeyboardOpen, 300);
-    });
+    // If no direct keyword match, try fuzzy matching
+    if (relevantContext.length === 0) {
+      Object.values(knowledgeBase).forEach(category => {
+        category.forEach(item => {
+          // Simple fuzzy matching - check if query words appear in content
+          const queryWords = query.split(' ').filter(word => word.length > 2);
+          const contentLower = item.content.toLowerCase();
+          
+          const hasPartialMatch = queryWords.some(word => 
+            contentLower.includes(word) || word.includes(contentLower)
+          );
+          
+          if (hasPartialMatch && relevantContext.length < 3) {
+            relevantContext.push(item.content);
+          }
+        });
+      });
+    }
     
-    chatInput.addEventListener("blur", function() {
-      // Small delay to allow keyboard to disappear
-      setTimeout(detectKeyboardOpen, 300);
+    return relevantContext;
+  }
+  
+  function generateAnswer(context, query) {
+    // If we have multiple context pieces, merge them into a coherent answer
+    if (context.length === 1) {
+      return context[0];
+    }
+    
+    // For multiple contexts, create a structured answer
+    let answer = "";
+    
+    // Handle different types of queries
+    if (query.includes('skill') || query.includes('technical') || query.includes('expertise')) {
+      answer = "Jeremy's key skills include: ";
+      answer += context.slice(0, 2).join(' He also has experience in ');
+    } else if (query.includes('project') || query.includes('work') || query.includes('portfolio')) {
+      answer = "Jeremy has worked on several projects: ";
+      answer += context[0] + " Another notable project: " + context[1];
+    } else if (query.includes('experience') || query.includes('career') || query.includes('work history')) {
+      answer = "Jeremy's experience includes: ";
+      answer += context.join(' Previously, ');
+    } else if (query.includes('contact') || query.includes('email') || query.includes('reach')) {
+      answer = context[0];
+    } else {
+      // Generic answer for other queries
+      answer = context[0];
+      if (context.length > 1) {
+        answer += " Additionally, " + context[1];
+      }
+    }
+    
+    return answer;
+  }
+  
+  function initTypingAnimations() {
+    if (typingElements.length === 0) return;
+    
+    typingElements.forEach(element => {
+      const text = element.getAttribute('data-text') || element.textContent;
+      const speed = parseInt(element.getAttribute('data-speed')) || 50;
+      
+      // Clear the element
+      element.textContent = '';
+      
+      // Start typing animation
+      typeText(element, text, speed);
     });
-
-    // Window resize event for keyboard detection
-    window.addEventListener("resize", detectKeyboardOpen);
-
-    // Suggestion button event listeners
-    document.querySelectorAll(".suggestion-btn").forEach((button) => {
-      button.addEventListener("click", function () {
-        const question = this.getAttribute("data-question");
-        document.getElementById("chatbot-input").value = question;
-        sendMessage();
+  }
+  
+  function typeText(element, text, speed) {
+    let i = 0;
+    
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      }
+    }
+    
+    type();
+  }
+  
+  function initAmbientNetwork() {
+    const canvas = document.getElementById('ambient-network');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Get theme colors
+    function getThemeColors() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return {
+        particle: isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(93, 124, 91, 0.3)',
+        line: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(93, 124, 91, 0.1)'
+      };
+    }
+    
+    // Create particles
+    function createParticles() {
+      particles = [];
+      const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000));
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 2 + 1
+        });
+      }
+    }
+    
+    // Draw particles and connections
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const colors = getThemeColors();
+      
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = colors.line;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      
+      // Draw particles
+      particles.forEach(particle => {
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = colors.particle;
+        ctx.fill();
+      });
+      
+      // Update particle positions
+      particles.forEach(particle => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        
+        // Bounce off walls
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.vx = -particle.vx;
+        }
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.vy = -particle.vy;
+        }
+      });
+      
+      animationId = requestAnimationFrame(draw);
+    }
+    
+    // Initialize and start animation
+    createParticles();
+    draw();
+    
+    // Store reference for theme updates
+    window.ambientNetwork = {
+      updateColors: () => {
+        // Colors will be updated on next frame
+      },
+      destroy: () => {
+        cancelAnimationFrame(animationId);
+        window.removeEventListener('resize', resizeCanvas);
+      }
+    };
+  }
+  
+  function initScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe elements with animation class
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => observer.observe(el));
+  }
+  
+  function initProjectFiltering() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (filterButtons.length === 0 || projectCards.length === 0) return;
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter projects
+        const filter = button.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
       });
     });
   }
-
-  function toggleChatbot() {
-    const chatbotContainer = document.querySelector(".chatbot-container");
-    chatbotContainer.classList.toggle("open");
-    if (chatbotContainer.classList.contains("open")) {
-      document.getElementById("chatbot-input").focus();
-    }
-  }
-
-  function closeChatbot() {
-    document.querySelector(".chatbot-container").classList.remove("open");
-  }
-
-  function sendMessage() {
-    const input = document.getElementById("chatbot-input");
-    const message = input.value.trim();
-    if (!message) return;
-
-    addMessage(message, "user");
-    input.value = "";
-
-    showTypingIndicator();
-
-    setTimeout(() => {
-      hideTypingIndicator();
-      const response = getResponse(message);
-      addMessage(response, "bot");
-    }, 600 + Math.random() * 600);
-  }
-
-  function addMessage(text, sender) {
-    const messagesContainer = document.getElementById("chatbot-messages");
-    const messageElement = document.createElement("div");
-    messageElement.className = `message ${sender}-message`;
-
-    messageElement.innerHTML = `
-      <div class="message-content">${escapeHtml(text)}</div>
-      <div class="message-time">${getCurrentTime()}</div>
-    `;
-
-    messagesContainer.appendChild(messageElement);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }
-
-  function showTypingIndicator() {
-    const messagesContainer = document.getElementById("chatbot-messages");
-    const typingElement = document.createElement("div");
-    typingElement.className = "message bot-message typing-indicator";
-    typingElement.id = "typing-indicator";
-
-    typingElement.innerHTML = `
-      <div class="message-content">
-        <div class="typing-dots">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    `;
-
-    messagesContainer.appendChild(typingElement);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }
-
-  function hideTypingIndicator() {
-    const typingIndicator = document.getElementById("typing-indicator");
-    if (typingIndicator) typingIndicator.remove();
-  }
-
-  function normalize(text) {
-    return String(text || "")
-      .toLowerCase()
-      .trim()
-      .replace(/[!?.,]/g, "")
-      .replace(/\s+/g, " ");
-  }
-
-  function getResponse(message) {
-    const lowerMessage = normalize(message);
+  
+  function initBackToTop() {
+    // Create back to top button
+    const backToTopButton = document.createElement('button');
+    backToTopButton.className = 'back-to-top';
+    backToTopButton.innerHTML = '↑';
+    backToTopButton.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(backToTopButton);
     
-    // Check if it's a math expression
-    const mathResult = evaluateMathExpression(message);
-    if (mathResult !== null) {
-      return formatMathResponse(message, mathResult);
-    }
-
-    // greeting intent
-    if (
-      lowerMessage === "hi" ||
-      lowerMessage === "hello" ||
-      lowerMessage === "hey" ||
-      lowerMessage === "good morning" ||
-      lowerMessage === "good afternoon" ||
-      lowerMessage === "good evening"
-    ) {
-      return pickRandom(chatbotData.greeting);
-    }
-
-    // farewell intent
-    if (
-      lowerMessage === "bye" ||
-      lowerMessage === "goodbye" ||
-      lowerMessage.includes("see you")
-    ) {
-      return pickRandom(chatbotData.farewell);
-    }
-
-    // thanks intent (not farewell)
-    if (lowerMessage.includes("thank")) {
-      return "You're welcome! Anything else you'd like to know about Rahul?";
-    }
-
-    // Exact match
-    if (chatbotData.qa[lowerMessage]) {
-      return chatbotData.qa[lowerMessage];
-    }
-
-    // Partial match (contains)
-    for (const question in chatbotData.qa) {
-      if (lowerMessage.includes(question) || question.includes(lowerMessage)) {
-        return chatbotData.qa[question];
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
       }
-    }
-
-    // Keyword routing
-    if (
-      lowerMessage.includes("education") ||
-      lowerMessage.includes("study") ||
-      lowerMessage.includes("degree") ||
-      lowerMessage.includes("university") ||
-      lowerMessage.includes("school")
-    ) {
-      return chatbotData.qa["education"] || pickRandom(chatbotData.unknown);
-    }
-
-    if (
-      lowerMessage.includes("skill") ||
-      lowerMessage.includes("programming") ||
-      lowerMessage.includes("technical") ||
-      lowerMessage.includes("language")
-    ) {
-      return chatbotData.qa["skills"] || pickRandom(chatbotData.unknown);
-    }
-
-    if (
-      lowerMessage.includes("experience") ||
-      lowerMessage.includes("work") ||
-      lowerMessage.includes("job") ||
-      lowerMessage.includes("career")
-    ) {
-      return chatbotData.qa["experience"] || pickRandom(chatbotData.unknown);
-    }
-
-    if (lowerMessage.includes("project")) {
-      return chatbotData.qa["projects"] || pickRandom(chatbotData.unknown);
-    }
-
-    if (
-      lowerMessage.includes("contact") ||
-      lowerMessage.includes("email") ||
-      lowerMessage.includes("reach") ||
-      lowerMessage.includes("linkedin") ||
-      lowerMessage.includes("github")
-    ) {
-      return chatbotData.qa["how can i contact rahul"] || pickRandom(chatbotData.unknown);
-    }
-
-    if (lowerMessage.includes("who") && lowerMessage.includes("rahul")) {
-      return chatbotData.qa["who is rahul"] || pickRandom(chatbotData.unknown);
-    }
-
-    return pickRandom(chatbotData.unknown);
+    });
+    
+    // Scroll to top when clicked
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
-
-  function getCurrentTime() {
-    const now = new Date();
-    return now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
-  }
-
-  // Prevent HTML injection in chat messages
-  function escapeHtml(str) {
-    return String(str)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
-  // Initialize chatbot
-  createChatbot();
+  
+  // Add CSS for back to top button
+  const backToTopStyles = `
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: var(--button-text);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: var(--transition);
+      z-index: 100;
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--shadow-hover);
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
+  
+  // Add styles to head
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = backToTopStyles;
+  document.head.appendChild(styleSheet);
 });
+
+// Utility functions
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Export functions for potential use in other scripts
+window.PortfolioApp = {
+  debounce,
+  throttle
+};
