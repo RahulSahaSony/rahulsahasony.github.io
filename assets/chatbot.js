@@ -1,272 +1,320 @@
 // chatbot.js - RAG-based Chatbot System
 
-// DOM Elements
-const chatbotToggle = document.querySelector('.chatbot-toggle');
-const chatbotWindow = document.querySelector('.chatbot-window');
-const chatbotClose = document.querySelector('.chatbot-close');
-const chatbotInput = document.querySelector('.chatbot-input');
-const chatbotSend = document.querySelector('.chatbot-send');
-const chatbotMessages = document.querySelector('.chatbot-messages');
+// Inject chatbot HTML into the page
+function createChatbotHTML() {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = `
+    <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open chat">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Chat</span>
+    </button>
+    <div class="chatbot-container" id="chatbot-container">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <img src="/assets/profile-photo.jpg" alt="Rahul Saha">
+        </div>
+        <div class="chatbot-title">
+          <h3>Rahul's Assistant</h3>
+          <div class="chatbot-status">Online</div>
+        </div>
+        <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages"></div>
+      <div class="chatbot-suggestions" id="chatbot-suggestions">
+        <button class="suggestion-btn">What are your skills?</button>
+        <button class="suggestion-btn">Tell me about your projects</button>
+        <button class="suggestion-btn">Work experience?</button>
+        <button class="suggestion-btn">Education background?</button>
+        <button class="suggestion-btn">How to contact you?</button>
+      </div>
+      <div class="chatbot-input-container">
+        <input type="text" id="chatbot-input" placeholder="Ask me anything..." autocomplete="off" />
+        <button id="chatbot-send" aria-label="Send message">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+            <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="22,2 15,22 11,13 2,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(wrapper);
+}
+
+// Build RAG knowledge base from profile data
+function buildKnowledgeBase() {
+  const kb = [];
+
+  // About / General
+  kb.push({
+    content: `${profile.name} is a ${profile.headline}. ${profile.subheadline}`,
+    keywords: ['who', 'background', 'rahul', 'saha', 'yourself', 'overview', 'summary']
+  });
+
+  if (profile.nowStatement) {
+    kb.push({
+      content: `Currently: ${profile.nowStatement}`,
+      keywords: ['currently', 'now', 'focus', 'working on', 'latest']
+    });
+  }
+
+  // Skills
+  if (profile.skills) {
+    Object.entries(profile.skills).forEach(([category, items]) => {
+      kb.push({
+        content: `${category}: ${items.join(', ')}`,
+        keywords: ['skill', 'technical', 'expertise', 'proficient', 'tools', 'languages', category.toLowerCase(),
+          ...items.map(i => i.toLowerCase())]
+      });
+    });
+  }
+
+  // Projects
+  if (profile.projects) {
+    profile.projects.forEach(project => {
+      const techStr = project.technologies ? project.technologies.join(', ') : '';
+      kb.push({
+        content: `${project.title}: ${project.description} Impact: ${project.impact}. Technologies used: ${techStr}.`,
+        keywords: ['project', 'portfolio', 'built', 'created', 'developed', project.title.toLowerCase(),
+          ...(project.technologies || []).map(t => t.toLowerCase())]
+      });
+    });
+  }
+
+  // Experience
+  if (profile.experience) {
+    profile.experience.forEach(exp => {
+      const highlights = exp.bullets ? exp.bullets.slice(0, 2).join(' ') : '';
+      kb.push({
+        content: `${exp.role} at ${exp.company} (${exp.dates}): ${highlights}`,
+        keywords: ['experience', 'work', 'career', 'job', 'role', exp.role.toLowerCase(), exp.company.toLowerCase()]
+      });
+    });
+  }
+
+  // Education
+  if (profile.education) {
+    profile.education.forEach(edu => {
+      const awards = edu.awards && edu.awards.length > 0 ? ` Awards: ${edu.awards.join(', ')}.` : '';
+      kb.push({
+        content: `${edu.degree} from ${edu.school} (${edu.dates}).${awards}`,
+        keywords: ['education', 'degree', 'university', 'college', 'master', 'bachelor', 'study', 'graduated',
+          edu.school.toLowerCase(), edu.degree.toLowerCase()]
+      });
+    });
+  }
+
+  // Contact
+  if (profile.contact) {
+    kb.push({
+      content: `Contact ${profile.name}: Email: ${profile.contact.email}. LinkedIn: ${profile.contact.linkedin}. GitHub: ${profile.contact.github}. Location: ${profile.contact.location}. ${profile.contact.bestWayToReach || ''}`,
+      keywords: ['contact', 'email', 'reach', 'linkedin', 'github', 'social', 'location', 'message', 'connect', 'hire']
+    });
+  }
+
+  // Certifications
+  if (profile.certifications && profile.certifications.length > 0) {
+    const certNames = profile.certifications.map(c => `${c.name} (${c.issuer})`).join('; ');
+    kb.push({
+      content: `Certifications include: ${certNames}`,
+      keywords: ['certification', 'certificate', 'certified', 'credential', 'course', 'training']
+    });
+  }
+
+  // Research Interests
+  if (profile.researchInterests && profile.researchInterests.length > 0) {
+    kb.push({
+      content: `Research interests: ${profile.researchInterests.join(', ')}`,
+      keywords: ['research', 'interest', 'academic', 'study', 'topics', 'curious']
+    });
+  }
+
+  return kb;
+}
 
 // Initialize Chatbot
-document.addEventListener('DOMContentLoaded', initChatbot);
+document.addEventListener('DOMContentLoaded', () => {
+  createChatbotHTML();
 
-function initChatbot() {
-  if (!chatbotToggle || !chatbotWindow) return;
-  
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbotContainer = document.getElementById('chatbot-container');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotSend = document.getElementById('chatbot-send');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotSuggestions = document.getElementById('chatbot-suggestions');
+
+  if (!chatbotToggle || !chatbotContainer) return;
+
+  const knowledgeBase = buildKnowledgeBase();
+
   // Toggle chatbot window
   chatbotToggle.addEventListener('click', () => {
-    chatbotWindow.classList.toggle('active');
-    
-    if (chatbotWindow.classList.contains('active')) {
-      setTimeout(() => {
-        chatbotInput.focus();
-      }, 300);
-      
-      // Add welcome message on first open
-      if (chatbotMessages.children.length === 0) {
-        addChatbotMessage('bot', 'Hello! I\'m Jeremy\'s portfolio assistant. I can answer questions about his skills, projects, and experience. What would you like to know?');
+    chatbotContainer.classList.toggle('open');
+
+    if (chatbotContainer.classList.contains('open')) {
+      setTimeout(() => chatbotInput && chatbotInput.focus(), 300);
+
+      // Show welcome message on first open
+      if (chatbotMessages && chatbotMessages.children.length === 0) {
+        addMessage('bot', `Hi! I'm ${profile.name}'s portfolio assistant. Ask me about skills, projects, experience, or how to get in touch.`);
       }
     }
   });
-  
+
   // Close chatbot
   if (chatbotClose) {
     chatbotClose.addEventListener('click', () => {
-      chatbotWindow.classList.remove('active');
+      chatbotContainer.classList.remove('open');
     });
   }
-  
-  // Send message functionality
+
+  // Send message
   const sendMessage = () => {
+    if (!chatbotInput) return;
     const message = chatbotInput.value.trim();
-    
-    if (message) {
-      addChatbotMessage('user', message);
-      chatbotInput.value = '';
-      
-      showTypingIndicator();
-      
-      // Generate and display response
-      setTimeout(() => {
-        removeTypingIndicator();
-        const response = generateRAGResponse(message);
-        addChatbotMessage('bot', response);
-      }, 800 + Math.random() * 700);
-    }
+    if (!message) return;
+
+    addMessage('user', message);
+    chatbotInput.value = '';
+
+    showTypingIndicator();
+    setTimeout(() => {
+      removeTypingIndicator();
+      const response = generateRAGResponse(message, knowledgeBase);
+      addMessage('bot', response);
+    }, 600 + Math.random() * 600);
   };
-  
-  // Event listeners for sending messages
-  if (chatbotSend) {
-    chatbotSend.addEventListener('click', sendMessage);
-  }
-  
+
+  if (chatbotSend) chatbotSend.addEventListener('click', sendMessage);
+
   if (chatbotInput) {
     chatbotInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
+      if (e.key === 'Enter') sendMessage();
     });
   }
-}
 
-// Message Management
-function addChatbotMessage(sender, message) {
-  if (!chatbotMessages) return;
-  
-  const messageElement = document.createElement('div');
-  messageElement.className = `chatbot-message ${sender}`;
-  messageElement.textContent = message;
-  
-  chatbotMessages.appendChild(messageElement);
-  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-}
-
-function showTypingIndicator() {
-  if (!chatbotMessages) return;
-  
-  const typingIndicator = document.createElement('div');
-  typingIndicator.className = 'typing-indicator';
-  typingIndicator.innerHTML = `
-    <div class="typing-dot"></div>
-    <div class="typing-dot"></div>
-    <div class="typing-dot"></div>
-  `;
-  
-  chatbotMessages.appendChild(typingIndicator);
-  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-}
-
-function removeTypingIndicator() {
-  const typingIndicator = document.querySelector('.typing-indicator');
-  if (typingIndicator) {
-    typingIndicator.remove();
-  }
-}
-
-// RAG Knowledge Base
-const knowledgeBase = {
-  about: [
-    {
-      content: "Jeremy is a data analytics professional with over 5 years of experience in transforming complex data into actionable insights.",
-      keywords: ["jeremy", "about", "who", "background", "experience"]
-    },
-    {
-      content: "He specializes in data visualization, statistical analysis, and machine learning, helping businesses make data-driven decisions.",
-      keywords: ["specializes", "specialization", "expertise", "focus"]
-    },
-    {
-      content: "Jeremy holds a Master's degree in Data Science from Stanford University and a Bachelor's in Computer Science from UC Berkeley.",
-      keywords: ["education", "degree", "university", "college", "master", "bachelor"]
-    }
-  ],
-  skills: [
-    {
-      content: "Technical skills: Python, R, SQL, Tableau, Power BI, Excel, TensorFlow, PyTorch, scikit-learn, and AWS cloud services.",
-      keywords: ["skills", "technical", "python", "r", "sql", "tableau", "power bi", "excel", "tensorflow", "pytorch", "scikit-learn", "aws"]
-    },
-    {
-      content: "Analytics expertise: Predictive modeling, time series forecasting, customer segmentation, A/B testing, and sentiment analysis.",
-      keywords: ["analytics", "predictive", "forecasting", "segmentation", "testing", "sentiment", "modeling"]
-    },
-    {
-      content: "Business skills: Project management, stakeholder communication, cross-functional collaboration, and strategic planning.",
-      keywords: ["business", "management", "communication", "collaboration", "planning", "stakeholder"]
-    }
-  ],
-  projects: [
-    {
-      content: "Customer Segmentation Project: Developed a clustering model that identified 5 distinct customer segments, leading to a 23% increase in targeted marketing ROI.",
-      keywords: ["customer segmentation", "clustering", "marketing", "roi", "project"]
-    },
-    {
-      content: "Sales Forecasting System: Built a time series forecasting model using LSTM that improved sales prediction accuracy by 35% for a retail client.",
-      keywords: ["sales", "forecasting", "lstm", "prediction", "accuracy", "retail"]
-    },
-    {
-      content: "Sentiment Analysis Dashboard: Created a real-time sentiment analysis tool for social media data, processing 10K+ posts daily with 92% accuracy.",
-      keywords: ["sentiment", "dashboard", "social media", "real-time", "accuracy", "analysis"]
-    },
-    {
-      content: "Supply Chain Optimization: Developed a predictive model that reduced inventory costs by 18% while maintaining 99% product availability.",
-      keywords: ["supply chain", "optimization", "inventory", "costs", "availability"]
-    }
-  ],
-  experience: [
-    {
-      content: "Senior Data Analyst at TechCorp (2021-Present): Lead analytics initiatives for product development, managing a team of 3 analysts.",
-      keywords: ["techcorp", "senior", "lead", "team", "analyst", "current", "present"]
-    },
-    {
-      content: "Data Analyst at DataDriven Inc. (2019-2021): Developed predictive models for customer behavior and created executive dashboards.",
-      keywords: ["datadriven", "analyst", "predictive", "dashboards", "executive", "2019", "2021"]
-    },
-    {
-      content: "Junior Data Analyst at StartUp Analytics (2018-2019): Performed data cleaning, exploratory analysis, and created automated reports.",
-      keywords: ["startup", "junior", "cleaning", "exploratory", "reports", "2018", "2019"]
-    }
-  ],
-  contact: [
-    {
-      content: "Jeremy can be contacted via email at jeremy@example.com or through the contact form on this website.",
-      keywords: ["contact", "email", "reach", "form", "jeremy@example.com"]
-    },
-    {
-      content: "Professional profiles: LinkedIn at linkedin.com/in/jeremydata and GitHub at github.com/jeremyanalytics.",
-      keywords: ["linkedin", "github", "profile", "social", "professional"]
-    },
-    {
-      content: "Response time: Jeremy typically responds to inquiries within 24-48 hours during business days.",
-      keywords: ["response", "time", "reply", "hours", "business"]
-    }
-  ]
-};
-
-// RAG Response Generation
-function generateRAGResponse(query) {
-  const lowerQuery = query.toLowerCase();
-  const retrievedContext = retrieveContext(lowerQuery);
-  
-  if (retrievedContext.length === 0) {
-    return "I don't have that information yet.";
-  }
-  
-  return generateAnswer(retrievedContext, query);
-}
-
-// Context Retrieval
-function retrieveContext(query) {
-  const relevantContext = [];
-  
-  // Primary keyword matching
-  Object.values(knowledgeBase).forEach(category => {
-    category.forEach(item => {
-      const hasKeyword = item.keywords.some(keyword => 
-        query.includes(keyword) || keyword.includes(query)
-      );
-      
-      if (hasKeyword) {
-        relevantContext.push(item.content);
-      }
-    });
-  });
-  
-  // Fallback fuzzy matching if no direct matches
-  if (relevantContext.length === 0) {
-    Object.values(knowledgeBase).forEach(category => {
-      category.forEach(item => {
-        const queryWords = query.split(' ').filter(word => word.length > 2);
-        const contentLower = item.content.toLowerCase();
-        
-        const hasPartialMatch = queryWords.some(word => 
-          contentLower.includes(word) || word.includes(contentLower)
-        );
-        
-        if (hasPartialMatch && relevantContext.length < 3) {
-          relevantContext.push(item.content);
+  // Suggestion buttons
+  if (chatbotSuggestions) {
+    chatbotSuggestions.querySelectorAll('.suggestion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (chatbotInput) {
+          chatbotInput.value = btn.textContent;
+          sendMessage();
         }
       });
     });
   }
-  
-  return relevantContext;
+
+  // Message helpers (scoped to closure for DOM references)
+  function addMessage(sender, text) {
+    if (!chatbotMessages) return;
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const div = document.createElement('div');
+    div.className = `message ${sender === 'bot' ? 'bot-message' : 'user-message'}`;
+    div.innerHTML = `
+      <div class="message-content">${escapeHTML(text)}</div>
+      <div class="message-time">${time}</div>
+    `;
+    chatbotMessages.appendChild(div);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    if (!chatbotMessages) return;
+    const div = document.createElement('div');
+    div.className = 'message bot-message typing-indicator';
+    div.innerHTML = `
+      <div class="message-content">
+        <div class="typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    `;
+    chatbotMessages.appendChild(div);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const indicator = chatbotMessages && chatbotMessages.querySelector('.typing-indicator');
+    if (indicator) indicator.remove();
+  }
+
+  // Expose for external use
+  window.ChatbotApp = { generateRAGResponse };
+});
+
+// Escape HTML to prevent XSS
+function escapeHTML(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// RAG Response Generation
+function generateRAGResponse(query, knowledgeBase) {
+  const lowerQuery = query.toLowerCase();
+  const retrieved = retrieveContext(lowerQuery, knowledgeBase);
+
+  if (retrieved.length === 0) {
+    return `I don't have specific information on that. Feel free to reach out to ${profile.name} directly at ${profile.contact ? profile.contact.email : 'the contact page'}.`;
+  }
+
+  return generateAnswer(retrieved, lowerQuery);
+}
+
+// Context Retrieval via keyword matching
+function retrieveContext(query, knowledgeBase) {
+  const results = [];
+
+  // Primary: keyword match (skip single-char keywords to avoid false positives)
+  knowledgeBase.forEach(item => {
+    const matched = item.keywords.some(kw => kw.length > 1 && query.includes(kw));
+    if (matched) results.push(item.content);
+  });
+
+  // Fallback: word-level partial match
+  if (results.length === 0) {
+    const words = query.split(/\s+/).filter(w => w.length > 2);
+    knowledgeBase.forEach(item => {
+      if (results.length >= 3) return;
+      const contentLower = item.content.toLowerCase();
+      const matches = words.some(w => contentLower.includes(w));
+      if (matches) results.push(item.content);
+    });
+  }
+
+  return results;
 }
 
 // Answer Generation
 function generateAnswer(context, query) {
-  if (context.length === 1) {
+  if (context.length === 1) return context[0];
+
+  if (query.includes('skill') || query.includes('technical') || query.includes('expertise') || query.includes('tool')) {
+    return `Here are ${profile.name}'s key skills:\n\n` + context.slice(0, 3).join('\n\n');
+  }
+
+  if (query.includes('project') || query.includes('portfolio') || query.includes('built') || query.includes('created')) {
+    return `${profile.name} has worked on several projects:\n\n` + context.slice(0, 3).join('\n\n');
+  }
+
+  if (query.includes('experience') || query.includes('career') || query.includes('work') || query.includes('job')) {
+    return `${profile.name}'s work experience:\n\n` + context.slice(0, 3).join('\n\n');
+  }
+
+  if (query.includes('education') || query.includes('degree') || query.includes('university') || query.includes('study')) {
     return context[0];
   }
-  
-  let answer = "";
-  
-  // Structured responses based on query type
-  if (query.includes('skill') || query.includes('technical') || query.includes('expertise')) {
-    answer = "Jeremy's key skills include: ";
-    answer += context.slice(0, 2).join(' He also has experience in ');
-  } else if (query.includes('project') || query.includes('work') || query.includes('portfolio')) {
-    answer = "Jeremy has worked on several projects: ";
-    answer += context[0] + " Another notable project: " + context[1];
-  } else if (query.includes('experience') || query.includes('career') || query.includes('work history')) {
-    answer = "Jeremy's experience includes: ";
-    answer += context.join(' Previously, ');
-  } else if (query.includes('contact') || query.includes('email') || query.includes('reach')) {
-    answer = context[0];
-  } else {
-    // Generic response for other queries
-    answer = context[0];
-    if (context.length > 1) {
-      answer += " Additionally, " + context[1];
-    }
-  }
-  
-  return answer;
-}
 
-// Export for potential use in other scripts
-window.ChatbotApp = {
-  generateRAGResponse,
-  retrieveContext,
-  knowledgeBase,
-  addChatbotMessage
-};
+  if (query.includes('contact') || query.includes('email') || query.includes('reach') || query.includes('hire')) {
+    return context[0];
+  }
+
+  return context[0] + (context.length > 1 ? '\n\nAdditionally: ' + context[1] : '');
+}
