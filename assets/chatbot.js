@@ -1,4 +1,6 @@
 // chatbot.js - RAG-based Chatbot System
+// Answers questions using ONLY information from the retrieved profile context.
+// If the answer is not in the context, responds with: "I don't have that information yet."
 
 // Inject chatbot HTML into the page
 function createChatbotHTML() {
@@ -159,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Show welcome message on first open
       if (chatbotMessages && chatbotMessages.children.length === 0) {
-        addMessage('bot', `Hi! I'm ${profile.name}'s portfolio assistant. Ask me about skills, projects, experience, or how to get in touch.`);
+        addMessage('bot', `Hi! I can answer questions about ${profile.name}'s skills, projects, experience, and how to get in touch. What would you like to know?`);
       }
     }
   });
@@ -259,10 +261,17 @@ function escapeHTML(str) {
 // RAG Response Generation
 function generateRAGResponse(query, knowledgeBase) {
   const lowerQuery = query.toLowerCase();
+
+  // Politely decline personal, private, or clearly unrelated questions
+  const offTopicPatterns = ['password', 'salary', 'address', 'phone number', 'relationship', 'girlfriend', 'boyfriend', 'wife', 'husband', 'age', 'political', 'religion'];
+  if (offTopicPatterns.some(p => lowerQuery.includes(p))) {
+    return `I'd rather keep the focus on ${profile.name}'s professional background. Feel free to ask about his skills, projects, or experience!`;
+  }
+
   const retrieved = retrieveContext(lowerQuery, knowledgeBase);
 
   if (retrieved.length === 0) {
-    return `I don't have specific information on that. Feel free to reach out to ${profile.name} directly at ${profile.contact ? profile.contact.email : 'the contact page'}.`;
+    return "I don't have that information yet.";
   }
 
   return generateAnswer(retrieved, lowerQuery);
@@ -292,29 +301,10 @@ function retrieveContext(query, knowledgeBase) {
   return results;
 }
 
-// Answer Generation
+// Answer Generation — merges retrieved context into one clear, direct answer
 function generateAnswer(context, query) {
   if (context.length === 1) return context[0];
 
-  if (query.includes('skill') || query.includes('technical') || query.includes('expertise') || query.includes('tool')) {
-    return `Here are ${profile.name}'s key skills:\n\n` + context.slice(0, 3).join('\n\n');
-  }
-
-  if (query.includes('project') || query.includes('portfolio') || query.includes('built') || query.includes('created')) {
-    return `${profile.name} has worked on several projects:\n\n` + context.slice(0, 3).join('\n\n');
-  }
-
-  if (query.includes('experience') || query.includes('career') || query.includes('work') || query.includes('job')) {
-    return `${profile.name}'s work experience:\n\n` + context.slice(0, 3).join('\n\n');
-  }
-
-  if (query.includes('education') || query.includes('degree') || query.includes('university') || query.includes('study')) {
-    return context[0];
-  }
-
-  if (query.includes('contact') || query.includes('email') || query.includes('reach') || query.includes('hire')) {
-    return context[0];
-  }
-
-  return context[0] + (context.length > 1 ? '\n\nAdditionally: ' + context[1] : '');
+  // Return the most relevant chunks merged; cap at 3 to stay concise
+  return context.slice(0, 3).join('\n\n');
 }
