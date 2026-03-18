@@ -159,6 +159,10 @@ nav {
   color: var(--accent);
 }
 
+.theme-icon-light {
+  display: none;
+}
+
 .mobile-menu-toggle {
   display: none;
   background: none;
