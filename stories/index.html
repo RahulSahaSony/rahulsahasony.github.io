@@ -214,13 +214,14 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         `;
 
-        storyModal.style.display = 'flex';
+        storyModal.classList.add('open');
+        storyModal.scrollTop = 0;
         document.body.style.overflow = 'hidden';
       }
 
       // Close story modal
       function closeStoryModal() {
-        storyModal.style.display = 'none';
+        storyModal.classList.remove('open');
         document.body.style.overflow = 'auto';
       }
 
