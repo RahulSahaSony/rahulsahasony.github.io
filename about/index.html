@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="/assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>
@@ -32,7 +32,7 @@
 
   <main>
     <div class="container">
-      <section class="section">
+      <section class="section reveal">
         <h1 class="section-title">About Me</h1>
         <div class="card">
           <p>From Dhaka to Washington, DC, my career has been shaped by one constant: using data to build, scale, and improve real-world systems.</p>  
@@ -47,25 +47,25 @@
         </div>
       </section>
       
-      <section class="section">
+      <section class="section reveal">
         <h2 class="section-title">Skills</h2>
         <div class="skills-container" id="skills-container"></div>
       </section>
       
-      <section class="section">
+      <section class="section reveal">
         <h2 class="section-title">Education</h2>
         <div id="education-container"></div>
       </section>
       
 <!--  Licenses & Certifications section -->
-<section class="section">
+<section class="section reveal">
   <h2 class="section-title">Licenses & Certifications</h2>
   <div class="certifications-list" id="certifications-container">
     <!-- Certifications will be dynamically loaded here -->
   </div>
 </section>
       
-      <section class="section">
+      <section class="section reveal">
         <h2 class="section-title">Research Interests</h2>
         <div class="card">
           <div id="research-interests"></div>
@@ -323,5 +323,6 @@
     `).join('');
   });
 </script>
+  <script src="/assets/motion.js"></script>
 </body>
 </html>
