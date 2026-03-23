@@ -279,7 +279,7 @@ nav.nav-scrolled {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: var(--text-4xl); /* 72px */
   font-weight: 800;
   line-height: 1.05;
   color: var(--text);
@@ -290,7 +290,7 @@ nav.nav-scrolled {
 /* Legacy support — section-title used in hero on some pages */
 .hero-section .section-title {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: var(--text-4xl);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -1607,7 +1607,7 @@ footer {
   object-fit: cover;
 }
 
-.story-full-content {}
+
 
 .story-full-meta {
   display: flex;
@@ -1947,8 +1947,6 @@ footer {
   height: 100%;
   object-fit: contain;
 }
-
-.resource-info {}
 
 .resource-name {
   font-weight: 700;
