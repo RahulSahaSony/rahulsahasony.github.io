@@ -2931,7 +2931,6 @@ nav {
   /* Story modal mobile */
   .story-modal-body {
     padding: var(--sp-5);
-    overflow-y: auto;
   }
 
   .story-full-image {
