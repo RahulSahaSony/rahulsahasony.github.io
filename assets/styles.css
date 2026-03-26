@@ -1784,7 +1784,7 @@ footer {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 1000;
-  overflow: hidden;
+  overflow-y: auto;
   padding: var(--sp-8) var(--sp-5);
   backdrop-filter: blur(4px);
   align-items: flex-start;
@@ -1803,11 +1803,7 @@ footer {
   width: 100%;
   position: relative;
   box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-  overflow: hidden;
   margin: auto;
-  max-height: calc(100vh - var(--sp-9));
-  display: flex;
-  flex-direction: column;
 }
 
 .story-modal-close {
@@ -1831,8 +1827,6 @@ footer {
 
 .story-modal-body {
   padding: 48px;
-  overflow-y: auto;
-  flex: 1;
 }
 
 .story-full-image {

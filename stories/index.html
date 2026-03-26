@@ -168,9 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         storyModalBody.innerHTML = `
           <div class="story-full">
-            <div class="story-full-image">
-              <img src="${story.image}" alt="${story.title}">
-            </div>
             <div class="story-full-content">
               <div class="story-full-date">${formatDate(story.date)}</div>
               <h2 class="story-full-title">${story.title}</h2>
@@ -182,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         storyModal.classList.add('open');
-        document.getElementById('story-modal-body').scrollTop = 0;
+        storyModal.scrollTop = 0;
         document.body.style.overflow = 'hidden';
       }
 
