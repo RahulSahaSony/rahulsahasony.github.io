@@ -1672,14 +1672,13 @@ footer {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background-color: var(--bg-alt);
   flex-shrink: 0;
 }
 
 .story-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
@@ -1840,13 +1839,12 @@ footer {
   width: calc(100% + 96px);
   margin: -48px -48px var(--sp-7);
   overflow: hidden;
-  background-color: var(--bg-alt);
 }
 
 .story-full-image img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
@@ -1878,7 +1876,7 @@ footer {
 
 .story-full-text {
   font-size: var(--text-base);
-  color: var(--text-2);
+  color: var(--text);
   line-height: 1.8;
 }
 
