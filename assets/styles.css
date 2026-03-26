@@ -1640,9 +1640,9 @@ footer {
 }
 
 .stories-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-5);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--sp-6);
 }
 
 .story-card {
@@ -1654,7 +1654,7 @@ footer {
   transition: var(--transition);
   overflow: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   cursor: pointer;
 }
 
@@ -1669,20 +1669,22 @@ footer {
 }
 
 .story-image {
-  width: 220px;
-  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  background-color: var(--bg-alt);
+  flex-shrink: 0;
 }
 
 .story-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
 .story-content {
-  padding: 28px 32px;
+  padding: var(--sp-5) var(--sp-6);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1837,14 +1839,15 @@ footer {
 .story-full-image {
   width: calc(100% + 96px);
   margin: -48px -48px var(--sp-7);
-  height: 300px;
   overflow: hidden;
+  background-color: var(--bg-alt);
 }
 
 .story-full-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 
@@ -2038,6 +2041,10 @@ footer {
 }
 
 .certification-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
   font-size: var(--text-sm);
   color: var(--text-2);
 }
@@ -2915,13 +2922,13 @@ nav {
   }
 
   /* Story cards mobile */
-  .story-card {
-    flex-direction: column;
+  .stories-container {
+    grid-template-columns: 1fr;
   }
 
   .story-image {
     width: 100%;
-    height: 200px;
+    aspect-ratio: 4 / 3;
   }
 
   .story-content {
@@ -2936,7 +2943,6 @@ nav {
   .story-full-image {
     width: calc(100% + var(--sp-10));
     margin: calc(-1 * var(--sp-5)) calc(-1 * var(--sp-5)) var(--sp-5);
-    height: 200px;
   }
 
   .story-full-title {
@@ -3023,7 +3029,10 @@ nav {
 .hero-section--centered::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: calc(-1 * var(--sp-7));
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 70%);
   pointer-events: none;
 }
