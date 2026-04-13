@@ -25,7 +25,11 @@
       toggle.textContent = '☰';
     }));
     document.addEventListener('click', e => {
-      if (!nav.contains(e.target)) menu.classList.remove('active');
+      if (!nav.contains(e.target) && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
     });
   }
 })();
