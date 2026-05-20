@@ -415,9 +415,7 @@
         const originalTitle = document.title;
         document.title = 'Rahul-Saha-Resume';
         window.print();
-        setTimeout(() => {
-          document.title = originalTitle;
-        }, 0);
+        document.title = originalTitle;
       };
 
       if (printResumeButton) {
