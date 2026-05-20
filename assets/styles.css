@@ -1163,7 +1163,7 @@ footer {
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--sp-2);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .resume-item p {
