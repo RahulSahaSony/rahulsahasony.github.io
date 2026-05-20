@@ -413,9 +413,17 @@
 
       const printResume = () => {
         const originalTitle = document.title;
+        let titleRestored = false;
+        const restoreTitle = () => {
+          if (titleRestored) return;
+          document.title = originalTitle;
+          titleRestored = true;
+        };
+
         document.title = 'Rahul-Saha-Resume';
+        window.addEventListener('afterprint', restoreTitle, { once: true });
         window.print();
-        document.title = originalTitle;
+        setTimeout(restoreTitle, 1000);
       };
 
       if (printResumeButton) {

@@ -1118,7 +1118,7 @@ footer {
   font-size: var(--text-sm);
   color: var(--text-2);
   line-height: 1.7;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .contact-info a {
