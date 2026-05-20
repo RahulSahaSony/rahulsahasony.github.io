@@ -1119,7 +1119,6 @@ footer {
   color: var(--text-2);
   line-height: 1.7;
   overflow-wrap: anywhere;
-  word-break: break-word;
 }
 
 .contact-info a {
