@@ -1117,6 +1117,9 @@ footer {
 .contact-info p {
   font-size: var(--text-sm);
   color: var(--text-2);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-info a {
@@ -1161,6 +1164,7 @@ footer {
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--sp-2);
+  overflow-wrap: anywhere;
 }
 
 .resume-item p {
@@ -2947,6 +2951,15 @@ nav {
   }
 
   /* Resume mobile */
+  .resume-actions {
+    flex-direction: column;
+  }
+
+  .resume-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .resume-content {
     padding: var(--sp-5);
   }

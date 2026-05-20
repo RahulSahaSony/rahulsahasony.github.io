@@ -41,7 +41,7 @@
               <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Download PDF
+            Download / Save PDF
           </button>
           <button id="print-resume" class="btn btn-secondary">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -405,6 +405,27 @@
             ${vol.description ? `<p>${vol.description}</p>` : ''}
           </div>
         `).join('');
+      }
+
+      // Resume actions
+      const downloadResumeButton = document.getElementById('download-resume');
+      const printResumeButton = document.getElementById('print-resume');
+
+      const printResume = () => {
+        const originalTitle = document.title;
+        document.title = 'Rahul-Saha-Resume';
+        window.print();
+        setTimeout(() => {
+          document.title = originalTitle;
+        }, 0);
+      };
+
+      if (printResumeButton) {
+        printResumeButton.addEventListener('click', printResume);
+      }
+
+      if (downloadResumeButton) {
+        downloadResumeButton.addEventListener('click', printResume);
       }
     });
   </script>
