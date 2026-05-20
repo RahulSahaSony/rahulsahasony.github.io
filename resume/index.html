@@ -410,6 +410,7 @@
       // Resume actions
       const downloadResumeButton = document.getElementById('download-resume');
       const printResumeButton = document.getElementById('print-resume');
+      const TITLE_RESTORE_FALLBACK_MS = 1000;
 
       const printResume = () => {
         const originalTitle = document.title;
@@ -423,7 +424,7 @@
         document.title = 'Rahul-Saha-Resume';
         window.addEventListener('afterprint', restoreTitle, { once: true });
         window.print();
-        setTimeout(restoreTitle, 1000);
+        setTimeout(restoreTitle, TITLE_RESTORE_FALLBACK_MS);
       };
 
       if (printResumeButton) {
